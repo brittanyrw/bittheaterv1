@@ -7,9 +7,32 @@ module.exports = function(app, passport) {
         res.render('index.ejs');
     });
 
+    //show main homepages (for users that are not logged in)
+    app.get('/reviews', function(req, res) {
+        res.render('reviews.ejs');
+    });
+
+    app.get('/features', function(req, res) {
+        res.render('features.ejs');
+    });
+
+    app.get('/badges', function(req, res) {
+        res.render('badges.ejs');
+    });
+
+    app.get('/showlists', function(req, res) {
+        res.render('showlists.ejs');
+    });
+
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {
+            user : req.user
+        });
+    });
+
+    app.get('/dashboard', isLoggedIn, function(req, res) {
+        res.render('dashboard.ejs', {
             user : req.user
         });
     });
