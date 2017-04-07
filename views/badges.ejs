@@ -24,33 +24,49 @@
         <input type="text" name="search" placeholder="Search.." class="search-bar">
     </nav>
     
-    <main class="home-page">
-        <section class="header-image">
-            <img src="http://placehold.it/900x450" alt="header illustration of theater" class="home-image">
-            <p class="header-image-caption">BitTheater is your ultimate theater show resource. Track your shows, share reviews and collect badges.</p>
+    <main class="badges-page">
+        <section class="badges-page-header">
+            <h1 class="header-title">Badges</h1>
+            <p class="header-caption">Show Lists help you keep an organized list of each theater show you have seen. </p>
             <a href="/signup"><button class="signup">Sign Up</button></a>
         </section>
         
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of reviews" class="home-image">
-            <h2 class="section-title">Reviews</h2>
-            <p class="section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows. </p>
-            <button class="section-button">View Reviews</button>
+        <section class="badge-section">
+            <div class="badge-section-header">
+                <h1 class="badge-section-title">Shows</h1>
+                <a href="#">View all<span class="visually-hidden">View all show badges</span></a>
+            </div>
+            <div class="badges-display">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+            </div>
         </section>
 
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of features" class="home-image">
-            <h2 class="section-title">Features</h2>
-            <p class="section-content">Recap the past year of shows you have reviewed or highlight your favorite genres with a Feature.</p>
-            <button class="section-button">View Features</button>
-        </section>
+        <section class="badge-section">
+            <div class="badge-section-header">
+                <h1 class="badge-section-title">Genres</h1>
+                <a href="#">View all<span class="visually-hidden">View all genre badges</span></a>
+            </div>
+            <div class="badges-display">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+            </div>
+        </section>    
 
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of badges" class="home-image">
-            <h2 class="section-title">Badges</h2>
-            <p class="section-content">Collect badges as you write reviews, see shows and meet your favorite actors. </p>
-            <button class="section-button">View Badges</button>
-        </section>
+        <section class="badge-suggestion">
+            <h1>Suggest a Badge</h1>
+            <p>Have an idea for a badge or badge series? Enter a comment below!</p>
+            <form>
+                <input type="text" name="badge-name" placeholder="Badge Name" class="badge-name-suggestion">
+                <input type="text" name="badge-text-suggestion" placeholder="Badge suggestion here" class="badge-text-suggestion">
+                <button class="badge-suggest-submit">Submit<span class="visually-hidden">Submit badge suggestion</span></button>
+            </form>
+        </section>    
+        
     <main>
 
     <footer role="contentinfo">
@@ -61,22 +77,6 @@
         </div>
         <p class="footer-content">Created by Brittany Walker</p>
     </footer>
-
-<!-- <div class="container">
-
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
-
-        <p>Login or Register with:</p>
-
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-        <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
-    </div>
-
-</div> -->
 
     <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
 </body>

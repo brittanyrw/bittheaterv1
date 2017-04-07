@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BitTheater</title>
+    <meta name="description" content="A theater review and show tracking tool">
+    <noscript><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"></noscript>
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <nav>
+        <div class="nav-header">
+            <a href="#" class="home-page-link"><svg class="nav-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 392.43 96.37"><defs><style>.cls-1{isolation:isolate;}.cls-2{mix-blend-mode:multiply;}.cls-3,.cls-5{font-size:72px;stroke-miterlimit:10;stroke-width:2px;font-family:AmericanTypewriter, American Typewriter;}.cls-3{fill:#aa9f9f;stroke:#aa9f9f;}.cls-4{font-family:AmericanTypewriter-Bold, American Typewriter;font-weight:700;}.cls-5{fill:#ffad0d;stroke:#001f3f;}</style></defs><title>logo</title><g class="cls-1"><g id="Layer_1" data-name="Layer 1"><g class="cls-2"><text class="cls-3" transform="translate(3 64.19)">Bit<tspan class="cls-4" x="100.94" y="0">Theater</tspan></text></g><text class="cls-5" transform="translate(1 61.19)">Bit<tspan class="cls-4" x="100.94" y="0">Theater</tspan></text></g></g></svg></a>
+            <a href="/login"><button class="login">Log In</button></a>   
+        </div>
+        <ul class="navigation-links">
+            <a href="/"><li>Home</li></a>
+            <a href="/reviews"><li>Reviews</li></a>
+            <a href="/features"><li>Features</li></a>
+            <a href="/showlists"><li>Lists</li></a>
+            <a href="/badges"><li>Badges</li></a>       
+        </ul>
+        <input type="text" name="search" placeholder="Search.." class="search-bar">
+    </nav>
+    
+    <main class="showlists-page">
+        <section class="showlists-page-header">
+            <h1 class="header-title">Show Lists</h1>
+            <p class="header-caption">Show Lists help you keep an organized list of each theater show you have seen. </p>
+            <a href="/signup"><button class="signup"></button></a>
+        </section>
+        
+        <section class="showlist-section">
+            <h1 class="showlist-section-title">Most Popular</h1>
+            <a href="#">View all<span class="visually-hidden">View the most popular show-lists</span></a>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2>My Show List</h2>
+                    <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
+                </div>
+                <p>List of my favorite shows since 2012</p>
+                <div class="showlist-stats">
+                    <p class="showlist-username">SuperReviewer123</p>
+                    <p class="showlist-show-count">Total Shows: 125</p>
+                </div>
+            </div>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2>Ultimate 2017 Broadway Wishlist</h2>
+                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
+                </div>
+                <p>List of must-see Broadway shows</p>
+                <div class="showlist-stats">
+                    <p class="showlist-username">OtherReviewer</p>
+                    <p class="showlist-show-count">Total Shows: 10</p>
+                </div>
+            </div>                 
+        </section>
+
+         <section class="showlist-section">
+            <h1 class="showlist-section-title">Wish Lists</h1>
+            <a href="#">View all<span class="visually-hidden">View all wish lists</span></a>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2>Comedic Plays Wishlist</h2>
+                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
+                </div>
+                <p>List of upcoming comedy plays</p>
+                <div class="showlist-stats">
+                    <p class="showlist-username">ReviewerPerson</p>
+                    <p class="showlist-show-count">Total Shows: 15</p>
+                </div>
+            </div>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2>Experimental Plays Wishlist</h2>
+                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
+                </div>
+                <p>List of upcoming experimental shows</p>
+                <div class="showlist-stats">
+                    <p class="showlist-username">CriticPerson</p>
+                    <p class="showlist-show-count">Total Shows: 5</p>
+                </div>
+            </div>                 
+        </section>
+
+        <section class="showlist-section">
+            <h1 class="showlist-section-title">Travel Lists</h1>
+            <a href="#">View all<span class="visually-hidden">View all of the travel show lists</span></a>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2>NYC April List</h2>
+                    <button class="showlist-trip-button">Trip<span class="visually-hidden">Trip Show List Label</span></button>
+                </div>
+                <p>List of shows for April trip.</p>
+                <div class="showlist-stats">
+                    <p class="showlist-username">MusicalGeek</p>
+                    <p class="showlist-show-count">Total Shows: 6</p>
+                </div>
+            </div>
+        </section>             
+
+    <main>
+
+    <footer role="contentinfo">
+        <div class="social-icons">
+            <a href="https://twitter.com/musicalwebdev?lang=en"><span class="visually-hidden">Brittany's Twitter Profile</span><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+            <a href="https://medium.com/@brittanyrw"><span class="visually-hidden">Brittany's Medium Profile</span><i class="fa fa-medium fa-2x" aria-hidden="true"></i></a>
+            <a href="https://github.com/brittanyrw"><span class="visually-hidden">Brittany's Github Profile</span><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></a>
+        </div>
+        <p class="footer-content">Created by Brittany Walker</p>
+    </footer>
+
+    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+</body>
+</html>
