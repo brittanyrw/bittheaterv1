@@ -1,0 +1,25 @@
+.visually-hidden {
+  /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden; }
+
+body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button {
+  display: none !important; }
+
+.home-image {
+  width: 100%; }
+
+.search-bar, .badge-text-suggestion, .badge-name-suggestion, .form-control {
+  border: 1px solid black; }
+
+.badge-image {
+  border-radius: 50%; }
+
+/*# sourceMappingURL=main.css.map */
