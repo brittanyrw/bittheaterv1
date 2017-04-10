@@ -57,8 +57,8 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/create-show-list'/*, isLoggedIn*/, function(req, res) {
-        res.render('/create-show-list', {
+    app.get('/create-showlist'/*, isLoggedIn*/, function(req, res) {
+        res.render('/create-showlist', {
             //user : req.user
         });
     });    
