@@ -8,7 +8,7 @@
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
-}
+} 
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button { display: none !important; }
 
 
@@ -22,4 +22,12 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 .badge-image {
 	border-radius: 50%;
+}
+
+.icon {
+    fill: red;
+}
+
+.icon-star-o {
+    fill: red;
 }

@@ -22,4 +22,10 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .badge-image {
   border-radius: 50%; }
 
+.icon {
+  fill: red; }
+
+.icon-star-o {
+  fill: red; }
+
 /*# sourceMappingURL=main.css.map */
