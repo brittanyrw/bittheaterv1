@@ -1,3 +1,11 @@
+$yellow: #FFAD0D;
+$blue: #2A3641;
+$gray: #717171;
+
+* {
+    box-sizing: border-box;
+}
+
 
 .visually-hidden { /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
     position: absolute !important;
@@ -30,4 +38,68 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 .icon-star-o {
     fill: red;
+}
+
+//PRIVATE/PUBLIC SLIDER BUTTON FOR FORMS
+
+.privacy-button {
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  height: 2.2em;
+}
+
+.privacy-button input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid $blue;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 3em;
+  left: .2em;
+  bottom: .2em;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid $blue;
+}
+
+input:checked + .slider {
+  background-color: $yellow;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $yellow;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(3.3em);
+  -ms-transform: translateX(3.3em);
+  transform: translateX(3.3em);
+}
+
+
+.slider {
+  border-radius: 2em;
+}
+
+.slider:before {
+  border-radius: 2em;
+}
+
+.form-control {
+    width: 100%;
 }

@@ -4,14 +4,51 @@
 
 <%- include('nav-loggedin', {}); %>
     
-    <main class="home-page">
-        <section class="header-image">
-            <img src="http://placehold.it/900x450" alt="header illustration of theater" class="home-image">
-            <p class="header-image-caption">BitTheater is your ultimate theater show resource. Track your shows, share reviews and collect badges.</p>
-            <a href="/signup"><button class="signup">Sign Up</button></a>
+    <main class="write-review-page">
+        <section class="write-reviews-page-header">
+            <h1 class="header-title">Review Editor</h1>
         </section>
         
+        <form action="#" method="post">
+            
+            <div class="form-group">
+                <input type="text" class="form-control" name="review-title" placeholder="Review Title">
+                <select name="show-titles">
+                    <option value="show1">Show 1</option>
+                    <option value="show2">Show 2</option>
+                    <option value="show3">Show 3</option>
+                    <option value="show4">Show 4</option>
+                </select>
+                <input type="text" class="form-control" name="show-date" placeholder="Show Date">
+                <input type="text" class="form-control" name="show-location" placeholder="Show Location">
+                <input type="text" class="form-control" name="show-genres" placeholder="Show Genres">
+                <input type="text" class="form-control" name="review" placeholder="Review">
+            </div>
+
+            <div class="form-group">
+                <div class="review-rating">
+                <h3 class="form header">Review</h3>
+                <div>*Review Stars Go Here*</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="privacy-toggle">
+                <h3 class="form header">Privacy</h3>
+                <label class="privacy-button">
+                    <input type="checkbox" id="privacy-toggle">
+                    <div class="slider"></div>
+                </label>
+                <label for="privacy-toggle" name="privacy-toggle">Private</label>
+                </div>
+            </div>
+
+            <button class="review-submit" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
+        </form>
+
         
+        
+        </section>  
     </main>
 
     <%- include('footer', {}); %>
