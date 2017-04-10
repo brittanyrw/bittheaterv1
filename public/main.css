@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+body {
+  padding: 1.5em; }
+
 .visually-hidden {
   /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
   position: absolute !important;
@@ -15,6 +18,26 @@
 
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button {
   display: none !important; }
+
+.nav-header {
+  position: relative; }
+  .nav-header .logo {
+    width: 12em; }
+  .nav-header .login, .nav-header .logout {
+    background: #2A3641;
+    color: white;
+    border: none;
+    height: 2.5em;
+    width: 5em;
+    font-size: .9em;
+    position: absolute;
+    right: 0; }
+
+.navigation-links {
+  padding-top: 1.5em;
+  text-align: center; }
+  .navigation-links li {
+    display: inline; }
 
 .home-image {
   width: 100%; }

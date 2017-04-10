@@ -1,9 +1,15 @@
+//GENERAL
+
 $yellow: #FFAD0D;
 $blue: #2A3641;
 $gray: #717171;
 
 * {
     box-sizing: border-box;
+}
+
+body {
+    padding: 1.5em;
 }
 
 
@@ -18,6 +24,36 @@ $gray: #717171;
     overflow: hidden;
 } 
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button { display: none !important; }
+
+// NAVIGATION
+
+.nav-header {
+    position: relative;
+
+    .logo {
+    width: 12em;
+    }
+    .login, .logout {
+        background: $blue;
+        color: white;
+        border: none;
+        height: 2.5em;
+        width: 5em;
+        font-size: .9em;
+        position: absolute;
+        right: 0;
+    }
+}
+
+.navigation-links {
+    padding-top: 1.5em;
+    text-align: center;
+    li {
+      display: inline;  
+    }
+}
+
+///////
 
 
 .home-image {
@@ -40,7 +76,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     fill: red;
 }
 
-//PRIVATE/PUBLIC SLIDER BUTTON FOR FORMS
+//PRIVATE vs PUBLIC SLIDER BUTTON FOR FORMS
 
 .privacy-button {
   position: relative;
