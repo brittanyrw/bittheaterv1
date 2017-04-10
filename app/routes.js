@@ -43,6 +43,26 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    // WRITE REVIEWS, FEATURES, CREATE LISTS =========================
+
+    app.get('/write-review'/*, isLoggedIn*/, function(req, res) {
+        res.render('write-review.ejs', {
+            //user : req.user
+        });
+    });
+
+    app.get('/write-feature'/*, isLoggedIn*/, function(req, res) {
+        res.render('write-feature.ejs', {
+            //user : req.user
+        });
+    });
+
+    app.get('/create-show-list'/*, isLoggedIn*/, function(req, res) {
+        res.render('/create-show-list', {
+            //user : req.user
+        });
+    });    
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
