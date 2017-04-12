@@ -1,4 +1,38 @@
+var User = require('./models/user');
+var Feature = require('./models/feature');
+var Genre = require('./models/genre');
+var Badge = require('./models/badges');
+var Review = require('./models/review');
+var Show = require('./models/show');
+var Showlist = require('./models/showlist');
+
+
 module.exports = function(app, passport) {
+
+    app.get('/users', function(req, res) {
+    User.find({}, function(err, users) {
+       res.json(users);
+       });
+    });
+
+    app.get('/users:id', function(req, res) {
+    User.findById({_id: req.params.id}, function(err, users) {
+        res.json(users);
+        });
+    });
+
+    app.get('/shows', function(req, res) {
+    Show.find({}, function(err, shows) {
+       res.json(shows);
+       });
+    });   
+
+    app.post('/shows', function(req, res) {
+    var show = new Show(req.body);
+    show.save(function (err, newShow) {
+        res.send(newShow);
+        });
+    });
 
 // normal routes ===============================================================
 
@@ -62,6 +96,18 @@ module.exports = function(app, passport) {
             //user : req.user
         });
     });    
+
+
+    app.get('/badge', function(req, res){
+        var query = Badge.find({title: req.user._id});
+            query.select('title');
+            query.exec(function(err, badges) {
+                if (err) throw err;
+
+            res.json(badges);
+        });
+    });
+
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
