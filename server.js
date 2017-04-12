@@ -32,7 +32,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch', // session secret
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true 
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
