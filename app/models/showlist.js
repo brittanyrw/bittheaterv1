@@ -5,7 +5,7 @@ var showlistSchema = mongoose.Schema({
         userid        : String,
         published     : {type: Date, default: Date.now},
         title         : String,
-        showid        : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Show' }],
+        show          : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Show' }],
         type          : String,
         private       : Boolean
 });

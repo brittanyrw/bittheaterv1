@@ -6,7 +6,7 @@ var reviewSchema = mongoose.Schema({
         published     : {type: Date, default: Date.now},
         title         : String,
         content       : String,
-        showid        : String,
+        show          : String,
         city          : String,
         theater       : String,
         rating        : Number,

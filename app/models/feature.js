@@ -6,9 +6,9 @@ var featureSchema = mongoose.Schema({
         published     : {type: Date, default: Date.now},
         title   	  : String,
         content 	  : String,
-        reviews       : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
+        review        : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
         city          : String,
-        genres        : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
+        genre         : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
         private       : Boolean
 });
 

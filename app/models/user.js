@@ -35,6 +35,7 @@ var userSchema = mongoose.Schema({
         reviews      : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
         showlists    : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Showlist' }],
         badges       : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Badge' }],
+        features     : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Feature' }]
 
     }  
 
