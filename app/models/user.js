@@ -28,6 +28,7 @@ var userSchema = mongoose.Schema({
         name         : String
     },
     profile          : {
+        username     : String,
         location     : String,
         summary      : String,
         joinDate     : {type: Date, default: Date.now},
