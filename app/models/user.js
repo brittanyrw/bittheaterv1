@@ -26,10 +26,17 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    }//,
-    //profile          : {
-    //    location     : String
-    //}
+    },
+    profile          : {
+        location     : String,
+        summary      : String,
+        joinDate     : {type: Date, default: Date.now},
+        favoriteShow : String,
+        reviews      : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
+        showlists    : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Showlist' }],
+        badges       : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Badge' }],
+
+    }  
 
 });
 

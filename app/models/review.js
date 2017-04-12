@@ -2,16 +2,15 @@ var mongoose = require('mongoose');
 
 var reviewSchema = mongoose.Schema({
 
-        id            : String,
         userid        : String,
         published     : {type: Date, default: Date.now},
-        reviewTitle   : String,
-        reviewContent : String,
+        title         : String,
+        content       : String,
         showid        : String,
         city          : String,
         theater       : String,
         rating        : Number,
-        privacy       : Boolean
+        private       : Boolean
 });
 
 module.exports = mongoose.model('Review', reviewSchema);
