@@ -9,9 +9,27 @@ $gray: #717171;
 }
 
 body {
-    padding: 1.5em;
+    font-size: 16px;
+    @media only screen and (min-width: 641px) {
+        background: #ccc;
+    }
 }
 
+main{
+    @media only screen and (min-width: 641px) {
+        padding: 1.5em;
+        width: 80%;
+        background: white;
+        margin: 0 auto;
+    }
+}
+
+nav {
+    padding: 1.5em;
+    @media only screen and (min-width: 641px) {
+        @extend main;
+    }
+}
 
 .visually-hidden { /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
     position: absolute !important;
@@ -27,40 +45,80 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 // NAVIGATION
 
-.nav-header {
-    position: relative;
-
-    .logo {
+.logo {
     width: 12em;
-    }
-    .login, .logout {
-        background: $blue;
-        color: white;
-        border: none;
-        height: 2.5em;
-        width: 5em;
-        font-size: .9em;
-        position: absolute;
-        right: 0;
+}
+
+.search-bar {
+    width: 100%;
+    border: 1px solid $blue;
+    padding: .5em 0;
+    margin-top: 2em;
+    &::placeholder {
+        padding: 10px;
     }
 }
 
 .navigation-links {
-    padding-top: 1.5em;
+    padding-top: 1em;
     text-align: center;
     li {
-      display: inline;  
+        display: inline-block;  
+        height: 2em;
+        margin: 0 .2em 0 0;
+        padding: .5em .4em;
+        a {
+            text-decoration: none;
+        }   
     }
 }
+
+.login, .logout {
+    background: $blue;
+    a {
+        color: white; 
+    }          
+}  
+
+//FOOTER
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+}
+
+//HOMEPAGE
+
+.home-page {
+    .home-image {
+        width: 100%;
+    }
+    .section {
+        .section-block {
+            margin-bottom: 3em;
+        }
+        @media only screen and (min-width: 641px) {
+            .section {
+                margin-bottom: 14em;
+            }
+            img {
+            width: 45%;
+            display: inline-block;
+            }
+            .section-block {
+            width: 45%;
+            display: inline-block;
+            }
+        }
+    }
+}
+
 
 ///////
 
 
-.home-image {
-	width: 100%;
-}
-
-.search-bar, .badge-text-suggestion, .badge-name-suggestion, .form-control {
+.badge-text-suggestion, .badge-name-suggestion, .form-control {
 	border: 1px solid black;
 }
 

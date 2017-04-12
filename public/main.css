@@ -2,6 +2,19 @@
   box-sizing: border-box; }
 
 body {
+  font-size: 16px; }
+  @media only screen and (min-width: 641px) {
+    body {
+      background: #ccc; } }
+
+@media only screen and (min-width: 641px) {
+  main, nav {
+    padding: 1.5em;
+    width: 80%;
+    background: white;
+    margin: 0 auto; } }
+
+nav {
   padding: 1.5em; }
 
 .visually-hidden {
@@ -19,30 +32,53 @@ body {
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button {
   display: none !important; }
 
-.nav-header {
-  position: relative; }
-  .nav-header .logo {
-    width: 12em; }
-  .nav-header .login, .nav-header .logout {
-    background: #2A3641;
-    color: white;
-    border: none;
-    height: 2.5em;
-    width: 5em;
-    font-size: .9em;
-    position: absolute;
-    right: 0; }
+.logo {
+  width: 12em; }
+
+.search-bar {
+  width: 100%;
+  border: 1px solid #2A3641;
+  padding: .5em 0;
+  margin-top: 2em; }
+  .search-bar::placeholder {
+    padding: 10px; }
 
 .navigation-links {
-  padding-top: 1.5em;
+  padding-top: 1em;
   text-align: center; }
   .navigation-links li {
-    display: inline; }
+    display: inline-block;
+    height: 2em;
+    margin: 0 .2em 0 0;
+    padding: .5em .4em; }
+    .navigation-links li a {
+      text-decoration: none; }
 
-.home-image {
+.login, .logout {
+  background: #2A3641; }
+  .login a, .logout a {
+    color: white; }
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 1em; }
+
+.home-page .home-image {
   width: 100%; }
+.home-page .section .section-block {
+  margin-bottom: 3em; }
+@media only screen and (min-width: 641px) {
+  .home-page .section .section {
+    margin-bottom: 14em; }
+  .home-page .section img {
+    width: 45%;
+    display: inline-block; }
+  .home-page .section .section-block {
+    width: 45%;
+    display: inline-block; } }
 
-.search-bar, .badge-text-suggestion, .badge-name-suggestion, .form-control {
+.badge-text-suggestion, .badge-name-suggestion, .form-control {
   border: 1px solid black; }
 
 .badge-image {
