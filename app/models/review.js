@@ -5,10 +5,10 @@ var reviewSchema = mongoose.Schema({
        	reviewid	  : String,
        	userid        : String,
         published     : {type: Date, default: Date.now},
-        title         : String,
-        content       : String,
+        reviewTitle   : String,
+        reviewContent : String,
         show          : String,
-        city          : String,
+        showCity      : String,
         theater       : String,
         rating        : Number,
         private       : Boolean
