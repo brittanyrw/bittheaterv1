@@ -9,32 +9,36 @@
             <h1 class="header-title">Review Editor</h1>
         </section>
         
-        <form action="#" method="post">
+        <form action="/review-form" method="post">
             
             <div class="form-group">
-                <input type="text" class="form-control" name="review-title" placeholder="Review Title">
-                <select name="show-titles">
+                <label for="review-title" class="visually-hidden">Review Title</label>
+                <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">
+<!--                 <select name="show-titles">
                     <option value="show1">Show 1</option>
                     <option value="show2">Show 2</option>
                     <option value="show3">Show 3</option>
                     <option value="show4">Show 4</option>
                 </select>
-                <!-- add label w/visually hidden or aria attribute to inputs and selects
-                req.fields['show-date']-->
-                <input type="text" class="form-control" name="show-date" placeholder="Show Date">
-                <input type="text" class="form-control" name="show-location" placeholder="Show Location">
-                <input type="text" class="form-control" name="show-genres" placeholder="Show Genres">
-                <input type="text" class="form-control" name="review" placeholder="Review">
+                 add label w/visually hidden or aria attribute to inputs and selects
+                req.fields['show-date']
+                <label for="show-date" class="visually-hidden">Show Date</label>
+                <input type="text" class="form-control" name="showDate" placeholder="Show Date" id="show-date"> -->
+                <label for="show-location" class="visually-hidden">Show Location</label>
+                <input type="text" class="form-control" name="showLocation" placeholder="Show Location" id="show-location">
+ <!--                <input type="text" class="form-control" name="show-genres" placeholder="Show Genres"> -->
+                <label for="review-content" class="visually-hidden">Review Content</label>
+                <input type="text" class="form-control" name="reviewContent" placeholder="Review" id="review-content">
             </div>
 
-            <div class="form-group">
+  <!--           <div class="form-group">
                 <div class="review-rating">
                 <h3 class="form header">Review</h3>
                 <div>*Review Stars Go Here*</div>
                 </div>
-            </div>
+            </div> -->
             
-            <div class="form-group">
+  <!--           <div class="form-group">
                 <div class="privacy-toggle">
                 <h3 class="form header">Privacy</h3>
                 <label class="privacy-button">
@@ -43,7 +47,7 @@
                 </label>
                 <label for="privacy-toggle" name="privacy-toggle">Private</label>
                 </div>
-            </div>
+            </div> -->
 
             <button class="review-submit" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
         </form>

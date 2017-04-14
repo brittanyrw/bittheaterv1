@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var badgesSchema = mongoose.Schema({
 
-        id			  : String,
+        badgeid		  : Number,
         title         : String,
         img           : String
 });

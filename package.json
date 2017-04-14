@@ -1,6 +1,9 @@
 {
   "name": "node-authentication",
   "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.15.2",
@@ -8,8 +11,8 @@
     "cookie-parser": "~1.4.3",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
-    "express-formidable": "^1.0.0",
     "express-session": "~1.14.1",
+    "formidable": "^1.1.1",
     "method-override": "~2.3.6",
     "mongoose": "~4.6.1",
     "morgan": "~1.7.0",

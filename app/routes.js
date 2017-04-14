@@ -11,53 +11,157 @@ module.exports = function(app, passport) {
 
     app.get('/users', function(req, res) {
     User.find({}, function(err, users) {
+       if(err) res.send(err);
        res.json(users);
        });
     });
 
     app.get('/users/:id', function(req, res) {
     User.findById({_id: req.params.id}, function(err, users) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
         res.json(users);
+        }
         });
     });
 
-    app.get('/reviews', function(req, res) {
+    app.get('/review', function(req, res) {
     Review.find({}, function(err, reviews) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
         res.json(reviews);
+        }
         });
     });
 
-    app.post('/reviews', function(req, res) {
+    app.get('/review/:id', function(req, res) {
+    Review.findById({_id: req.params.id}, function(err, reviews) {
+        if(err) {
+            res.status(500).send(err);
+        } else {        
+        res.json(reviews);
+        }
+        });
+    });
+
+    app.post('/review', function(req, res) {
     var review = new Review(req.body);
     review.save(function (err, newReview) {
-        res.send(newReview);
+        res.status(201).send(newReview);
         });
     });
+
+    app.delete('/review/:id', function(req, res) {
+    Review.remove({_id: req.params.id}, function(err, reviews) {
+        res.json({ message: `Successfully deleted \`${req.body.title}\``, reviews});
+        });
+    })
 
     app.get('/shows', function(req, res) {
     Show.find({}, function(err, shows) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
        res.json(shows);
+        }
        });
     });   
 
     app.get('/shows/:id', function(req, res) {
     Show.findById({_id: req.params.id}, function(err, shows) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
         res.json(shows);
+        }
         });
     });
 
     app.post('/shows', function(req, res) {
     var show = new Show(req.body);
     show.save(function (err, newShow) {
-        res.send(newShow);
+        res.status(201).res.send(newShow);
         });
     });
 
     app.delete('/shows/:id', function(req, res) {
     Show.remove({_id: req.params.id}, function(err, shows) {
-        res.json({ message: "Show successfully deleted!", shows});
+        console.log(req.body);
+        res.json({ message: `Successfully deleted \`${req.body.title}\``, shows});
         });
     })
+
+    app.get('/badge', function(req, res) {
+    Badge.find({}, function(err, badges) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
+       res.json(badges);
+        }
+       });
+    });   
+
+    app.get('/badge/:id', function(req, res) {
+    Badge.findById({_id: req.params.id}, function(err, badges) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
+        res.json(badges);
+        }
+        });
+    });
+
+    app.post('/badge', function(req, res) {
+    var badge = new Badge(req.body);
+    Badge.save(function (err, newBadge) {
+        res.status(201).res.send(newBadge);
+        });
+    });
+
+    app.delete('/badge/:id', function(req, res) {
+    Badge.remove({_id: req.params.id}, function(err, badges) {
+        console.log(req.body);
+        res.json({ message: `Successfully deleted \`${req.body.title}\``, badges});
+        });
+    })
+
+    app.get('/feature', function(req, res) {
+    Feature.find({}, function(err, features) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
+       res.json(features);
+        }
+       });
+    });   
+
+    app.get('/feature/:id', function(req, res) {
+    Feature.findById({_id: req.params.id}, function(err, features) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
+        res.json(features);
+        }
+        });
+    });
+
+    app.post('/feature', function(req, res) {
+    var feature = new Feature(req.body);
+    Feature.save(function (err, newFeature) {
+        res.status(201).res.send(newFeature);
+        });
+    });
+
+    app.delete('/feature/:id', function(req, res) {
+    Feature.remove({_id: req.params.id}, function(err, features) {
+        console.log(req.body);
+        res.json({ message: `Successfully deleted \`${req.body.title}\``, features});
+        });
+    })
+
+    //put requests - findByIdAndUpdate
 
 // normal routes ===============================================================
 

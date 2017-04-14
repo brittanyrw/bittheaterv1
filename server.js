@@ -38,19 +38,20 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// parsing form data
+//parsing form data
 
-const formidable = require('express-formidable');
+const formidable = require('formidable'); 
  
-app.use(formidable());
- 
-app.post('/upload', (req, res) => {
-  req.fields; // contains non-file fields 
-  req.files; // contains files 
-});
-
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+app.post('/review-form', (req, res) => {
+	const form = new formidable.IncomingForm();
+	form.parse(req, (err, fields, files) => {
+	  console.log('fields', fields);
+	  res.json(fields);
+	});
+});
 
 // launch ======================================================================
 app.listen(port);
