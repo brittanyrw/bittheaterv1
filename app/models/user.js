@@ -33,10 +33,10 @@ var userSchema = mongoose.Schema({
         summary      : String,
         joinDate     : {type: Date, default: Date.now},
         favoriteShow : String,
-        reviews      : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
-        showlists    : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Showlist' }],
-        badges       : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Badge' }],
-        features     : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Feature' }]
+        // reviews      : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
+        // showlists    : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Showlist' }],
+        // badges       : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Badge' }],
+        // features     : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Feature' }]
 
     }  
 

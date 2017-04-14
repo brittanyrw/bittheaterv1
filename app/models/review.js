@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var reviewSchema = mongoose.Schema({
 
-        userid        : String,
+       	reviewid	  : String,
+       	userid        : String,
         published     : {type: Date, default: Date.now},
         title         : String,
         content       : String,

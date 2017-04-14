@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var featureSchema = mongoose.Schema({
 
+        id			  : String,
         userid        : String,
         published     : {type: Date, default: Date.now},
         title   	  : String,

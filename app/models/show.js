@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var showSchema = mongoose.Schema({
 
-        created       : {type: Date, default: Date.now},
+        showid		  : String,
+      	created       : {type: Date, default: Date.now},
         title         : String,
         type          : String,
         genre         : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var genreSchema = mongoose.Schema({
 
+        genreid			  : String,
         title         : String
 });
 

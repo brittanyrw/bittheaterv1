@@ -1,10 +1,10 @@
-var User = require('./models/user');
-var Feature = require('./models/feature');
-var Genre = require('./models/genre');
-var Badge = require('./models/badges');
-var Review = require('./models/review');
-var Show = require('./models/show');
-var Showlist = require('./models/showlist');
+const User = require('./models/user');
+const Feature = require('./models/feature');
+const Genre = require('./models/genre');
+const Badge = require('./models/badges');
+const Review = require('./models/review');
+const Show = require('./models/show');
+const Showlist = require('./models/showlist');
 
 
 module.exports = function(app, passport) {
@@ -15,9 +15,22 @@ module.exports = function(app, passport) {
        });
     });
 
-    app.get('/users:id', function(req, res) {
+    app.get('/users/:id', function(req, res) {
     User.findById({_id: req.params.id}, function(err, users) {
         res.json(users);
+        });
+    });
+
+    app.get('/reviews', function(req, res) {
+    Review.find({}, function(err, reviews) {
+        res.json(reviews);
+        });
+    });
+
+    app.post('/reviews', function(req, res) {
+    var review = new Review(req.body);
+    review.save(function (err, newReview) {
+        res.send(newReview);
         });
     });
 
@@ -27,12 +40,24 @@ module.exports = function(app, passport) {
        });
     });   
 
+    app.get('/shows/:id', function(req, res) {
+    Show.findById({_id: req.params.id}, function(err, shows) {
+        res.json(shows);
+        });
+    });
+
     app.post('/shows', function(req, res) {
     var show = new Show(req.body);
     show.save(function (err, newShow) {
         res.send(newShow);
         });
     });
+
+    app.delete('/shows/:id', function(req, res) {
+    Show.remove({_id: req.params.id}, function(err, shows) {
+        res.json({ message: "Show successfully deleted!", shows});
+        });
+    })
 
 // normal routes ===============================================================
 
@@ -169,18 +194,6 @@ module.exports = function(app, passport) {
             }));
 
 
-    // google ---------------------------------
-
-        // send to google to do the authentication
-        app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-
-        // the callback after google has authenticated the user
-        app.get('/auth/google/callback',
-            passport.authenticate('google', {
-                successRedirect : '/profile',
-                failureRedirect : '/'
-            }));
-
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
 // =============================================================================
@@ -220,18 +233,6 @@ module.exports = function(app, passport) {
             }));
 
 
-    // google ---------------------------------
-
-        // send to google to do the authentication
-        app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
-
-        // the callback after google has authorized the user
-        app.get('/connect/google/callback',
-            passport.authorize('google', {
-                successRedirect : '/profile',
-                failureRedirect : '/'
-            }));
-
 // =============================================================================
 // UNLINK ACCOUNTS =============================================================
 // =============================================================================
@@ -266,17 +267,6 @@ module.exports = function(app, passport) {
             res.redirect('/profile');
         });
     });
-
-    // google ---------------------------------
-    app.get('/unlink/google', isLoggedIn, function(req, res) {
-        var user          = req.user;
-        user.google.token = undefined;
-        user.save(function(err) {
-            res.redirect('/profile');
-        });
-    });
-
-
 };
 
 // route middleware to ensure user is logged in
