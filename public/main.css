@@ -45,7 +45,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .search-bar {
   height: 30px;
   width: 100%;
-  border: 1px solid #2A3641;
+  border: 2px solid #2A3641;
   padding: .5em 0;
   margin-top: 2em; }
   .search-bar::placeholder {
@@ -78,6 +78,22 @@ footer {
 
 .home-page .home-image, .home-page .section-image {
   width: 100%; }
+.home-page .header-image {
+  margin-bottom: 2em; }
+  .home-page .header-image .section-block {
+    width: 80%; }
+    .home-page .header-image .section-block .header-image-caption {
+      width: 80%;
+      line-height: 1.4;
+      margin: 2em 2em 0 2em; }
+    .home-page .header-image .section-block .signup {
+      width: 100%;
+      padding: 1em;
+      text-align: center;
+      background: #FFAD0D;
+      color: white;
+      font-weight: bold;
+      font-size: 1em; }
 .home-page .section .section-block {
   margin: 2em;
   width: 80%; }
@@ -90,9 +106,10 @@ footer {
 .home-page .section .section-button {
   width: 100%;
   padding: 1em;
-  font-align: center;
-  background: #FFAD0D;
-  color: white;
+  text-align: center;
+  background: white;
+  color: #2A3641;
+  border: 2px solid #2A3641;
   font-weight: bold;
   font-size: 1em; }
 @media only screen and (min-width: 641px) {

@@ -60,7 +60,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .search-bar {
     height: 30px;
     width: 100%;
-    border: 1px solid $blue;
+    border: 2px solid $blue;
     padding: .5em 0;
     margin-top: 2em;
     &::placeholder {
@@ -107,10 +107,30 @@ footer {
     .home-image, .section-image {
         width: 100%;
     }
+    .header-image {
+      margin-bottom: 2em;
+      .section-block {
+        width: 80%;
+        .header-image-caption {
+          width: 80%;
+          line-height: 1.4;
+          margin: 2em 2em 0 2em;
+        }
+        .signup {
+          width: 100%;
+          padding: 1em;
+          text-align: center;
+          background: $yellow;
+          color: white;
+          font-weight: bold;
+          font-size: 1em;    
+        }  
+      }
+    } 
     .section {
         .section-block {
             margin: 2em;
-            width: 80%;
+            width: 80%;   
         }
         .section-title {
             color: $blue;
@@ -123,13 +143,15 @@ footer {
         .section-button {
             width: 100%;
             padding: 1em;
-            font-align: center;
-            background: $yellow;
-            color: white;
+            text-align: center;
+            // background: $yellow;
+            // color: white;
+            background: white;
+            color: $blue;
+            border: 2px solid $blue;
             font-weight: bold;
             font-size: 1em;
-          
-        }
+        }  
         @media only screen and (min-width: 641px) {
             .section {
                 margin-bottom: 14em;
