@@ -34,6 +34,9 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 .logo {
   width: 12em; }
+  @media only screen and (min-width: 641px) {
+    .logo {
+      display: inline-block; } }
 
 .search-bar {
   width: 100%;
@@ -46,6 +49,10 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 .navigation-links {
   padding-top: 1em;
   text-align: center; }
+  @media only screen and (min-width: 641px) {
+    .navigation-links {
+      display: inline-block;
+      float: right; } }
   .navigation-links li {
     display: inline-block;
     height: 2em;
