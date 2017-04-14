@@ -25,6 +25,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '/public'))); 
+app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
@@ -40,17 +41,12 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 //parsing form data
 
-const formidable = require('formidable'); 
- 
+
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.post('/review-form', (req, res) => {
-	const form = new formidable.IncomingForm();
-	form.parse(req, (err, fields, files) => {
-	  console.log('fields', fields);
-	  res.json(fields);
-	});
+	res.json(req.body);
 });
 
 // launch ======================================================================
