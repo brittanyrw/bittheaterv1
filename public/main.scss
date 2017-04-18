@@ -107,26 +107,23 @@ footer {
     .home-image, .section-image {
         width: 100%;
     }
-    .header-image {
-      margin-bottom: 2em;
-      .section-block {
-        width: 80%;
-        .header-image-caption {
-          width: 80%;
-          line-height: 1.4;
-          margin: 2em 2em 0 2em;
+      .header-image {
+        .section-block {
+            margin: 2em;
+            width: 80%; 
+            .signup {
+              width: 100%;
+              padding: 1em;
+              text-align: center;
+              background: $yellow;
+              color: white;
+              font-weight: bold;
+              font-size: 1em;
+              margin-top: 1em;              
+            }
         }
-        .signup {
-          width: 100%;
-          padding: 1em;
-          text-align: center;
-          background: $yellow;
-          color: white;
-          font-weight: bold;
-          font-size: 1em;    
-        }  
       }
-    } 
+
     .section {
         .section-block {
             margin: 2em;
@@ -136,6 +133,7 @@ footer {
             color: $blue;
             font-weight: bold;
             font-size: 2em;
+            margin-bottom: .5em;
         }
         .section-content {
             line-height: 1.4;
@@ -144,13 +142,12 @@ footer {
             width: 100%;
             padding: 1em;
             text-align: center;
-            // background: $yellow;
-            // color: white;
             background: white;
             color: $blue;
             border: 2px solid $blue;
             font-weight: bold;
             font-size: 1em;
+            margin-top: 1em;  
         }  
         @media only screen and (min-width: 641px) {
             .section {
@@ -181,11 +178,11 @@ footer {
 }
 
 .icon {
-    fill: red;
+    fill: $blue;
 }
 
 .icon-star-o {
-    fill: red;
+    fill: $blue;
 }
 
 //PRIVATE vs PUBLIC SLIDER BUTTON FOR FORMS

@@ -78,29 +78,26 @@ footer {
 
 .home-page .home-image, .home-page .section-image {
   width: 100%; }
-.home-page .header-image {
-  margin-bottom: 2em; }
-  .home-page .header-image .section-block {
-    width: 80%; }
-    .home-page .header-image .section-block .header-image-caption {
-      width: 80%;
-      line-height: 1.4;
-      margin: 2em 2em 0 2em; }
-    .home-page .header-image .section-block .signup {
-      width: 100%;
-      padding: 1em;
-      text-align: center;
-      background: #FFAD0D;
-      color: white;
-      font-weight: bold;
-      font-size: 1em; }
+.home-page .header-image .section-block {
+  margin: 2em;
+  width: 80%; }
+  .home-page .header-image .section-block .signup {
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    background: #FFAD0D;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 1em; }
 .home-page .section .section-block {
   margin: 2em;
   width: 80%; }
 .home-page .section .section-title {
   color: #2A3641;
   font-weight: bold;
-  font-size: 2em; }
+  font-size: 2em;
+  margin-bottom: .5em; }
 .home-page .section .section-content {
   line-height: 1.4; }
 .home-page .section .section-button {
@@ -111,7 +108,8 @@ footer {
   color: #2A3641;
   border: 2px solid #2A3641;
   font-weight: bold;
-  font-size: 1em; }
+  font-size: 1em;
+  margin-top: 1em; }
 @media only screen and (min-width: 641px) {
   .home-page .section .section {
     margin-bottom: 14em; }
@@ -129,10 +127,10 @@ footer {
   border-radius: 50%; }
 
 .icon {
-  fill: red; }
+  fill: #2A3641; }
 
 .icon-star-o {
-  fill: red; }
+  fill: #2A3641; }
 
 .privacy-button {
   position: relative;
