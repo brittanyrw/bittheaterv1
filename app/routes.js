@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
     app.get('/users', function(req, res) {
     User.find({}, function(err, users) {
        if(err) res.send(err);
-       res.json(users);
+       res.send(users);
        });
     });
 
@@ -21,7 +21,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {
-        res.json(users);
+        res.send(users);
         }
         });
     });
@@ -31,17 +31,20 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {
-        res.json(reviews);
+            res.send(reviews);
+            // res.render('reviews.ejs', {reviews: reviews, title: 'Testing'});
+            
         }
         });
     });
+
 
     app.get('/review/:id', function(req, res) {
     Review.findById({_id: req.params.id}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
         } else {        
-        res.json(reviews);
+        res.send(reviews);
         }
         });
     });
@@ -55,7 +58,7 @@ module.exports = function(app, passport) {
 
     app.delete('/review/:id', function(req, res) {
     Review.remove({_id: req.params.id}, function(err, reviews) {
-        res.json({ message: `Successfully deleted \`${req.body.title}\``, reviews});
+        res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
         });
     })
 
@@ -64,7 +67,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-       res.json(shows);
+       res.send(shows);
         }
        });
     });   
@@ -74,7 +77,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-        res.json(shows);
+        res.send(shows);
         }
         });
     });
@@ -89,7 +92,7 @@ module.exports = function(app, passport) {
     app.delete('/shows/:id', function(req, res) {
     Show.remove({_id: req.params.id}, function(err, shows) {
         console.log(req.body);
-        res.json({ message: `Successfully deleted \`${req.body.title}\``, shows});
+        res.send({ message: `Successfully deleted \`${req.body.title}\``, shows});
         });
     })
 
@@ -98,7 +101,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-       res.json(badges);
+       res.send(badges);
         }
        });
     });   
@@ -108,7 +111,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-        res.json(badges);
+        res.send(badges);
         }
         });
     });
@@ -123,7 +126,7 @@ module.exports = function(app, passport) {
     app.delete('/badge/:id', function(req, res) {
     Badge.remove({_id: req.params.id}, function(err, badges) {
         console.log(req.body);
-        res.json({ message: `Successfully deleted \`${req.body.title}\``, badges});
+        res.send({ message: `Successfully deleted \`${req.body.title}\``, badges});
         });
     })
 
@@ -132,7 +135,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-       res.json(features);
+       res.send(features);
         }
        });
     });   
@@ -142,7 +145,7 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {   
-        res.json(features);
+        res.send(features);
         }
         });
     });
@@ -157,7 +160,7 @@ module.exports = function(app, passport) {
     app.delete('/feature/:id', function(req, res) {
     Feature.remove({_id: req.params.id}, function(err, features) {
         console.log(req.body);
-        res.json({ message: `Successfully deleted \`${req.body.title}\``, features});
+        res.send({ message: `Successfully deleted \`${req.body.title}\``, features});
         });
     })
 
@@ -236,6 +239,9 @@ module.exports = function(app, passport) {
             res.json(badges);
         });
     });
+
+
+
 
 
 // =============================================================================
