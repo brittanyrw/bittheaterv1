@@ -2,14 +2,13 @@ var mongoose = require('mongoose');
 
 var featureSchema = mongoose.Schema({
 
-        id			  : String,
         userid        : String,
         published     : {type: Date, default: Date.now},
-        title   	  : String,
-        content 	  : String,
+        featureTitle   	  : String,
+        featureContent 	  : String,
         review        : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
-        city          : String,
-        genre         : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
+        featureCity          : String,
+        featureGenre         : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
         private       : Boolean
 });
 

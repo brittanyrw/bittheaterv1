@@ -2,12 +2,11 @@ var mongoose = require('mongoose');
 
 var showlistSchema = mongoose.Schema({
 
-        showid		  : String,
         userid        : String,
         published     : {type: Date, default: Date.now},
-        title         : String,
+        showListTitle : String,
         show          : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Show' }],
-        type          : String,
+        showListType  : String,
         private       : Boolean
 });
 
