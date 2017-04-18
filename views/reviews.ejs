@@ -9,6 +9,18 @@
             <p class="header-caption">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows.</p>
             <a href="/signup"><button class="signup"></button></a>
         </section>
+
+        <h2><%=reviews.length%></h2>
+
+        <ul>
+
+            <% for(var i=0; i<reviews.length; i++) { %>
+
+                <li><%=Object.keys(reviews[i])%></li>
+
+            <% } %>
+
+        </ul>
         
         <section class="review-section">
             <h1 class="review-section-title">Recent</h1>
@@ -90,6 +102,7 @@
                 <p class="review-text">Avenue Q is one of the best comedy shows playing right now. The show is funny, heartwarming and fun. </p>
             </div>              
         </section>
+
 
     </main>
 
