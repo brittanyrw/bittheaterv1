@@ -31,8 +31,8 @@ module.exports = function(app, passport) {
         if(err) {
             res.status(500).send(err);
         } else {
-            res.send(reviews);
-            // res.render('reviews.ejs', {reviews: reviews, title: 'Testing'});
+            // res.send(reviews);
+            res.render('reviews.ejs', {reviews: reviews, title: 'Testing'});
             
         }
         });

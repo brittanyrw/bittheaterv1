@@ -10,60 +10,52 @@
             <a href="/signup"><button class="signup"></button></a>
         </section>
 
-        <h2><%=reviews.length%></h2>
-
-        <ul>
+<!--          <ul>
 
             <% for(var i=0; i<reviews.length; i++) { %>
-
-                <li><%=Object.keys(reviews[i])%></li>
-
+                
+                <li><%=reviews[i].show%></li>
+                <li><%=reviews[i].reviewTitle%></li>
+                <li><%=reviews[i].reviewContent%></li>
+                <li><%=reviews[i].rating%></li>
             <% } %>
 
-        </ul>
-        
+        </ul>  -->
+
         <section class="review-section">
             <h1 class="review-section-title">Recent</h1>
             <a href="#">View all<span class="visually-hidden">View all recent reviews</span></a>
             
-            <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div class="review-stars">
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>   
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>                                                       
+            <% for(var i=0; i<reviews.length; i++) { %>
+                <div class="review">
+                    <h2 class="review-summary-show-name"><%=reviews[i].show%></h2>
+                    <h3 class="review-summary-title"><%=reviews[i].reviewTitle%></h3>
+                    <div class="review-stars"> 
+                        <%=reviews[i].rating%>
+                        <svg aria-hidden="true" class="icon icon-star-o">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
+                        </svg>
+                        <svg aria-hidden="true" class="icon icon-star-o">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
+                        </svg>
+                        <svg aria-hidden="true" class="icon icon-star-o">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
+                        </svg>
+                        <svg aria-hidden="true" class="icon icon-star-o">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
+                        </svg>   
+                        <svg aria-hidden="true" class="icon icon-star-o">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
+                        </svg>                                                       
+                    </div>  
+                    </div>
+                    <p class="review-text"><%=reviews[i].reviewContent%></p>
                 </div>  
-                </div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>
 
-            <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>
-
-            <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>                   
-        </section>
+            <% } %>     
+  
+        </section>    
+         
 
         <section class="review-section">
             <h1 class="review-section-title">Broadway Shows</h1>
