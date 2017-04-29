@@ -8,10 +8,18 @@ var reviewSchema = mongoose.Schema({
         reviewContent : String,
         show          : String,
         showCity      : String,
+        showDate      : Date,
         genre         : String,
         theater       : String,
         rating        : Number,
-        private       : Boolean
+        public        : String
 });
+
+// schema.pre('save', function(next) {
+//     //round the rating down or up to either 4.0 or 4.5
+//   this.ratingImage = 'imgs/'+this.rating+'.png';
+
+//   next();
+// });
 
 module.exports = mongoose.model('Review', reviewSchema);
