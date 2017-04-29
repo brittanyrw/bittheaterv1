@@ -177,7 +177,7 @@ module.exports = function(app, passport) {
     app.post('/feature', function(req, res) {
     var feature = new Feature(req.body);
     Feature.save(function (err, newFeature) {
-        res.status(201).res.send(newFeature);
+        res.status(201).send(newFeature);
         });
     });
 
@@ -262,14 +262,26 @@ module.exports = function(app, passport) {
 
 
     app.get('/write-feature'/*, isLoggedIn*/, function(req, res) {
-        res.render('write-feature.ejs', {
+    Review.find({},null,{sort: {published:1}}, function(err, reviews) {
+        if(err){
+            res.status(500).send(err);
+        } else {
+            res.render('write-feature.ejs', {reviews: reviews});
             //user : req.user
-        });
+        }
+    })    
+        // res.render('write-feature.ejs', {
+        //     //user : req.user
+        // });
     });
 
     app.get('/create-showlist'/*, isLoggedIn*/, function(req, res) {
-        res.render('create-showlist.ejs', {
-            //user : req.user
+    Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.render('create-showlist.ejs', {shows: shows});
+        }
         });
     });    
 
