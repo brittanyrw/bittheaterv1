@@ -17,15 +17,11 @@
                 <input type="text" class="form-control" name="review" placeholder="Feature Text">
             </div>
 
-            <div class="form-group">
-                <label for="reviews">Select Reviews</label>
-                <select name="show" id="reviews">
-                    <option value="review1">review1</option>
-                    <option value="review1">review1</option>
-                    <option value="review1">review1</option>
-                    <option value="review1">review1</option>
-                </select>                
-            </div>
+               <select name="reviews" id="reviews" multiple>
+                <% for(var i=0; i<reviews.length; i++) { %>
+                    <option value="<%=reviews[i]._id%>"><%=reviews[i].reviewTitle%></option>
+                <% } %>
+                </select> 
             
             <div class="form-group">
                 <div class="privacy-toggle">
