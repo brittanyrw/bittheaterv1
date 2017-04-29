@@ -165,6 +165,61 @@ footer {
     }
 }
 
+// REVIEW PAGE
+
+
+.rating-image{
+  font-size:0;
+  white-space:nowrap;
+  display:inline-block;
+  width:250px;
+  height:50px;
+  overflow:hidden;
+  position:relative;
+  background:
+      url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABTAgMAAACe3NOTAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACVBMVEUqNkEqNkEAAACenJHkAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfhBBoGOyI2t6HSAAAA4UlEQVQ4y73UQQ4CIQwFUFh074b7cIQu2vtfRRgZSuFP0kRjFzp50U9pjSnNeiVUEtescSWtYS3KYVWVqGZVjSo1rUEtTfkrbQgahtrbPRvGSpfWkJZLOaQX7q2pnlzU6g7J6st92UoQdsZagPK4qq96dDC6gD2AYJ4z9LEJBMPLyTEbmw+B2IeZPeh2nIBV2DIIHLYHHxteY/GOfbD91DKKXYPll4pP+6/iOfxX8YY+mpHy/eZ0XNErp/0/rYyzyencjFvRbJO8yvHUn+8bkVOb/6JLO4suy5qa7aPtw/3lDRu1A/KxXntvAAAAAElFTkSuQmCC');
+  background-size: contain;
+  i{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 1;
+    background: 
+        url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABTAgMAAACe3NOTAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACVBMVEX/rQ3/rQ0AAAAEql4gAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfhBBoGODoO9mpHAAAA4UlEQVQ4y73UQQ4CIQwFUFh074b7cIQu2vtfRRgZSuFP0kRjFzp50U9pjSnNeiVUEtescSWtYS3KYVWVqGZVjSo1rUEtTfkrbQgahtrbPRvGSpfWkJZLOaQX7q2pnlzU6g7J6st92UoQdsZagPK4qq96dDC6gD2AYJ4z9LEJBMPLyTEbmw+B2IeZPeh2nIBV2DIIHLYHHxteY/GOfbD91DKKXYPll4pP+6/iOfxX8YY+mpHy/eZ0XNErp/0/rYyzyencjFvRbJO8yvHUn+8bkVOb/6JLO4suy5qa7aPtw/3lDRu1A/KxXntvAAAAAElFTkSuQmCC');  
+    background-size: contain;
+  }
+  input{ 
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    opacity: 0;
+    display:inline-block;
+    width: 20%;
+    height: 100%; 
+    margin:0;
+    padding:0;
+    z-index: 2;
+    position: relative;
+    &:hover + i,
+    &:checked + i{
+      opacity:1;    
+    }
+  }
+  i ~ i{
+    width: 40%;
+  }
+  i ~ i ~ i{
+    width: 60%;
+  }
+  i ~ i ~ i ~ i{
+    width: 80%;
+  }
+  i ~ i ~ i ~ i ~ i{
+    width: 100%;
+  }
+}
 
 ///////
 
