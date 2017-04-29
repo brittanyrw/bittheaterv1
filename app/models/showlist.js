@@ -5,9 +5,15 @@ var showlistSchema = mongoose.Schema({
         userid        : String,
         published     : {type: Date, default: Date.now},
         showListTitle : String,
-        show          : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Show' }],
+        showListDescription : String,
+        show          : {
+        	showTitle: String,
+        	showLocation: String,
+        	showDate : Date,
+        	showNotes: String,		
+        },
         showListType  : String,
-        private       : Boolean
+        private       : String
 });
 
 module.exports = mongoose.model('Showlist', showlistSchema);
