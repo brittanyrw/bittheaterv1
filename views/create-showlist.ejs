@@ -9,52 +9,75 @@
             <h1 class="header-title">Show List Editor</h1>
         </section>
         
-        <form action="/shows" method="post">
+        <form action="/showlist" method="post">
             
             <div class="form-group">
-                <input type="text" class="form-control" name="show-list-title" placeholder="List Title">
-                <input type="text" class="form-control" name="show-list-description" placeholder="Show List Description">
+                <input type="text" class="form-control" name="showListTitle" placeholder="List Title">
+                <input type="text" class="form-control" name="showListDescription" placeholder="Show List Description">
 
             </div>
             
             <div class="form-group">
-            <label for="main-list" value="main">Main</label>
-            <input type="radio" name="showListType" id="main-list" checked>
+            <label for="main-list">Main</label>
+            <input type="radio" name="showListType" id="main-list" value="main" checked>
             
-            <label for="wish-list" value="wish">Wish</label>
-            <input type="radio" name="showListType" id="wish-list">
+            <label for="wish-list">Wish</label>
+            <input type="radio" name="showListType" id="wish-list" value="wish">
             
             <label for="trip-list">Trip</label>
             <input type="radio" name="showListType" value="trip" id="trip-list">   
             </div>
+                <div class="show-item">
+                    <select name="show" id="show-title">
+                    <% for(var i=0; i<shows.length; i++) { %>
+                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                    <% } %>
+                    </select> 
+                    <label for="datepicker" class="visually-hidden">Show Date</label>
+                    <input type="text" class="form-control" name="showDates" placeholder="Show Date" id="datepicker">
+                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
+                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
 
-                <select name="show-titles">
-                    <option value="show1">Show 1</option>
-                    <option value="show2">Show 2</option>
-                    <option value="show3">Show 3</option>
-                    <option value="show4">Show 4</option>
-                </select>
-
-                <input type="text" class="form-control" name="show-date" placeholder="Show Date">
-                <input type="text" class="form-control" name="show-location" placeholder="Show Location">
-                <input type="text" class="form-control" name="show-genres" placeholder="Show Genres">
-                <input type="text" class="form-control" name="review" placeholder="Review">
-
-            <div class="form-group">
-                <div class="review-rating">
-                <h3 class="form header">Review</h3>
-                <div>*Review Stars Go Here*</div>
+                    </select> 
                 </div>
-            </div>
+
+                <div class="show-item">
+                    <select name="show" id="show-title">
+                    <% for(var i=0; i<shows.length; i++) { %>
+                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                    <% } %>
+                    </select> 
+                    <label for="datepicker" class="visually-hidden">Show Date</label>
+                    <input type="text" class="form-control" name="showDates" placeholder="Show Date" id="datepicker">
+                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
+                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
+
+                </div>
+
+                <div class="show-item">
+                    <select name="show" id="show-title">
+                    <% for(var i=0; i<shows.length; i++) { %>
+                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                    <% } %>
+                    </select> 
+                    <label for="datepicker" class="visually-hidden">Show Date</label>
+                    <input type="text" class="form-control" name="showDates" placeholder="Show Date" id="datepicker">
+                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
+                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
+
+                </div>                                
+
+                <button>Add more shows</button>
+
             
             <div class="form-group">
                 <div class="privacy-toggle">
                 <h3 class="form header">Privacy</h3>
-                <label class="privacy-button">
-                    <input type="checkbox" id="privacy-toggle">
+                <label class="privacy-button" for="privacy-toggle">
+                    <input type="checkbox" id="privacy-toggle" name="public" value="true">
                     <div class="slider"></div>
                 </label>
-                <label for="privacy-toggle" name="privacy-toggle">Private</label>
+                <label for="privacy-toggle" name="public">Public</label>
                 </div>
             </div>
 
@@ -67,6 +90,7 @@
     </main>
 
     <%- include('footer', {}); %>
+    <%- include('scripts', {}); %>
 
     <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
 </body>
