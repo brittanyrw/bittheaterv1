@@ -9,7 +9,7 @@
             <h1 class="header-title">Show List Editor</h1>
         </section>
         
-        <form action="#" method="post">
+        <form action="/shows" method="post">
             
             <div class="form-group">
                 <input type="text" class="form-control" name="show-list-title" placeholder="List Title">
@@ -18,12 +18,14 @@
             </div>
             
             <div class="form-group">
-            <label for="main-list">Main</label>
-            <input type="radio" name="list-type" value="main" checked>
-            <label for="wish-list">Wish</label>
-            <input type="radio" name="list-type" value="wish">
+            <label for="main-list" value="main">Main</label>
+            <input type="radio" name="showListType" id="main-list" checked>
+            
+            <label for="wish-list" value="wish">Wish</label>
+            <input type="radio" name="showListType" id="wish-list">
+            
             <label for="trip-list">Trip</label>
-            <input type="radio" name="list-type" value="trip" id="trip-list">   
+            <input type="radio" name="showListType" value="trip" id="trip-list">   
             </div>
 
                 <select name="show-titles">
