@@ -10,55 +10,66 @@
         </section>
         
         <form action="/review" method="post">
-            
             <div class="form-group">
                 <label for="review-title" class="visually-hidden">Review Title</label>
                 <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">
-<!--                 <select name="show-titles">
-                    <option value="show1">Show 1</option>
-                    <option value="show2">Show 2</option>
-                    <option value="show3">Show 3</option>
-                    <option value="show4">Show 4</option>
-                </select>
-                 add label w/visually hidden or aria attribute to inputs and selects
-                req.fields['show-date']
-                <label for="show-date" class="visually-hidden">Show Date</label>
-                <input type="text" class="form-control" name="showDate" placeholder="Show Date" id="show-date"> -->
+                <label for="show-title">Show Title</label>
+                <select name="show" id="show-title">
+                <% for(var i=0; i<shows.length; i++) { %>
+                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                <% } %>
+                </select> 
+                <label for="datepicker" class="visually-hidden">Show Date</label>
+                <input type="text" class="form-control" name="showDate" placeholder="Show Date" id="datepicker">
                 <label for="show-city" class="visually-hidden">Show Location</label>
                 <input type="text" class="form-control" name="showCity" placeholder="Show Location" id="show-city">
- <!--                <input type="text" class="form-control" name="show-genres" placeholder="Show Genres"> -->
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre">
+                <% for(var i=0; i<genres.length; i++) { %>
+                    <option value="<%=genres[i]._id%>"><%=genres[i].title%></option>
+                <% } %>
+                </select> 
                 <label for="review-content" class="visually-hidden">Review Content</label>
                 <input type="text" class="form-control" name="reviewContent" placeholder="Review" id="review-content">
             </div>
 
-  <!--           <div class="form-group">
+            <div class="form-group">
                 <div class="review-rating">
-                <h3 class="form header">Review</h3>
-                <div>*Review Stars Go Here*</div>
+                <h3 class="form header">Review Rating</h3>
+                    <div class="rating-image">
+                         <label for="star-one" class="visually-hidden">Rating of 1</label>
+                        <input class="star-rating" type="radio" name="rating" value="1" id="star-one"><i class="star-rating-icon" aria-hidden="true"></i>
+                        <label for="star-two" class="visually-hidden">Rating of 2</label>
+                        <input class="star-rating" type="radio" name="rating" value="2" id="star-two"><i class="star-rating-icon" aria-hidden="true"></i>
+                        <label for="star-three" class="visually-hidden">Rating of 3</label>
+                        <input class="star-rating" type="radio" name="rating" value="3" id="star-three"><i class="star-rating-icon" aria-hidden="true"></i>
+                        <label for="star-four" class="visually-hidden">Rating of 4</label>
+                        <input class="star-rating" type="radio" name="rating" value="4" id="star-four"><i class="star-rating-icon" aria-hidden="true"></i>
+                        <label for="star-five" class="visually-hidden">Rating of 5</label>
+                        <input class="star-rating" type="radio" name="rating" value="5" id="star-five"><i class="star-rating-icon" aria-hidden="true"></i> 
+                    </div>
                 </div>
-            </div> -->
-            
-  <!--           <div class="form-group">
+            </div> 
+
+            <div class="form-group">
                 <div class="privacy-toggle">
                 <h3 class="form header">Privacy</h3>
-                <label class="privacy-button">
-                    <input type="checkbox" id="privacy-toggle">
+                <label class="privacy-button" for="privacy-toggle">
+                    <input type="checkbox" id="privacy-toggle" name="public" value="true">
                     <div class="slider"></div>
                 </label>
-                <label for="privacy-toggle" name="privacy-toggle">Private</label>
+                <label for="privacy-toggle" name="public">Public</label>
                 </div>
-            </div> -->
+            </div>
 
             <button class="review-submit" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
         </form>
-
-        
-        
         </section>  
+
     </main>
 
     <%- include('footer', {}); %>
+    <%- include('scripts', {}); %>
 
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
 </body>
 </html>
