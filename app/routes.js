@@ -27,12 +27,19 @@ module.exports = function(app, passport) {
     });
 
     app.get('/review', function(req, res) {
+        //$limit: 5, $sort: {date:-1}
     Review.find({}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
         } else {
             // res.send(reviews);
-            res.render('reviews.ejs', {reviews: reviews, title: 'Testing'});
+            Genre.find({}, function(genreErr, genres){
+                if(genreErr){
+                    res.status(500).send(genreErr);
+                } else {
+                    res.render('reviews.ejs', {reviews: reviews, genres: genres});        
+                }
+            })
             
         }
         });
@@ -85,7 +92,7 @@ module.exports = function(app, passport) {
     app.post('/shows', function(req, res) {
     var show = new Show(req.body);
     show.save(function (err, newShow) {
-        res.status(201).res.send(newShow);
+        res.status(201).send(newShow);
         });
     });
 
@@ -119,7 +126,7 @@ module.exports = function(app, passport) {
     app.post('/badge', function(req, res) {
     var badge = new Badge(req.body);
     Badge.save(function (err, newBadge) {
-        res.status(201).res.send(newBadge);
+        res.status(201).send(newBadge);
         });
     });
 
@@ -139,6 +146,23 @@ module.exports = function(app, passport) {
         }
        });
     });   
+
+    app.get('/genres', function(req, res) {
+    Genre.find({}, function(err, genres) {
+        if(err) {
+            res.status(500).send(err);
+        } else {   
+       res.send(genres);
+        }
+       });
+    }); 
+
+    app.post('/genres', function(req, res) {
+    var genre = new Genre(req.body);
+    genre.save(function (err, newGenre) {
+        res.status(201).send(newGenre);
+        });
+    });
 
     app.get('/feature/:id', function(req, res) {
     Feature.findById({_id: req.params.id}, function(err, features) {
@@ -211,11 +235,31 @@ module.exports = function(app, passport) {
 
     // WRITE REVIEWS, FEATURES, CREATE LISTS =========================
 
+    // app.get('/write-review'/*, isLoggedIn*/, function(req, res) {
+    //     res.render('write-review.ejs', {
+    //         //user : req.user - append user id onto route or hide user id in form
+    //     });
+    // });
+
+
     app.get('/write-review'/*, isLoggedIn*/, function(req, res) {
-        res.render('write-review.ejs', {
-            //user : req.user
+    Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            Genre.find({}, function(genreErr, genres){
+                if(genreErr){
+                    res.status(500).send(genreErr);
+                } else {
+                    res.render('write-review.ejs', {shows: shows, genres: genres});        
+                }
+            })
+            
+        }
         });
     });
+
+
 
     app.get('/write-feature'/*, isLoggedIn*/, function(req, res) {
         res.render('write-feature.ejs', {
