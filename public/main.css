@@ -43,7 +43,7 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
       display: inline-block; } }
 
 .search-bar {
-  height: 30px;
+  height: 40px;
   width: 100%;
   border: 2px solid #2A3641;
   padding: .5em 0;
@@ -74,7 +74,14 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 footer {
   width: 100%;
   text-align: center;
-  padding: 1em; }
+  padding: 1em;
+  background: #2A3641;
+  color: white;
+  font-weight: 300; }
+  footer .fa {
+    color: white;
+    margin: 0 0 .5em 0;
+    padding: .2em .5em; }
 
 .home-page .home-image, .home-page .section-image {
   width: 100%; }
