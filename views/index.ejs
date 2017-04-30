@@ -18,7 +18,7 @@
             <div class="section-block">
                 <h2 class="section-title">Reviews</h2>
                 <p class="section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows. </p>
-                <button class="section-button">View Reviews</button>
+                <a href="/reviews"><button class="section-button">View Reviews</button></a>
             </div>
         </section>
 
@@ -27,7 +27,7 @@
             <div class="section-block">
                 <h2 class="section-title">Features</h2>
                 <p class="section-content">Recap the past year of shows you have reviewed or highlight your favorite genres with a Feature.</p>
-                <button class="section-button">View Features</button>
+                <a href="/features"><button class="section-button">View Features</button></a>
             </div>
         </section>
 
@@ -36,18 +36,12 @@
             <div class="section-block">
                 <h2 class="section-title">Badges</h2>
                 <p class="section-content">Collect badges as you write reviews, see shows and meet your favorite actors. </p>
-                <button class="section-button">View Badges</button>
+                <a href="/badges"><button class="section-button">View Badges</button></a>
             </div>
         </section>
     </main>
 
     <%- include('footer', {}); %>
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-  <script src="app.js" type="text/javascript"></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>
