@@ -1,3 +1,7 @@
 $(function() {
-$( "#datepicker" ).datepicker();
+
+	if($(".datepicker").length){
+		$( ".datepicker" ).datepicker();
+	}
+	
 });
