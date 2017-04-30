@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/review', function(req, res) {
+    app.get('/reviews', function(req, res) {
         //$limit: 5, $sort: {date:-1}
     Review.find({}, function(err, reviews) {
         if(err) {
@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
     });
 
 
-    app.get('/review/:id', function(req, res) {
+    app.get('/reviews/:id', function(req, res) {
     Review.findById({_id: req.params.id}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
@@ -56,14 +56,14 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.post('/review', function(req, res) {
+    app.post('/reviews', function(req, res) {
     var review = new Review(req.body);
     review.save(function (err, newReview) {
         res.status(201).send(newReview);
         });
     });
 
-    app.delete('/review/:id', function(req, res) {
+    app.delete('/reviews/:id', function(req, res) {
     Review.remove({_id: req.params.id}, function(err, reviews) {
         res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
         });
