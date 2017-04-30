@@ -9,7 +9,7 @@
             <h1 class="header-title">Review Editor</h1>
         </section>
         
-        <form action="/review" method="post">
+        <form action="/reviews" method="post">
             <div class="form-group">
                 <label for="review-title" class="visually-hidden">Review Title</label>
                 <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">
@@ -20,15 +20,7 @@
                 <% } %>
                 </select> 
                 <label for="datepicker" class="visually-hidden">Show Date</label>
-                <input type="text" class="form-control" name="showDate" placeholder="Show Date" id="datepicker">
-                <label for="show-city" class="visually-hidden">Show Location</label>
-                <input type="text" class="form-control" name="showCity" placeholder="Show Location" id="show-city">
-                <label for="genre">Genre</label>
-                <select name="genre" id="genre">
-                <% for(var i=0; i<genres.length; i++) { %>
-                    <option value="<%=genres[i]._id%>"><%=genres[i].title%></option>
-                <% } %>
-                </select> 
+                <input type="text" class="form-control datepicker" name="showDate" placeholder="Show Date">
                 <label for="review-content" class="visually-hidden">Review Content</label>
                 <input type="text" class="form-control" name="reviewContent" placeholder="Review" id="review-content">
             </div>
