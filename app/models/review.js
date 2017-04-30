@@ -7,10 +7,7 @@ var reviewSchema = mongoose.Schema({
         reviewTitle   : String,
         reviewContent : String,
         show          : String,
-        showCity      : String,
         showDate      : Date,
-        genre         : String,
-        theater       : String,
         rating        : Number,
         public        : String
 });
