@@ -9,7 +9,7 @@
             <h1 class="header-title">Feature Editor</h1>
         </section>
         
-        <form action="#" method="post">
+        <form action="/feature" method="post">
             
             <div class="form-group">
                 <input type="text" class="form-control" name="feature-title" placeholder="Feature Title">
@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" name="review" placeholder="Feature Text">
             </div>
 
-               <select name="reviews" id="reviews" multiple>
+               <select name="reviews" id="reviews" class="review-select" multiple>
                 <% for(var i=0; i<reviews.length; i++) { %>
                     <option value="<%=reviews[i]._id%>"><%=reviews[i].reviewTitle%></option>
                 <% } %>
