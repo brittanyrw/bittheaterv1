@@ -28,6 +28,7 @@ module.exports = function(app, passport) {
 
     app.get('/reviews', function(req, res) {
         //$limit: 5, $sort: {date:-1}
+        var showsObj = {};
     Review.find({}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
@@ -37,7 +38,16 @@ module.exports = function(app, passport) {
                 if(genreErr){
                     res.status(500).send(genreErr);
                 } else {
-                    res.render('reviews.ejs', {reviews: reviews, genres: genres});        
+                    Show.find({},function(showE,shows){
+                        if(showE){
+                            res.status(500).send(showE);
+                        } else {
+                            for (var i = 0; i < shows.length; i++) {
+                                showsObj[shows[i]._id] = shows[i].showTitle;
+                            }
+                            res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj});        
+                        }
+                    });
                 }
             })
             
@@ -221,9 +231,9 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/dashboard', isLoggedIn, function(req, res) {
+    app.get('/dashboard', /*isLoggedIn,*/ function(req, res) {
         res.render('dashboard.ejs', {
-            user : req.user
+            // user : req.user
         });
     });
 
