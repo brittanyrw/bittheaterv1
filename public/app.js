@@ -5,3 +5,5 @@ $(function() {
 	}
 	
 });
+
+//validation for forms - alerts
