@@ -5,32 +5,30 @@
 <%- include('nav-loggedout', {}); %>
     
     <main class="login-page">
-        <h1 class="header-title">Log In</h1>
-        <% if (message.length > 0) { %>
-            <div class="alert alert-danger"><%= message %></div>
-        <% } %>
+        <section class="section">
+            <h1 class="section-title">Log In</h1>
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
 
-        <!-- LOGIN FORM -->
-        <form action="/login" method="post">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" required>
-                // add email input type to forms
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
-            </div>
-            <button type="submit" class="login">Login</button>
-        </form>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="hello@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="*********" id="password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
 
-        <p>Need an account? <a href="/signup">Sign Up</a></p>
-
+            <p class="form-link">Need an account? <a href="/signup">Sign Up</a></p>
+        </section>
     </main>
 
     <%- include('footer', {}); %>
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>
 

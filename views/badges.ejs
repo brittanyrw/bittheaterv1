@@ -4,17 +4,14 @@
     <%- include('nav-loggedout', {}); %>
     
     <main class="badges-page">
-        <section class="badges-page-header">
-            <h1 class="header-title">Badges</h1>
-            <p class="header-caption">Show Lists help you keep an organized list of each theater show you have seen. </p>
-            <a href="/signup"><button class="signup">Sign Up</button></a>
+        <section class="section">
+            <h1 class="section-title">Badges</h1>
+            <p class="section-content">Show Lists help you keep an organized list of each theater show you have seen. </p>
+            <a href="/signup"><button class="signup-button">Sign Up</button></a>
         </section>
         
-        <section class="badge-section">
-            <div class="badge-section-header">
-                <h1 class="badge-section-title">Shows</h1>
-                <a href="#">View all<span class="visually-hidden">View all show badges</span></a>
-            </div>
+        <section class="section">
+            <h1 class="section-title">Shows</h1>
             <div class="badges-display">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
@@ -23,33 +20,31 @@
             </div>
         </section>
 
-        <section class="badge-section">
-            <div class="badge-section-header">
-                <h1 class="badge-section-title">Genres</h1>
-                <a href="#">View all<span class="visually-hidden">View all genre badges</span></a>
-            </div>
+       <section class="section">
+            <h1 class="section-title">Genres</h1>
             <div class="badges-display">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
                 <img src="http://placehold.it/150x150" alt="" class="badge-image">
             </div>
-        </section>    
+        </section> 
 
-        <section class="badge-suggestion">
-            <h1>Suggest a Badge</h1>
-            <p>Have an idea for a badge or badge series? Enter a comment below!</p>
+        <section class="section badge-suggestion">
+            <h1 class="section-title">Suggest a Badge</h1>
+            <p class="section-content">Have an idea for a badge or badge series? Enter a comment below!</p>
             <form>
-                <input type="text" name="badge-name" placeholder="Badge Name" class="badge-name-suggestion">
-                <input type="text" name="badge-text-suggestion" placeholder="Badge suggestion here" class="badge-text-suggestion">
-                <button class="badge-suggest-submit">Submit<span class="visually-hidden">Submit badge suggestion</span></button>
+                <label for="badge-name"><span class="visually-hidden">Enter a name for your suggested badge</span></label>
+                <input type="text" name="badge-name" placeholder="Badge name" class="badge-name-suggestion" id="badge-name">
+                <lable for="badge-suggestion"><span class="visually-hidden">Enter a description of your suggested badge</span></lable>
+                <input type="text" name="badge-text-suggestion" placeholder="Badge suggestion here" class="badge-text-suggestion" id="badge-suggestion">
+                <button class="submit-button">Submit<span class="visually-hidden">Submit badge suggestion</span></button>
             </form>
         </section>    
         
     </main>
 
     <%- include('footer', {}); %>
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>

@@ -5,22 +5,23 @@
 <%- include('nav-loggedout', {}); %>
     
     <main class="showlists-page">
-        <section class="showlists-page-header">
-            <h1 class="header-title">Show Lists</h1>
-            <p class="header-caption">Show Lists help you keep an organized list of each theater show you have seen. </p>
-            <a href="/signup"><button class="signup"></button></a>
+        <section class="section">
+            <h1 class="section-title">Show Lists</h1>
+            <p class="section-content">Show Lists help you keep an organized list of each theater show you have seen. </p>
+            <a href="/signup"><button class="signup-button">Sign Up</button></a>
         </section>
         
-        <section class="showlist-section">
-            <h1 class="showlist-section-title">Most Popular</h1>
-            <a href="#">View all<span class="visually-hidden">View the most popular show-lists</span></a>
+        <section class="section">
+            <h1 class="section-title">Most Popular</h1>
             
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
-                    <h2>My Show List</h2>
+                    <h2 class="showlist-title">My Show List</h2>
                     <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
                 </div>
-                <p>List of my favorite shows since 2012</p>
+
+                <p class="showlist-content">List of my favorite shows since 2012</p>
+
                 <div class="showlist-stats">
                     <p class="showlist-username">SuperReviewer123</p>
                     <p class="showlist-show-count">Total Shows: 125</p>
@@ -29,10 +30,10 @@
             
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
-                    <h2>Ultimate 2017 Broadway Wishlist</h2>
+                    <h2 class="showlist-title">Ultimate 2017 Broadway Wishlist</h2>
                     <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
                 </div>
-                <p>List of must-see Broadway shows</p>
+                <p class="showlist-content">List of must-see Broadway shows</p>
                 <div class="showlist-stats">
                     <p class="showlist-username">OtherReviewer</p>
                     <p class="showlist-show-count">Total Shows: 10</p>
@@ -40,16 +41,15 @@
             </div>                 
         </section>
 
-         <section class="showlist-section">
-            <h1 class="showlist-section-title">Wish Lists</h1>
-            <a href="#">View all<span class="visually-hidden">View all wish lists</span></a>
+         <section class="section">
+            <h1 class="section-title">Wish Lists</h1>
             
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
-                    <h2>Comedic Plays Wishlist</h2>
+                    <h2 class="showlist-title">Comedic Plays Wishlist</h2>
                     <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
                 </div>
-                <p>List of upcoming comedy plays</p>
+                <p class="showlist-content">List of upcoming comedy plays</p>
                 <div class="showlist-stats">
                     <p class="showlist-username">ReviewerPerson</p>
                     <p class="showlist-show-count">Total Shows: 15</p>
@@ -58,10 +58,10 @@
             
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
-                    <h2>Experimental Plays Wishlist</h2>
+                    <h2 class="showlist-title">Experimental Plays Wishlist</h2>
                     <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
                 </div>
-                <p>List of upcoming experimental shows</p>
+                <p class="showlist-content">List of upcoming experimental shows</p>
                 <div class="showlist-stats">
                     <p class="showlist-username">CriticPerson</p>
                     <p class="showlist-show-count">Total Shows: 5</p>
@@ -69,16 +69,14 @@
             </div>                 
         </section>
 
-        <section class="showlist-section">
-            <h1 class="showlist-section-title">Travel Lists</h1>
-            <a href="#">View all<span class="visually-hidden">View all of the travel show lists</span></a>
-            
+        <section class="section">
+            <h1 class="section-title">Travel Lists</h1>
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
-                    <h2>NYC April List</h2>
+                    <h2 class="showlist-title">NYC April List</h2>
                     <button class="showlist-trip-button">Trip<span class="visually-hidden">Trip Show List Label</span></button>
                 </div>
-                <p>List of shows for April trip.</p>
+                <p class="showlist-content">List of shows for April trip.</p>
                 <div class="showlist-stats">
                     <p class="showlist-username">MusicalGeek</p>
                     <p class="showlist-show-count">Total Shows: 6</p>
@@ -89,7 +87,6 @@
     </main>
 
     <%- include('footer', {}); %>
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>

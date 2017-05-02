@@ -4,120 +4,26 @@
     <%- include('nav-loggedout', {}); %>
     
     <main class="review-page">
-        <section class="review-page-header">
-            <h1 class="header-title">Reviews</h1>
-            <p class="header-caption">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows.</p>
-            <a href="/signup"><button class="signup"></button></a>
+        <section class="section">
+            <h1 class="section-title">Reviews</h1>
+            <p class="section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows.</p>
+            <a href="/signup"><button class="signup-button">Sign Up</button></a>
         </section>
-
-         <ul>
-
-            <% for(var i=0; i<reviews.length; i++) { %>
-                
-                <li><%=reviews[i].show%></li>
-                <li><%=reviews[i].reviewTitle%></li>
-                <li><%=reviews[i].reviewContent%></li>
-                <li><%=reviews[i].rating%></li>
-            <% } %>
-
-        </ul>  
-
-                 <ul>
-
-            <% for(var i=0; i<genres.length; i++) { %>
-                
-                <li><%=genres[i].title%></li>
-            <% } %>
-
-        </ul>  
         
-             <section class="review-section">
-            <h1 class="review-section-title">Recent</h1>
-            <a href="#">View all<span class="visually-hidden">View all recent reviews</span></a>
-            
-<!--             <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div class="review-stars">                                                     
-                </div>  
-                </div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div> 
- 
-            <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>
-
-            <div class="review">
-                <h2 class="review-summary-show-name">Book of Mormon</h2>
-                <h3 class="review-summary-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>  -->                  
-        </section> 
-
-        <section class="review-section">
-            <h1 class="review-section-title">Broadway Shows</h1>
-            <a href="#">View all<span class="visually-hidden">View all broadway show reviews</span></a>
-            
-            <div class="review">
-                <h2 class="review-summary-show-name">Hamilton</h2>
-                <h3 class="review-summary-title">The cast is amazing.</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">Hamilton lives up to the hype! The cast was energetic and lively. The dancing was amazing. We had an amazing time. I highly recommend this show!</p>
-            </div>
-
-            <div class="review">
-                <h2 class="review-summary-show-name">Hamilton</h2>
-                <h3 class="review-summary-title">The cast is amazing.</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">Hamilton lives up to the hype! The cast was energetic and lively. The dancing was amazing. We had an amazing time. I highly recommend this show!</p>
-            </div>
-
-            <div class="review">
-                <h2 class="review-summary-show-name">Hamilton</h2>
-                <h3 class="review-summary-title">The cast is amazing.</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">Hamilton lives up to the hype! The cast was energetic and lively. The dancing was amazing. We had an amazing time. I highly recommend this show!</p>
-            </div>               
+        <section class="section">
+            <h2 class="section-title">Recent</h2>
+            <% for(var i=0; i<reviews.length; i++) { %>
+                <div class="section-block">
+                    <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
+                    <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
+                    <h3 class="review-title"><%=reviews[i].reviewTitle%></h3>
+                    <p class="review-content"><%=reviews[i].reviewContent%></p>
+                </div> 
+            <% } %> 
         </section>
-
-        <section class="review-section">
-            <h1 class="review-section-title">Off-Broadway Shows</h1>
-            <a href="#">View all<span class="visually-hidden">View all off-broadway show reviews</span></a>
-            
-            <div class="review">
-                <h2 class="review-summary-show-name">Avenue Q</h2>
-                <h3 class="review-summary-title">Puppets and comedy!</h3>
-                <div>**Ratings will go here**</div>
-                <p class="review-text">Avenue Q is one of the best comedy shows playing right now. The show is funny, heartwarming and fun. </p>
-            </div>              
-        </section>
-
-<!--                             <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>   
-                    <svg aria-hidden="true" class="icon icon-star-o">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="imgs/icons.svg#icon-star-o"></use>
-                    </svg>  
- -->
-
     </main>
 
     <%- include('footer', {}); %>
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>

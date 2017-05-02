@@ -5,26 +5,26 @@
 <%- include('nav-loggedout', {}); %>
     
     <main class="signup-page">        
-        <section class="signup-form">
-        <h1 class="signup-page-title">Sign Up</h1>
-        <% if (message.length > 0) { %>
-            <div class="alert alert-danger"><%= message %></div>
-        <% } %>
+        <section class="section">
+            <h1 class="section-title">Sign Up</h1>
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
 
-    <form action="/signup" method="post">
-        <div class="form-section">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" name="email" id="email">
-        </div>
-        <div class="form-section">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
-        </div>
+            <form action="/signup" method="post">
+                <div class="form-section">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="hello@email.com" required>
+                </div>
+                <div class="form-section">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="*********"required>
+                </div>
 
-        <button class="signup-submit" type="submit">Sign Up<span class="visually-hidden">Sign Up for an account</span></button>
-    </form>
+                <button class="signup-submit signup-button" type="submit">Sign Up<span class="visually-hidden">Sign Up for an account</span></button>
+            </form>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
+            <p class="form-link">Already have an account? <a href="/login">Login</a></p>
         </section> 
         
     </main>
