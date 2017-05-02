@@ -6,17 +6,16 @@ var reviewSchema = mongoose.Schema({
         published     : {type: Date, default: Date.now},
         reviewTitle   : String,
         reviewContent : String,
-        show          : String,
+        showId        : String,
         showDate      : Date,
         rating        : Number,
+        ratingImg     : String,
         public        : String
 });
 
-// schema.pre('save', function(next) {
-//     //round the rating down or up to either 4.0 or 4.5
-//   this.ratingImage = 'imgs/'+this.rating+'.png';
-
-//   next();
-// });
+reviewSchema.pre('save', function(next) {
+  this.ratingImg = 'imgs/'+this.rating+'.png';
+  next();
+});
 
 module.exports = mongoose.model('Review', reviewSchema);
