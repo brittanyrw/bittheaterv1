@@ -3,37 +3,40 @@
 $yellow: #FFAD0D;
 $blue: #2A3641;
 $gray: #717171;
+$lightgray: #E5E5E5;
 
 * {
     box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    @media only screen and (min-width: 641px) {
-        background: #ccc;
-    }
+    line-height: 1.4;
+    height: 100%;
 }
 
-main {
-    @media only screen and (min-width: 641px) {
-        padding: 1.5em;
-        width: 80%;
-        background: white;
-        margin: 0 auto;
-    }
+.section-title {
+  color: $blue;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: .5em;
 }
 
-button {
-  border: none;
+.section {
+  padding: 1em 1.5em 1.5em 1.5em;
 }
 
-nav {
-    padding: 1.5em 1em;
-    @media only screen and (min-width: 641px) {
-        @extend main;
-    }
+.section-image {
+  width: 100%;
+}
+
+.section-block {
+  padding: 1em;
 }
 
 .visually-hidden { /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
@@ -48,50 +51,246 @@ nav {
 } 
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button { display: none !important; }
 
-// NAVIGATION
+//ICONS 
 
-.logo {
-    width: 12em;
-    @media only screen and (min-width: 641px) {
-        display: inline-block;
+.fa {
+  color: white;
+  margin: 0 0 .5em 0;
+  padding: .2em .5em;
+}
+
+//BUTTONS
+
+button {
+  width: 100%;
+  padding: 1em;
+  text-align: center; 
+  font-size: 1em;
+  margin-top: 1em; 
+  font-weight: bold;   
+  cursor: pointer;
+}
+
+.signup-button, .login-button, .submit-button, .profile-button, .dashboard-button {
+  background: $yellow;
+  color: white; 
+  border: 2px solid white; 
+  &:hover {
+    background: darken($yellow, 5%);
+  }         
+}
+
+.section-button {
+    background: white;
+    color: $blue;
+    border: 2px solid $blue;
+      &:hover {
+        background: $blue;
+        color: white;
+      }    
+}  
+
+.showlist-main-button, .showlist-trip-button, .showlist-wish-button, .edit {
+  width: 75px;
+  font-weight: normal;
+  margin: .5em;
+  padding: .6em;
+  cursor: none;
+}
+
+.showlist-main-button, .showlist-trip-button, .showlist-wish-button {
+  position: absolute;
+  right: 30px;
+}
+
+.showlist-main-button, .showlist-wish-button {
+  color: white;
+  border: none;
+}
+
+.showlist-main-button {
+  background: $yellow;
+}
+
+.showlist-trip-button .edit {
+  background: white;
+  color: $blue;
+  border: 2px solid $blue;
+}
+
+.showlist-wish-button {
+  background: $blue;
+}
+
+//FORMS
+
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  font-size: 1em;
+  cursor: pointer;
+  border: 2px solid $blue;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  &::placeholder {
+    padding: .5em;
+    font-size: 1em;
+  }
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+select {
+  appearance:button;
+  -moz-appearance:button; 
+  -webkit-appearance:button;
+  display: block;
+  border-radius: 0;
+  background: white;
+  color: $gray;
+}
+
+input:focus::-webkit-input-placeholder, input:focus:-moz-placeholder, input:focus::-moz-placeholder, input:focus:-ms-input-placeholder, textarea:focus::-webkit-input-placeholder {
+    color:transparent;
+}
+
+input, select {
+    height: 45px;
+    width: 100%;
+    padding: .5em 1em;
+    margin: 1em 0;
+    font-size: 1em;
+    cursor: pointer;
+    border: 2px solid $blue;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    &::placeholder {
+        padding: 0;
+        font-size: 1em;
     }
 }
 
-.search-bar {
-    height: 40px;
+input:focus, select:focus, textarea:focus {
+    border: 2px solid $yellow;
+}
+
+.review-content-box {
+  height: 200px;
+}
+
+.privacy-button {
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  height: 2.2em;
+}
+
+.privacy-button input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid $blue;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 3em;
+  left: .2em;
+  bottom: .2em;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid $blue;
+}
+
+input:checked + .slider {
+  background-color: $yellow;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $yellow;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(3.3em);
+  -ms-transform: translateX(3.3em);
+  transform: translateX(3.3em);
+}
+
+.slider {
+  border-radius: 2em;
+}
+
+.slider:before {
+  border-radius: 2em;
+}
+
+.form-control {
     width: 100%;
-    border: 2px solid $blue;
-    padding: .5em 0;
-    margin-top: 2em;
-    &::placeholder {
-        padding: .5em;
-        font-size: 1.5em;
+}
+
+.form-link {
+  text-align: center;
+  margin: 1em 0 0 0;
+  a {
+    color: $blue;
+    &:hover {
+      color: $yellow;
     }
+  }
+}
+
+.form-content, .form-title {
+  text-align: center;
+}
+
+
+
+//NAVIGATION
+
+nav {
+  padding: 2em 1.4em 0 1.4em;
+}
+
+.logo {
+    width: 100%;
 }
 
 .navigation-links {
     padding-top: 1em;
     text-align: center;
-    @media only screen and (min-width: 641px) {
-        display: inline-block;
-        float: right;
-    }
     li {
         display: inline-block;  
-        height: 2em;
-        padding: .5em .4em;
+        padding: .2em;
         a {
             text-decoration: none;
+            color: $blue;
         }   
+        span {
+          background: $blue;
+          color: white;
+          padding: .5em;
+          display: inline-block;
+        }
     }
 }
 
-.login, .logout {
-    background: $blue;
-    a {
-        color: white; 
-    }          
-}  
 
 //FOOTER
 
@@ -102,78 +301,26 @@ footer {
     background: $blue;
     color: white;
     font-weight: 300;
-    .fa {
-      color: white;
-      margin: 0 0 .5em 0;
-      padding: .2em .5em;
-    }
+    // position: absolute;
+    // bottom: 0;
 }
 
-//HOMEPAGE
+//REVIEWS
 
-.home-page {
-    .home-image, .section-image {
-        width: 100%;
-    }
-      .header-image {
-        .section-block {
-            margin: 2em;
-            width: 80%; 
-            .signup {
-              width: 100%;
-              padding: 1em;
-              text-align: center;
-              background: $yellow;
-              color: white;
-              font-weight: bold;
-              font-size: 1em;
-              margin-top: 1em;              
-            }
-        }
-      }
-
-    .section {
-        .section-block {
-            margin: 2em;
-            width: 80%;   
-        }
-        .section-title {
-            color: $blue;
-            font-weight: bold;
-            font-size: 2em;
-            margin-bottom: .5em;
-        }
-        .section-content {
-            line-height: 1.4;
-        }
-        .section-button {
-            width: 100%;
-            padding: 1em;
-            text-align: center;
-            background: white;
-            color: $blue;
-            border: 2px solid $blue;
-            font-weight: bold;
-            font-size: 1em;
-            margin-top: 1em;  
-        }  
-        @media only screen and (min-width: 641px) {
-            .section {
-                margin-bottom: 14em;
-            }
-            img {
-            width: 45%;
-            display: inline-block;
-            }
-            .section-block {
-            width: 45%;
-            display: inline-block;
-            }
-        }
-    }
+.show-title {
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-bottom: .5em;
 }
 
-// REVIEW PAGE
+.review-image {
+  width: 150px;
+}
+
+.review-title {
+  font-style: italic;
+  margin: .5em 0;
+}
 
 .rating-image{
   font-size:0;
@@ -228,85 +375,66 @@ footer {
   }
 }
 
-///////
+//SHOW LISTS
 
-
-.badge-text-suggestion, .badge-name-suggestion, .form-control {
-	border: 1px solid black;
+.showlist-summary, .showlist-stats {
+    padding: .5em;
 }
+
+.showlist-summary {
+  border: 1px solid $blue;
+  margin: 1em 0;
+}
+
+.showlist-title {
+  float: left;
+  width: 70%;
+  font-weight: bold;
+  padding: 1em .5em 0 .5em;
+}
+
+.showlist-content {
+  clear: both;
+  padding: 1.5em .5em 0 .5em;
+}
+
+.showlist-username, .showlist-show-count {
+  display: inline-block;
+}
+
+.showlist-show-count {
+  position: absolute;
+  right: 35px;
+}
+
+.showlist-username {
+  font-style: italic;
+  cursor: pointer;
+  &:hover {
+    color: $yellow;
+  }
+}
+
+//FEATURES
+
+.feature-summary {
+  padding: 1em;
+  margin: 1em 0;
+  height: 100px;
+  background: $lightgray;
+  
+}
+
+.feature-title {
+  font-weight: bold;
+  padding: 0 0 .5em 0;
+
+}
+
+//BADGES
 
 .badge-image {
-	border-radius: 50%;
-}
-
-.icon {
-    fill: $blue;
-}
-
-.icon-star-o {
-    fill: $blue;
-}
-
-//PRIVATE vs PUBLIC SLIDER BUTTON FOR FORMS
-
-.privacy-button {
-  position: relative;
-  display: inline-block;
-  width: 7em;
-  height: 2.2em;
-}
-
-.privacy-button input {display:none;}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border: 1px solid $blue;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.5em;
-  width: 3em;
-  left: .2em;
-  bottom: .2em;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border: 1px solid $blue;
-}
-
-input:checked + .slider {
-  background-color: $yellow;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px $yellow;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(3.3em);
-  -ms-transform: translateX(3.3em);
-  transform: translateX(3.3em);
-}
-
-
-.slider {
-  border-radius: 2em;
-}
-
-.slider:before {
-  border-radius: 2em;
-}
-
-.form-control {
-    width: 100%;
+  border-radius: 50%;
+  width: 45%;
+  margin: .4em;
 }
