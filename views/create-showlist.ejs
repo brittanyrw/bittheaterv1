@@ -5,9 +5,8 @@
 <%- include('nav-loggedin', {}); %>
     
     <main class="create-show-list-page">
-        <section class="create-show-list-page-header">
-            <h1 class="header-title">Show List Editor</h1>
-        </section>
+        <section class="section">
+            <h1 class="section-title">Show List Editor</h1>
         
         <form action="/showlist" method="post">
             
@@ -17,18 +16,20 @@
 
             </div>
             
-            <div class="form-group">
-            <label for="main-list">Main</label>
+            <div class="list-type-radio-buttons">
+            <label for="main-list" class="radio">Main</label>
             <input type="radio" name="showListType" id="main-list" value="main" checked>
             
-            <label for="wish-list">Wish</label>
+            <label for="wish-list" class="radio">Wish</label>
             <input type="radio" name="showListType" id="wish-list" value="wish">
             
-            <label for="trip-list">Trip</label>
+            <label for="trip-list" class="radio">Trip</label>
             <input type="radio" name="showListType" value="trip" id="trip-list">   
             </div>
                 <div class="show-item">
+                    <h3 class="form-label">Select a Show</h3>
                     <select name="show" id="show-title">
+                    <option value="">Select a Show...</option>
                     <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                     <% } %>
@@ -36,13 +37,15 @@
                     <label for="datepicker" class="visually-hidden">Show Date</label>
                     <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
                     <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
+                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
 
                     </select> 
                 </div>
 
                 <div class="show-item">
+                    <h3 class="form-label">Select a Show</h3>
                     <select name="show" id="show-title">
+                    <option value="">Select a Show...</option>
                     <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                     <% } %>
@@ -50,12 +53,14 @@
                     <label for="datepicker" class="visually-hidden">Show Date</label>
                     <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
                     <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
+                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
 
                 </div>
 
                 <div class="show-item">
+                    <h3 class="form-label">Select a Show</h3>
                     <select name="show" id="show-title">
+                    <option value="">Select a Show...</option>
                     <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                     <% } %>
@@ -63,7 +68,7 @@
                     <label for="datepicker" class="visually-hidden">Show Date</label>
                     <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
                     <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <input type="text" class="form-control" name="showNotes" placeholder="Notes">
+                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
 
                 </div>                                
 
@@ -81,11 +86,8 @@
                 </div>
             </div>
 
-            <button class="review-submit" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
+            <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
         </form>
-
-        
-        
         </section>  
     </main>
 

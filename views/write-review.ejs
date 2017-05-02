@@ -5,16 +5,16 @@
 <%- include('nav-loggedin', {}); %>
     
     <main class="write-review-page">
-        <section class="write-reviews-page-header">
-            <h1 class="header-title">Review Editor</h1>
-        </section>
+        <section class="section">
+            <h1 class="section-title">Review Editor</h1>
         
         <form action="/reviews" method="post">
             <div class="form-group">
                 <label for="review-title" class="visually-hidden">Review Title</label>
                 <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">
-                <label for="show-title">Show Title</label>
-                <select name="show" id="show-title">
+                <label for="show-title" class="form-label visually-hidden">Show Title</label>
+                <select name="showId" id="show-title">
+                    <option value="">Select a Show...</option>
                 <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                 <% } %>
@@ -22,12 +22,12 @@
                 <label for="datepicker" class="visually-hidden">Show Date</label>
                 <input type="text" class="form-control datepicker" name="showDate" placeholder="Show Date">
                 <label for="review-content" class="visually-hidden">Review Content</label>
-                <input type="text" class="form-control" name="reviewContent" placeholder="Review" id="review-content">
+                <textarea type="text" class="review-content-box" name="reviewContent" placeholder="Review" id="review-content"></textarea>
             </div>
 
             <div class="form-group">
                 <div class="review-rating">
-                <h3 class="form header">Review Rating</h3>
+                <h3 class="form-label">Review Rating</h3>
                     <div class="rating-image">
                          <label for="star-one" class="visually-hidden">Rating of 1</label>
                         <input class="star-rating" type="radio" name="rating" value="1" id="star-one"><i class="star-rating-icon" aria-hidden="true"></i>
@@ -45,7 +45,8 @@
 
             <div class="form-group">
                 <div class="privacy-toggle">
-                <h3 class="form header">Privacy</h3>
+                <h3 class="form-label">Privacy</h3>
+                <p>Please indicate if you would like this review to be public or private.</p>
                 <label class="privacy-button" for="privacy-toggle">
                     <input type="checkbox" id="privacy-toggle" name="public" value="true">
                     <div class="slider"></div>
@@ -54,9 +55,9 @@
                 </div>
             </div>
 
-            <button class="review-submit" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
-        </form>
-        </section>  
+            <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
+        </form> 
+        </section>
 
     </main>
 
