@@ -1,14 +1,11 @@
 <%- include('head', {}); %>
 
-<body>
-
-<%- include('nav-loggedin', {}); %>
-    
     <main class="write-review-page">
         <section class="section">
             <h1 class="section-title">Review Editor</h1>
         
         <form action="/reviews" method="post">
+            <input id="userId" name="userId" type="hidden" value="<%=user._id%>">
             <div class="form-group">
                 <label for="review-title" class="visually-hidden">Review Title</label>
                 <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">

@@ -18,6 +18,18 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
     height: 100%;
+    @media only screen and (min-width: 641px) {
+        background: $lightgray;
+    }
+}
+
+main, nav {
+    @media only screen and (min-width: 641px) {
+        background: white;
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 2em;
+    }
 }
 
 .section-title {
@@ -29,14 +41,30 @@ body {
 
 .section {
   padding: 1em 1.5em 1.5em 1.5em;
+  margin: 1em auto;
+  clear: both;
+  overflow: auto;
+  max-width: 950px;
 }
 
 .section-image {
   width: 100%;
+  margin: 0 1em 0 0;
+}
+
+.section-block, .header-section-block {
+  padding: 1em;
 }
 
 .section-block {
-  padding: 1em;
+  margin: .2em;
+}
+
+.section-image, .section-block {
+  @media only screen and (min-width: 1023px) {
+    width: 48%;
+    display: inline-block;
+  }
 }
 
 .visually-hidden { /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/
@@ -74,7 +102,7 @@ button {
 .signup-button, .login-button, .submit-button, .profile-button, .dashboard-button {
   background: $yellow;
   color: white; 
-  border: 2px solid white; 
+  border: 2px solid white;
   &:hover {
     background: darken($yellow, 5%);
   }         
@@ -90,7 +118,7 @@ button {
       }    
 }  
 
-.showlist-main-button, .showlist-trip-button, .showlist-wish-button, .edit {
+.showlist-main-button, .showlist-trip-button, .showlist-wish-button{
   width: 75px;
   font-weight: normal;
   margin: .5em;
@@ -100,7 +128,7 @@ button {
 
 .showlist-main-button, .showlist-trip-button, .showlist-wish-button {
   position: absolute;
-  right: 30px;
+  right: 10px;
 }
 
 .showlist-main-button, .showlist-wish-button {
@@ -112,7 +140,7 @@ button {
   background: $yellow;
 }
 
-.showlist-trip-button .edit {
+.showlist-trip-button {
   background: white;
   color: $blue;
   border: 2px solid $blue;
@@ -153,10 +181,6 @@ select {
   border-radius: 0;
   background: white;
   color: $gray;
-}
-
-input:focus::-webkit-input-placeholder, input:focus:-moz-placeholder, input:focus::-moz-placeholder, input:focus:-ms-input-placeholder, textarea:focus::-webkit-input-placeholder {
-    color:transparent;
 }
 
 input, select {
@@ -266,6 +290,9 @@ input:checked + .slider:before {
 
 nav {
   padding: 2em 1.4em 0 1.4em;
+  @media only screen and (min-width: 641px) {
+    padding: 3em 3em 0 3em;
+  }
 }
 
 .logo {
@@ -277,20 +304,27 @@ nav {
     text-align: center;
     li {
         display: inline-block;  
-        padding: .2em;
+        @media only screen and (min-width: 641px) {
+        }
         a {
             text-decoration: none;
             color: $blue;
         }   
-        span {
+        .nav-dashboard, .nav-profile {
           background: $blue;
           color: white;
           padding: .5em;
           display: inline-block;
+          width: 159px;
+        }
+        .login {
+          background: $blue;
+          color: white;
+          padding: .3em .5em; 
+          display: inline-block;
         }
     }
 }
-
 
 //FOOTER
 
@@ -301,11 +335,111 @@ footer {
     background: $blue;
     color: white;
     font-weight: 300;
-    // position: absolute;
-    // bottom: 0;
 }
 
+//HOME PAGAE
+
+.home-badges-section, .home-list-section {
+  @media only screen and (min-width: 1023px) {
+    img {
+      float: right;
+    }
+  }
+}
+
+.header-image-section{ 
+    @media only screen and (min-width: 1023px) {
+    position: relative;
+    padding: 1em;
+  }
+}
+
+.header-section-content {
+    padding: 1em;
+  @media only screen and (min-width: 1023px) {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    font-size: 2em;
+    padding: 2em 1.5em;
+    font-weight: 300;
+  }
+}
+
+.header-image {
+  width: 100%;
+}
+
+//DASHBOARD 
+
+.review-alert, .feature-alert {
+  width: 100%;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  position: relative;
+}
+
+.review-alert {
+  background: $blue;
+  color: white;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: $yellow;
+  }
+}
+
+.feature-alert {
+  background: $yellow;
+  color: $blue;
+  a {
+    color: $blue;
+ }
+   a:hover {
+    color: white;
+  }
+}
+
+.alert-title, .close-alert {
+   display: inline-block;
+   font-weight: bold;
+  font-size: 1.2em;
+}
+
+.alert-header {
+  padding: 0 0 1em 0;
+}
+
+.close-alert {
+  position: absolute;
+  right: 25px;
+}
+
+.review-summary-header {
+  position: relative;
+  .fa-pencil {
+    float: right;
+    position: absolute;
+    right: 0;
+  }
+}
+
+  .dashboard.review-title {
+    clear: both;
+  }
+
+  .review {
+    margin: 1.5em 0;
+  }
+
+
 //REVIEWS
+
+i.fa-pencil {
+  color: $blue;
+  font-size: 1.4em;
+}
 
 .show-title {
     font-weight: 400;
@@ -384,6 +518,7 @@ footer {
 .showlist-summary {
   border: 1px solid $blue;
   margin: 1em 0;
+  position: relative;
 }
 
 .showlist-title {
@@ -422,6 +557,7 @@ footer {
   margin: 1em 0;
   height: 100px;
   background: $lightgray;
+  position: relative;
   
 }
 

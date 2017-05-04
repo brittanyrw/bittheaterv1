@@ -1,17 +1,15 @@
 <%- include('head', {}); %>
-
-<body>
-
-<%- include('nav-loggedin', {}); %>
     
     <main class="dashboard-page">
+
+    <!-- edit button, move feature title to next line-->
         
         <section class="section">
             <h1 class="section-title">Dashboard</h1>
             <a href="#">Edit Profile</a>
             <section class="alert-section">
                 
-                <div class="alert">
+                <div class="review-alert">
                     <div class="alert-header">
                         <h2 class="alert-title">Review Alert</h2>
                         <div class="close-alert">X</div>
@@ -19,7 +17,7 @@
                     <p class="alert-text">You saw Hamilton on 1/7/2017.  <a href="#">Click here<span class="visually-hidden">Click here to write a review for Hamilton</span></a> to write a review.</p>
                 </div>
 
-                <div class="alert">
+                <div class="feature-alert">
                     <div class="alert-header">
                         <h2 class="alert-title">Feature Alert</h2>
                         <div class="close-alert">X</div>
@@ -32,22 +30,21 @@
         
         <section class="section">
                 <h1 class="section-title">Reviews (43)</h1>
-                <a href="#">View all<span class="visually-hidden">View all reviews</span></a>
             <div class="review">
                 <div class="review-summary-header">
                     <h2 class="show-title">Book of Mormon</h2>
-                    <button class="edit">Edit<span class="visually-hidden">Edit this review</span></button>
                 </div>
-                <h3 class="review-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
+                <h3 class="dashboard review-title">Super Funny and Fun Show!</h3>
+                <img src="imgs/5.png" class="review-image">
                 <p class="review-content">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
             </div>
 
             <div class="review">
-                    <h2 class="show-title">Book of Mormon</h2>
-                    <button class="edit">Edit<span class="visually-hidden">Edit this review</span></button>
-                <h3 class="review-title">Super Funny and Fun Show!</h3>
-                <div>**Ratings will go here**</div>
+                <div class="review-summary-header">
+                    <h2 class="show-title">Natasha, Pierre & the Great Comet of 1812</h2>
+                </div>
+                <h3 class="dashboard review-title">Super Funny and Fun Show!</h3>
+                <img src="imgs/5.png" class="review-image">
                 <p class="review-content">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
             </div>
 
@@ -55,49 +52,46 @@
 
         <section class="section">
             <h1 class="section-title">Show Lists (4)</h1>
-            <a href="#">View all<span class="visually-hidden">View all show lists</span></a>
+            
+            <div class="showlist-summary">
+                <div class="showlist-summary-header">
+                    <h2 class="showlist-title">My Show List</h2> 
+                    <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
+                </div>
+
+                <p class="showlist-content">List of my favorite shows since 2012</p>
+
+                <div class="showlist-stats">
+                    <p class="showlist-username">SuperReviewer123</p>
+                    <p class="showlist-show-count">Total Shows: 125</p>                 
+                </div>
+            </div>
 
             <div class="showlist-summary">
                 <div class="showlist-summary-header">
                     <h2 class="showlist-title">My Show List</h2>
                     <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
-                    <button class="edit">Edit<span class="visually-hidden">Edit this show list</span></button>
                 </div>
-                <p>List of my favorite shows since 2012</p>
+
+                <p class="showlist-content">List of my favorite shows since 2012</p>
+
                 <div class="showlist-stats">
                     <p class="showlist-username">SuperReviewer123</p>
                     <p class="showlist-show-count">Total Shows: 125</p>
                 </div>
             </div>
 
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">Ultimate 2017 Broadway Wishlist</h2>
-                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
-                    <button class="edit">Edit<span class="visually-hidden">Edit this show list</span></button>
-                </div>
-                <p>List of must-see Broadway shows</p>
-                <div class="showlist-stats">
-                    <p class="showlist-username">OtherReviewer</p>
-                    <p class="showlist-show-count">Total Shows: 10</p>
-                </div>
-            </div>   
-
         </section>
 
         <section class="section">
             <h1 class="section-title">Features (3)</h1>
-            <a href="#">View all<span class="visually-hidden">View all features</span></a>
-
             <div class="feature-summary">
                 <h2 class="feature-title">2016 Recap: A Year of Muiscals</h2>
-                <button class="edit">Edit<span class="visually-hidden">Edit this feature</span></button>
                 <p class="feature-date">1/1/2017</p>
             </div>
 
             <div class="feature-summary">
-                <h2 class="feature-title">Best Comedy Shows of 2016</h2>
-                <button class="edit">Edit<span class="visually-hidden">Edit this feature</span></button>                
+                <h2 class="feature-title">Best Comedy Shows of 2016</h2>               
                 <p class="feature-date">12/20/2016</p>
             </div>
 
@@ -117,8 +111,6 @@
     </main>
 
     <%- include('footer', {}); %>
-
-
-    <script src="https://use.fontawesome.com/e656f4498e.js" defer></script>
+    <%- include('scripts', {}); %>
 </body>
 </html>

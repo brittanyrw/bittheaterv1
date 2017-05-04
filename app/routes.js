@@ -26,37 +26,18 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/reviews', function(req, res) {
-        //$limit: 5, $sort: {date:-1}
-        var showsObj = {};
+    app.get('/review', function(req, res) {
     Review.find({}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
-        } else {
-            // res.send(reviews);
-            Genre.find({}, function(genreErr, genres){
-                if(genreErr){
-                    res.status(500).send(genreErr);
-                } else {
-                    Show.find({},function(showE,shows){
-                        if(showE){
-                            res.status(500).send(showE);
-                        } else {
-                            for (var i = 0; i < shows.length; i++) {
-                                showsObj[shows[i]._id] = shows[i].showTitle;
-                            }
-                            res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj});        
-                        }
-                    });
-                }
-            })
-            
+        } else {   
+       res.send(reviews);
         }
-        });
-    });
+       });
+    });   
 
 
-    app.get('/reviews/:id', function(req, res) {
+    app.get('/review/:id', function(req, res) {
     Review.findById({_id: req.params.id}, function(err, reviews) {
         if(err) {
             res.status(500).send(err);
@@ -66,14 +47,14 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.post('/reviews', function(req, res) {
+    app.post('/review', function(req, res) {
     var review = new Review(req.body);
     review.save(function (err, newReview) {
         res.status(201).send(newReview);
         });
     });
 
-    app.delete('/reviews/:id', function(req, res) {
+    app.delete('/review/:id', function(req, res) {
     Review.remove({_id: req.params.id}, function(err, reviews) {
         res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
         });
@@ -204,28 +185,57 @@ module.exports = function(app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('index.ejs', {user: req.user});
     });
 
-    //show main homepages (for users that are not logged in)
+    //show main homepages 
     app.get('/reviews', function(req, res) {
-        res.render('reviews.ejs');
+        //$limit: 5, $sort: {date:-1}
+        var showsObj = {};
+        Review.find({}, function(err, reviews) {
+            if(err) {
+                res.status(500).send(err);
+            } else {
+                // res.send(reviews);
+                Genre.find({}, function(genreErr, genres){
+                    if(genreErr){
+                        res.status(500).send(genreErr);
+                    } else {
+                        User.find({},function(userErr, users){
+                            if(userErr){
+                                res.status(500).send(userErr);
+                            } else {
+                                Show.find({},function(showE,shows){
+                                    if(showE){
+                                        res.status(500).send(showE);
+                                    } else {
+                                        for (var i = 0; i < shows.length; i++) {
+                                            showsObj[shows[i]._id] = shows[i].showTitle;
+                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, users: users, user: req.user});        
+                                        }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
     });
 
     app.get('/features', function(req, res) {
-        res.render('features.ejs');
+        res.render('features.ejs', {user: req.user});
     });
 
     app.get('/badges', function(req, res) {
-        res.render('badges.ejs');
+        res.render('badges.ejs', {user: req.user});
     });
 
     app.get('/showlists', function(req, res) {
-        res.render('showlists.ejs');
+        res.render('showlists.ejs', {user: req.user});
     });
 
     // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
+    app.get('/profile', /*isLoggedIn,*/ function(req, res) {
         res.render('profile.ejs', {
             user : req.user
         });
@@ -233,7 +243,7 @@ module.exports = function(app, passport) {
 
     app.get('/dashboard', /*isLoggedIn,*/ function(req, res) {
         res.render('dashboard.ejs', {
-            // user : req.user
+            user : req.user
         });
     });
 
@@ -252,7 +262,7 @@ module.exports = function(app, passport) {
     // });
 
 
-    app.get('/write-review'/*, isLoggedIn*/, function(req, res) {
+    app.get('/write-review', isLoggedIn, function(req, res) {
     Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
         if(err) {
             res.status(500).send(err);
@@ -261,7 +271,8 @@ module.exports = function(app, passport) {
                 if(genreErr){
                     res.status(500).send(genreErr);
                 } else {
-                    res.render('write-review.ejs', {shows: shows, genres: genres});        
+                    res.render('write-review.ejs', {shows: shows, genres: genres, user: req.user}); 
+                    console.log(req.user);       
                 }
             })
             
@@ -280,9 +291,6 @@ module.exports = function(app, passport) {
             //user : req.user
         }
     })    
-        // res.render('write-feature.ejs', {
-        //     //user : req.user
-        // });
     });
 
     app.get('/create-showlist'/*, isLoggedIn*/, function(req, res) {
@@ -318,12 +326,12 @@ module.exports = function(app, passport) {
         // LOGIN ===============================
         // show the login form
         app.get('/login', function(req, res) {
-            res.render('login.ejs', { message: req.flash('loginMessage') });
+            res.render('login.ejs', { message: req.flash('loginMessage'), user: req.user });
         });
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/dashboard', // redirect to the user's dashboard
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -331,11 +339,11 @@ module.exports = function(app, passport) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
-            res.render('signup.ejs', { message: req.flash('signupMessage') });
+            res.render('signup.ejs', { message: req.flash('signupMessage'), user: req.user  });
         });
 
         app.get('/signup-complete', function(req, res) {
-            res.render('signup-complete.ejs', { message: req.flash('signupMessage') });
+            res.render('signup-complete.ejs', { message: req.flash('signupMessage'), user: req.user  });
         });
 
         // process the signup form

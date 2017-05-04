@@ -1,20 +1,18 @@
 <%- include('head', {}); %>
 
-<body>
-
-<%- include('nav-loggedout', {}); %>
-    
     <main class="home-page">
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="header illustration of theater" class="section-image">
-            <section class="section-block">
-                <p class="section-content">BitTheater is your ultimate theater show resource. Track your shows, share reviews and collect badges.</p>
+        <section class="header-section">
+            <div class="header-image-section">
+                <img src="http://placehold.it/900x450/2A3641" alt="header illustration of theater" class="header-image">
+                <p class="header-section-content">BitTheater is your ultimate theater show resource. Track your shows, share reviews and collect badges.</p>
+            </div>
+            <section class="header-section-block">
                 <a href="/signup"><button class="signup-button">Sign Up</button></a>
             </section>
         </section>
         
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of reviews" class="section-image">
+        <section class="section home-reviews-section">
+            <img src="http://placehold.it/900x550" alt="illustration of reviews" class="section-image" align="left">
             <div class="section-block">
                 <h2 class="section-title">Reviews</h2>
                 <p class="section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows. </p>
@@ -22,8 +20,17 @@
             </div>
         </section>
 
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of features" class="section-image">
+        <section class="section home-list-section">
+            <img src="http://placehold.it/900x550" alt="illustration of show lists" class="section-image">
+            <div class="section-block">
+                <h2 class="section-title">Show Lists</h2>
+                <p class="section-content">Show Lists help you keep an organized list of each theater show you have seen. </p>
+                <a href="/badges"><button class="section-button">View Show Lists</button></a>
+            </div>
+        </section>        
+
+        <section class="section home-features-section">
+            <img src="http://placehold.it/900x550" alt="illustration of features" class="section-image" align="left">
             <div class="section-block">
                 <h2 class="section-title">Features</h2>
                 <p class="section-content">Recap the past year of shows you have reviewed or highlight your favorite genres with a Feature.</p>
@@ -31,8 +38,8 @@
             </div>
         </section>
 
-        <section class="section">
-            <img src="http://placehold.it/900x450" alt="illustration of badges" class="section-image">
+        <section class="section home-badges-section">
+            <img src="http://placehold.it/900x550" alt="illustration of badges" class="section-image">
             <div class="section-block">
                 <h2 class="section-title">Badges</h2>
                 <p class="section-content">Collect badges as you write reviews, see shows and meet your favorite actors. </p>
