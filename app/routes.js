@@ -54,7 +54,7 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.delete('/review/:id', function(req, res) {
+    app.delete('/reviews/:id', function(req, res) {
     Review.remove({_id: req.params.id}, function(err, reviews) {
         res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
         });
@@ -235,7 +235,7 @@ module.exports = function(app, passport) {
     });
 
     // PROFILE SECTION =========================
-    app.get('/profile', /*isLoggedIn,*/ function(req, res) {
+    app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {
             user : req.user
         });
@@ -278,19 +278,6 @@ module.exports = function(app, passport) {
             
         }
         });
-    });
-
-
-
-    app.get('/write-feature'/*, isLoggedIn*/, function(req, res) {
-    Review.find({},null,{sort: {published:1}}, function(err, reviews) {
-        if(err){
-            res.status(500).send(err);
-        } else {
-            res.render('write-feature.ejs', {reviews: reviews});
-            //user : req.user
-        }
-    })    
     });
 
     app.get('/create-showlist'/*, isLoggedIn*/, function(req, res) {
@@ -458,5 +445,5 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.redirect('/');
+    res.redirect('/login');
 }
