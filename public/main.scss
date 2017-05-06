@@ -81,10 +81,29 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 //ICONS 
 
-.fa {
-  color: white;
-  margin: 0 0 .5em 0;
-  padding: .2em .5em;
+footer {
+  .fa {
+    color: white;
+  }
+}
+
+
+.fa-user-circle-o, .fa-bars {
+  color: $blue;
+}
+
+.fa-user-circle-o {
+  float: right;
+}
+
+.fa-bars {
+  float: left;
+}
+
+i.fa-bars {
+    @media only screen and (min-width: 769px) {
+        display: none;
+    }    
 }
 
 //BUTTONS
@@ -97,6 +116,7 @@ button {
   margin-top: 1em; 
   font-weight: bold;   
   cursor: pointer;
+  max-width: 400px;
 }
 
 .signup-button, .login-button, .submit-button, .profile-button, .dashboard-button {
@@ -284,31 +304,70 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+.login-form, .signup-form {
+  @media only screen and (min-width: 769px) {
+    width: 60%;
+    text-align: center;
+    .form-group {
+      text-align: left;
+    }
+  }
+}
 
+.signup-complete {
+  @media only screen and (min-width: 769px) {
+    width: 60%;
+    text-align: center;
+  }
+}
 
 //NAVIGATION
 
 nav {
   padding: 2em 1.4em 0 1.4em;
+  text-align: center;
   @media only screen and (min-width: 641px) {
     padding: 3em 3em 0 3em;
   }
 }
 
 .logo {
-    width: 100%;
+    width: 230px;
+        @media only screen and (min-width: 769px) {
+        float: left;
+    }    
+}
+
+.nav-header {
+  text-align: center;
 }
 
 .navigation-links {
     padding-top: 1em;
     text-align: center;
-    li {
-        display: inline-block;  
-        @media only screen and (min-width: 641px) {
+    display: none;
+      @media only screen and (min-width: 769px) {
+        display: inline-block;
+        float: right;
+        margin-right: 20px;
+        padding: 5px 0;
+      }    
+    li { 
+        @media only screen and (min-width: 769px) {
+        display: inline-block;
+          &:after {
+            content: ' | ';
+          }
+          &:last-child:after {
+            content: '';
+          }
         }
         a {
             text-decoration: none;
             color: $blue;
+          &:hover {
+            border-bottom: 5px solid $blue;
+          }
         }   
         .nav-dashboard, .nav-profile {
           background: $blue;
@@ -325,6 +384,12 @@ nav {
         }
     }
 }
+
+.search-bar {
+  width: 95%;
+}
+
+
 
 //FOOTER
 
@@ -347,27 +412,37 @@ footer {
   }
 }
 
-.header-image-section{ 
-    @media only screen and (min-width: 1023px) {
-    position: relative;
-    padding: 1em;
+.home-features-section, .home-reviews-section {
+  .section-image {
+    margin-bottom: 20px;
   }
+}
+
+.header-image-section{ 
+  text-align: center;
+  margin-top: 30px;
 }
 
 .header-section-content {
-    padding: 1em;
-  @media only screen and (min-width: 1023px) {
-    position: absolute;
-    bottom: 10px;
-    color: white;
-    font-size: 2em;
-    padding: 2em 1.5em;
-    font-weight: 300;
-  }
+    padding: 20px;
+    text-align: left;
 }
 
 .header-image {
+  border: 15px solid $blue;
   width: 100%;
+  max-width: 900px;
+}
+
+.header-section-block {
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+  @media only screen and (min-width: 769px) {
+      .signup-button {
+      width: 60%;
+    }
+  }
 }
 
 //DASHBOARD 
@@ -435,6 +510,15 @@ footer {
 
 
 //REVIEWS
+
+.review {
+  @media only screen and (min-width: 641px) {
+    display: inline-block;
+    margin: 10px 5px;
+    width: 48%;
+    vertical-align: top;
+  }
+}
 
 i.fa-pencil {
   color: $blue;
@@ -517,8 +601,15 @@ i.fa-pencil {
 
 .showlist-summary {
   border: 1px solid $blue;
-  margin: 1em 0;
+  margin: 10px 0;
   position: relative;
+  @media only screen and (min-width: 769px) {
+    display: inline-block;
+    margin: 10px 5px;
+    width: 48%;
+    min-height: 180px;
+    overflow: auto;
+  }
 }
 
 .showlist-title {
@@ -553,11 +644,16 @@ i.fa-pencil {
 //FEATURES
 
 .feature-summary {
-  padding: 1em;
-  margin: 1em 0;
+  padding: 10px;
+  margin: 10px 0;
   height: 100px;
   background: $lightgray;
   position: relative;
+  @media only screen and (min-width: 641px) {
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+  }
   
 }
 
@@ -573,4 +669,126 @@ i.fa-pencil {
   border-radius: 50%;
   width: 45%;
   margin: .4em;
+  height: 200px;
+  width: 200px;
+}
+
+.badge-suggestion {
+  text-align: center;
+  @media only screen and (min-width: 769px) {
+    input {
+      width: 60%;
+    }
+  }
+
+}
+
+//Home Animated SVG
+
+@mixin translateY($px) {
+   -ms-transform: translateY($px);
+  -webkit-transform: translateY($px); 
+   transform: translateY($px); 
+}
+
+@mixin translateX($px) {
+   -ms-transform: translateX($px);
+  -webkit-transform: translateX($px); 
+   transform: translateX($px); 
+}
+
+.curtains {
+  position: absolute;
+}
+
+#Dancers {
+  animation: dancers-appear 20s infinite;
+}
+
+#CinderellaDance {
+ animation: cinderella-appear 20s infinite; 
+}
+
+#RomeoAndJuliet {
+  animation: romeo-appear 20s infinite;
+}
+
+#LeftCurtainLargeGroup {
+  @include translateX(-270px);
+  // animation: curtain-open-left 5s infinite;
+} 
+
+#RightCurtainLargeGroup {
+  @include translateX(270px);
+  // animation: curtain-open-right 5s infinite;
+} 
+
+@keyframes dancers-appear {
+  0%,100% {
+  @include translateY(0px); 
+  } 
+   25% {
+  @include translateY(-900px);  
+  }  50% {
+  @include translateY(-450px); 
+  }
+}
+
+@keyframes romeo-appear {
+  0%,100% {
+  @include translateY(-450px); 
+  } 
+   25% {
+  @include translateY(0px);  
+  }  50% {
+  @include translateY(-900px); 
+  }
+}
+
+@keyframes cinderella-appear {
+  0%,100% {
+  @include translateY(-900px); 
+  } 
+   25% {
+  @include translateY(-450px);  
+  }  50% {
+  @include translateY(0px); 
+  }
+}
+
+@keyframes curtain-open-left {
+  0% {
+  @include translateX(0px); 
+  }
+  50% {
+  @include translateX(-270px);  
+  }
+   100% {
+   @include translateX(0px);
+  }
+}
+
+@keyframes curtain-open-right {
+  0% {
+  @include translateX(0px);
+  }
+  50% {
+   @include translateX(270px); 
+  }
+   100% {
+   @include translateX(0px); 
+  }
+}
+
+
+@keyframes curtain-open-right {
+  0% {
+  @include translateX(0px);
+  }
+  50% {
+  @include translateX(270px);  
+  }
+   100% {
+   @include translateX(0px);
+  }
 }
