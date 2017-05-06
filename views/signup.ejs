@@ -1,22 +1,18 @@
 <%- include('head', {}); %>
 
-<body>
-
-<%- include('nav-loggedout', {}); %>
-    
-    <main class="signup-page">        
-        <section class="section">
+<main class="signup-page">        
+        <section class="section signup-form">
             <h1 class="section-title">Sign Up</h1>
             <% if (message.length > 0) { %>
                 <div class="alert alert-danger"><%= message %></div>
             <% } %>
 
             <form action="/signup" method="post">
-                <div class="form-section">
+                <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" name="email" id="email" placeholder="hello@email.com" required>
                 </div>
-                <div class="form-section">
+                <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="*********"required>
                 </div>
