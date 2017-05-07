@@ -6,9 +6,8 @@
         
         <section class="section">
             <h1 class="section-title">Dashboard</h1>
-            <a href="#">Edit Profile</a>
+<!--             <a href="#">Edit Profile</a> -->
             <section class="alert-section">
-                
                 <div class="review-alert">
                     <div class="alert-header">
                         <h2 class="alert-title">Review Alert</h2>
@@ -27,26 +26,24 @@
 
             </section>
         </section>
-        
         <section class="section">
-                <h1 class="section-title">Reviews (43)</h1>
-            <div class="review">
-                <div class="review-summary-header">
-                    <h2 class="show-title">Book of Mormon</h2>
-                </div>
-                <h3 class="dashboard review-title">Super Funny and Fun Show!</h3>
-                <img src="imgs/5.png" class="review-image">
-                <p class="review-content">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>
-
-            <div class="review">
-                <div class="review-summary-header">
-                    <h2 class="show-title">Natasha, Pierre & the Great Comet of 1812</h2>
-                </div>
-                <h3 class="dashboard review-title">Super Funny and Fun Show!</h3>
-                <img src="imgs/5.png" class="review-image">
-                <p class="review-content">This show was incredibly funny. The music was catchy and the acting was suburb. Elder Cunningham was amazing. We couldn’t stop laughing!</p>
-            </div>
+         <h1 class="section-title">Add Content</h1>
+            <section class="write-buttons">
+                <a href="/write-review"><button class="section-button">Write Review</button></a>
+                <a href="/create-showlist"><button class="section-button">Create Show List</button></a>
+                <a href="/write-feature"><button class="section-button">Create Feature</button></a>
+            </section>
+        </section>
+        <section class="section">
+                <h1 class="section-title">Reviews (<%=reviews.length%>)</h1>
+            <% for(var i=0; i<reviews.length; i++) { %>
+                <div class="section-block">
+                    <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
+                    <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
+                    <h3 class="review-title"><%=reviews[i].reviewTitle%></h3>
+                    <p class="review-content"><%=reviews[i].reviewContent%></p>
+                </div> 
+            <% } %> 
 
         </section>
 
