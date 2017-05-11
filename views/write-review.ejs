@@ -1,25 +1,25 @@
 <%- include('head', {}); %>
 
     <main class="write-review-page">
-        <section class="section">
+        <section class="section review-form">
             <h1 class="section-title">Review Editor</h1>
         
-        <form action="/review" method="post">
+        <form name="reviewForm" action="/review" method="post" onsubmit="return validateReviewForm()">
             <input id="userId" name="userId" type="hidden" value="<%=user._id%>">
             <div class="form-group">
                 <label for="review-title" class="visually-hidden">Review Title</label>
-                <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title">
+                <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title" required>
                 <label for="show-title" class="form-label visually-hidden">Show Title</label>
-                <select name="showId" id="show-title">
+                <select name="showId" id="show-title" required>
                     <option value="">Select a Show...</option>
                 <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                 <% } %>
                 </select> 
                 <label for="datepicker" class="visually-hidden">Show Date</label>
-                <input type="text" class="form-control datepicker" name="showDate" placeholder="Show Date">
+                <input type="text" class="form-control datepicker" name="showDate" placeholder="Show Date" required>
                 <label for="review-content" class="visually-hidden">Review Content</label>
-                <textarea type="text" class="review-content-box" name="reviewContent" placeholder="Review" id="review-content"></textarea>
+                <textarea type="text" class="review-content-box" name="reviewContent" placeholder="Review" id="review-content" required></textarea>
             </div>
 
             <div class="form-group">
