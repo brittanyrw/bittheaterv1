@@ -1,205 +1,58 @@
-const User = require('./models/user');
+// route middleware to ensure user is logged in
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/login');
+}
+
 const Feature = require('./models/feature');
 const Genre = require('./models/genre');
 const Badge = require('./models/badges');
 const Review = require('./models/review');
 const Show = require('./models/show');
+const User = require('./models/user');
 const Showlist = require('./models/showlist');
 
+const userRoutes = require('./userRoutes.js');
+const showRoutes = require('./showRoutes.js');
+const reviewRoutes = require('./reviewRoutes.js');
+const showListsRoutes = require('./showListsRoutes.js');
+const badgeRoutes = require('./badgeRoutes.js');
+const genreRoutes = require('./genreRoutes.js');
+const featureRoutes = require('./featureRoutes.js');
 
 module.exports = function(app, passport) {
 
-    app.get('/users', function(req, res) {
-    User.find({}, function(err, users) {
-       if(err) res.send(err);
-       res.send(users);
-       });
-    });
+    userRoutes(app, passport);
+    showRoutes(app, passport);
+    reviewRoutes(app, passport);
+    showListsRoutes(app, passport);
+    badgeRoutes(app, passport);
+    genreRoutes(app, passport);
+    featureRoutes(app, passport);
 
-    app.get('/users/:id', function(req, res) {
-    User.findById({_id: req.params.id}, function(err, users) {
-        if(err) {
-            res.status(500).send(err);
-        } else {
-        res.send(users);
-        }
-        });
-    });
-
-    app.get('/review', function(req, res) {
-    Review.find({}, function(err, reviews) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-       res.send(reviews);
-        }
-       });
-    });   
-
-
-    app.get('/review/:id', function(req, res) {
-    Review.findById({_id: req.params.id}, function(err, reviews) {
-        if(err) {
-            res.status(500).send(err);
-        } else {        
-        res.send(reviews);
-        }
-        });
-    });
-
-    app.post('/review', function(req, res) {
-    var review = new Review(req.body);
-    review.save(function (err, newReview) {
-        res.status(201).send(newReview);
-        });
-    });
-
-    app.delete('/reviews/:id', function(req, res) {
-    Review.remove({_id: req.params.id}, function(err, reviews) {
-        res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
-        });
-    })
-
-    app.get('/shows', function(req, res) {
-    Show.find({}, function(err, shows) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-       res.send(shows);
-        }
-       });
-    });   
-
-    app.get('/shows/:id', function(req, res) {
-    Show.findById({_id: req.params.id}, function(err, shows) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-        res.send(shows);
-        }
-        });
-    });
-
-    app.post('/shows', function(req, res) {
-    var show = new Show(req.body);
-    show.save(function (err, newShow) {
-        res.status(201).send(newShow);
-        });
-    });
-
-    app.delete('/shows/:id', function(req, res) {
-    Show.remove({_id: req.params.id}, function(err, shows) {
-        console.log(req.body);
-        res.send({ message: `Successfully deleted \`${req.body.title}\``, shows});
-        });
-    })
-
-    app.get('/badge', function(req, res) {
-    Badge.find({}, function(err, badges) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-       res.send(badges);
-        }
-       });
-    });   
-
-    app.get('/badge/:id', function(req, res) {
-    Badge.findById({_id: req.params.id}, function(err, badges) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-        res.send(badges);
-        }
-        });
-    });
-
-    app.post('/badge', function(req, res) {
-    var badge = new Badge(req.body);
-    Badge.save(function (err, newBadge) {
-        res.status(201).send(newBadge);
-        });
-    });
-
-    app.delete('/badge/:id', function(req, res) {
-    Badge.remove({_id: req.params.id}, function(err, badges) {
-        console.log(req.body);
-        res.send({ message: `Successfully deleted \`${req.body.title}\``, badges});
-        });
-    })
-
-    app.get('/feature', function(req, res) {
-    Feature.find({}, function(err, features) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-       res.send(features);
-        }
-       });
-    });   
-
-    app.get('/genres', function(req, res) {
-    Genre.find({}, function(err, genres) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-       res.send(genres);
-        }
-       });
-    }); 
-
-    app.post('/genres', function(req, res) {
-    var genre = new Genre(req.body);
-    genre.save(function (err, newGenre) {
-        res.status(201).send(newGenre);
-        });
-    });
-
-    app.get('/feature/:id', function(req, res) {
-    Feature.findById({_id: req.params.id}, function(err, features) {
-        if(err) {
-            res.status(500).send(err);
-        } else {   
-        res.send(features);
-        }
-        });
-    });
-
-    app.post('/feature', function(req, res) {
-    var feature = new Feature(req.body);
-    Feature.save(function (err, newFeature) {
-        res.status(201).send(newFeature);
-        });
-    });
-
-    app.delete('/feature/:id', function(req, res) {
-    Feature.remove({_id: req.params.id}, function(err, features) {
-        console.log(req.body);
-        res.send({ message: `Successfully deleted \`${req.body.title}\``, features});
-        });
-    })
-
-    //put requests - findByIdAndUpdate
-
-// normal routes ===============================================================
-
-    // show the home page (will also have our login links)
     app.get('/', function(req, res) {
         res.render('index.ejs', {user: req.user});
     });
 
-    //show main homepages 
-    app.get('/reviews', function(req, res) {
-        //$limit: 5, $sort: {date:-1}
+
+    // PROFILE AND DASHBOARD SECTION =========================
+    app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('profile.ejs', {
+            user : req.user
+        });
+    });
+
+    app.get('/dashboard', isLoggedIn, function(req, res) {
         var showsObj = {};
-        Review.find({}, function(err, reviews) {
+        Review.find({"userId" : req.user.id}, function(err, reviews) {
             if(err) {
                 res.status(500).send(err);
             } else {
-                // res.send(reviews);
-                Genre.find({}, function(genreErr, genres){
-                    if(genreErr){
-                        res.status(500).send(genreErr);
+                Showlist.find({}, function(showlistErr, showlists){
+                    if(showlistErr){
+                        res.status(500).send(showlistErr);
                     } else {
                         User.find({},function(userErr, users){
                             if(userErr){
@@ -211,7 +64,7 @@ module.exports = function(app, passport) {
                                     } else {
                                         for (var i = 0; i < shows.length; i++) {
                                             showsObj[shows[i]._id] = shows[i].showTitle;
-                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, users: users, user: req.user});        
+                                        } res.render('dashboard.ejs', {reviews: reviews, showlists: showlists, shows: showsObj, user: req.user});        
                                         }
                                 });
                             }
@@ -222,87 +75,11 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/features', function(req, res) {
-        res.render('features.ejs', {user: req.user});
-    });
-
-    app.get('/badges', function(req, res) {
-        res.render('badges.ejs', {user: req.user});
-    });
-
-    app.get('/showlists', function(req, res) {
-        res.render('showlists.ejs', {user: req.user});
-    });
-
-    // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
-    });
-
-    app.get('/dashboard', /*isLoggedIn,*/ function(req, res) {
-        res.render('dashboard.ejs', {
-            user : req.user
-        });
-    });
-
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
-
-    // WRITE REVIEWS, FEATURES, CREATE LISTS =========================
-
-    // app.get('/write-review'/*, isLoggedIn*/, function(req, res) {
-    //     res.render('write-review.ejs', {
-    //         //user : req.user - append user id onto route or hide user id in form
-    //     });
-    // });
-
-
-    app.get('/write-review', isLoggedIn, function(req, res) {
-    Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
-        if(err) {
-            res.status(500).send(err);
-        } else {
-            Genre.find({}, function(genreErr, genres){
-                if(genreErr){
-                    res.status(500).send(genreErr);
-                } else {
-                    res.render('write-review.ejs', {shows: shows, genres: genres, user: req.user}); 
-                    console.log(req.user);       
-                }
-            })
-            
-        }
-        });
-    });
-
-    app.get('/create-showlist'/*, isLoggedIn*/, function(req, res) {
-    Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
-        if(err) {
-            res.status(500).send(err);
-        } else {
-            res.render('create-showlist.ejs', {shows: shows});
-        }
-        });
-    });    
-
-
-    app.get('/badge', function(req, res){
-        var query = Badge.find({title: req.user._id});
-            query.select('title');
-            query.exec(function(err, badges) {
-                if (err) throw err;
-
-            res.json(badges);
-        });
-    });
-
-
-
 
 
 // =============================================================================
@@ -439,11 +216,3 @@ module.exports = function(app, passport) {
         });
     });
 };
-
-// route middleware to ensure user is logged in
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-
-    res.redirect('/login');
-}
