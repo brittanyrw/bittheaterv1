@@ -1,88 +1,75 @@
 <%- include('head', {}); %>
 
  <main class="create-show-list-page">
-        <section class="section">
+        <section class="section showlist-form">
             <h1 class="section-title">Show List Editor</h1>
         
         <form action="/showlist" method="post">
             
             <div class="form-group">
+                <input id="userId" name="userId" type="hidden" value="<%=user._id%>">
                 <input type="text" class="form-control" name="showListTitle" placeholder="List Title">
                 <input type="text" class="form-control" name="showListDescription" placeholder="Show List Description">
 
             </div>
             
             <div class="list-type-radio-buttons">
-            <label for="main-list" class="radio">Main</label>
-            <input type="radio" name="showListType" id="main-list" value="main" checked>
+            <h3 class="form-label">List Type</h3>
+            <label for="main-list" class="radio showlist-radio first-radio">Main</label>
+            <input type="radio" name="showListType" id="main-list" value="main" class="showlist-radio" checked>
             
-            <label for="wish-list" class="radio">Wish</label>
-            <input type="radio" name="showListType" id="wish-list" value="wish">
+            <label for="wish-list" class="radio showlist-radio">Wish</label>
+            <input type="radio" name="showListType" id="wish-list" value="wish" class="showlist-radio">
             
-            <label for="trip-list" class="radio">Trip</label>
-            <input type="radio" name="showListType" value="trip" id="trip-list">   
+            <label for="trip-list" class="radio showlist-radio">Trip</label>
+            <input type="radio" name="showListType" value="trip" id="trip-list" class="showlist-radio">   
             </div>
-                <div class="show-item">
-                    <h3 class="form-label">Select a Show</h3>
-                    <select name="show" id="show-title">
-                    <option value="">Select a Show...</option>
-                    <% for(var i=0; i<shows.length; i++) { %>
-                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
-                    <% } %>
-                    </select> 
-                    <label for="datepicker" class="visually-hidden">Show Date</label>
-                    <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
-                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
+                <section class="show items show-form-section">
+                    <div class="show-item">
+                        <h3 class="form-label">Select a Show</h3>
+                        <select name="showID_0" id="show-title">
+                        <option value="">Select a Show...</option>
+                        <% for(var i=0; i<shows.length; i++) { %>
+                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                        <% } %>
+                        </select> 
+                        <label for="datepicker" class="visually-hidden">Show Date</label>
+                        <input type="text" class="form-control datepicker" name="showDate_0" placeholder="Show Date">
+                        <textarea type="text" class="form-control" name="showNotes_0" placeholder="Notes"></textarea>
 
-                    </select> 
+                    </div>     
+
+                    <div class="show-item">
+                        <h3 class="form-label">Select a Show</h3>
+                        <select name="showID_1" id="show-title">
+                        <option value="">Select a Show...</option>
+                        <% for(var i=0; i<shows.length; i++) { %>
+                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                        <% } %>
+                        </select> 
+                        <label for="datepicker" class="visually-hidden">Show Date</label>
+                        <input type="text" class="form-control datepicker" name="showDate_1" placeholder="Show Date">
+                        <textarea type="text" class="form-control" name="showNotes_1" placeholder="Notes"></textarea>
+
+                    </div>   
+                </section>  
+
+                    <div class="additional-shows">
+                    <button class="additional-shows-button" type="button">Add Shows</button>
+                    </div>
+
+                <div class="form-group">
+                    <div class="privacy-toggle">
+                    <h3 class="form header">Privacy</h3>
+                    <label class="privacy-button" for="privacy-toggle">
+                        <input type="checkbox" id="privacy-toggle" name="public" value="true">
+                        <div class="slider"></div>
+                    </label>
+                    <label for="privacy-toggle" name="public">Public</label>
+                    </div>
                 </div>
 
-                <div class="show-item">
-                    <h3 class="form-label">Select a Show</h3>
-                    <select name="show" id="show-title">
-                    <option value="">Select a Show...</option>
-                    <% for(var i=0; i<shows.length; i++) { %>
-                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
-                    <% } %>
-                    </select> 
-                    <label for="datepicker" class="visually-hidden">Show Date</label>
-                    <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
-                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
-
-                </div>
-
-                <div class="show-item">
-                    <h3 class="form-label">Select a Show</h3>
-                    <select name="show" id="show-title">
-                    <option value="">Select a Show...</option>
-                    <% for(var i=0; i<shows.length; i++) { %>
-                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
-                    <% } %>
-                    </select> 
-                    <label for="datepicker" class="visually-hidden">Show Date</label>
-                    <input type="text" class="form-control datepicker" name="showDates" placeholder="Show Date">
-                    <input type="text" class="form-control" name="showLocation" placeholder="Show Location">
-                    <textarea type="text" class="form-control" name="showNotes" placeholder="Notes"></textarea>
-
-                </div>                                
-
-                <button>Add more shows</button>
-
-            
-            <div class="form-group">
-                <div class="privacy-toggle">
-                <h3 class="form header">Privacy</h3>
-                <label class="privacy-button" for="privacy-toggle">
-                    <input type="checkbox" id="privacy-toggle" name="public" value="true">
-                    <div class="slider"></div>
-                </label>
-                <label for="privacy-toggle" name="public">Public</label>
-                </div>
-            </div>
-
-            <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
+                <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
         </form>
         </section>  
     </main>
