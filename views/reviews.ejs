@@ -1,15 +1,18 @@
 <%- include('head', {}); %>
     
     <main class="review-page">
+        <div class="header-image-section">
+            <img src="imgs/Reviews-Illustration.svg" class="reviews-illustration">
+        </div>
         <section class="section">
             <h1 class="section-title">Reviews</h1>
-            <p class="section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows.</p>
+            <p class="title-section-content">Just saw a hit or a flop? Write reviews for theater shows and find recommendations for future shows.</p>
             <a href="/signup"><button class="signup-button">Sign Up</button></a>
         </section>
         
         <section class="section">
             <h2 class="section-title">Recent</h2>
-            <% for(var i=0; i<reviews.length; i++) { %>
+            <% for(var i=0; i<5; i++) { %>
                 <div class="section-block">
                     <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
                     <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
@@ -18,6 +21,49 @@
                 </div> 
             <% } %> 
         </section>
+
+        <section class="section">
+            <h2 class="section-title">Broadway</h2>
+                <% for(var i=0; i<reviews.length; i++) { %>
+                    <% if (category[reviews[i].showId] == "Broadway") { %>
+                    <div class="section-block">
+                        <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
+                        <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
+                        <h3 class="review-title"><%=reviews[i].reviewTitle%></h3>
+                        <p class="review-content"><%=reviews[i].reviewContent%></p>
+                    </div> 
+                <% } %> 
+            <% } %>
+        </section>  
+
+        <section class="section">
+            <h2 class="section-title">Off-Broadway</h2>
+                <% for(var i=0; i<reviews.length; i++) { %>
+                    <% if (category[reviews[i].showId] == "Off-Broadway") { %>
+                    <div class="section-block">
+                        <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
+                        <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
+                        <h3 class="review-title"><%=reviews[i].reviewTitle%></h3>
+                        <p class="review-content"><%=reviews[i].reviewContent%></p>
+                    </div> 
+                <% } %> 
+            <% } %>
+        </section>  
+
+        <section class="section">
+            <h2 class="section-title">Washington, DC</h2>
+                <% for(var i=0; i<reviews.length; i++) { %>
+                    <% if (location[reviews[i].showId] == "Washington, DC") { %>
+                    <div class="section-block">
+                        <h2 class="show-title"><%=shows[reviews[i].showId]%></h2>
+                        <img src="<%=reviews[i].ratingImg%>" class="review-image" alt="<%=reviews[i].rating%> star review image">
+                        <h3 class="review-title"><%=reviews[i].reviewTitle%></h3>
+                        <p class="review-content"><%=reviews[i].reviewContent%></p>
+                    </div> 
+                <% } %> 
+            <% } %>
+        </section>  
+
     </main>
 
     <%- include('footer', {}); %>
