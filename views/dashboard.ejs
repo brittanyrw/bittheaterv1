@@ -1,8 +1,6 @@
 <%- include('head', {}); %>
     
     <main class="dashboard-page">
-
-    <!-- edit button, move feature title to next line-->
         
         <section class="section">
             <h1 class="section-title">Dashboard</h1>
@@ -16,14 +14,6 @@
                     <p class="alert-text">You saw Hamilton on 1/7/2017.  <a href="#">Click here<span class="visually-hidden">Click here to write a review for Hamilton</span></a> to write a review.</p>
                 </div>
 
-                <div class="feature-alert">
-                    <div class="alert-header">
-                        <h2 class="alert-title">Feature Alert</h2>
-                        <div class="close-alert">X</div>
-                    </div>
-                    <p class="alert-text">You saw 20 shows in 2016.  <a href="#">Click here<span class="visually-hidden">Click here to write a Recap Feature.</span></a> to write a Recap Feature.</p>
-                </div>
-
             </section>
         </section>
         <section class="section">
@@ -31,7 +21,7 @@
             <section class="write-buttons">
                 <a href="/write-review"><button class="section-button">Write Review</button></a>
                 <a href="/create-showlist"><button class="section-button">Create Show List</button></a>
-                <a href="/write-feature"><button class="section-button">Create Feature</button></a>
+<!--                 <a href="/write-feature"><button class="section-button">Create Feature</button></a> -->
             </section>
         </section>
         <section class="section">
@@ -48,49 +38,21 @@
         </section>
 
         <section class="section">
-            <h1 class="section-title">Show Lists (4)</h1>
-            
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">My Show List</h2> 
-                    <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
+            <h1 class="section-title">Show Lists (<%=showlists.length%>)</h1>
+            <% for(var i=0; i<showlists.length; i++) { %>
+                <div class="showlist-summary">
+                    <div class="showlist-summary-header">
+                        <h2 class="showlist-title"><%=showlists[i].showListTitle%></h2> 
+                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
+                    </div>
+
+                    <p class="showlist-content"><%=showlists[i].showListDescription%></p>
+
+                    <div class="showlist-stats">
+                        <p class="showlist-show-count">Total Shows: <%=showlists[i].shows.length%></p>                 
+                    </div>
                 </div>
-
-                <p class="showlist-content">List of my favorite shows since 2012</p>
-
-                <div class="showlist-stats">
-                    <p class="showlist-username">SuperReviewer123</p>
-                    <p class="showlist-show-count">Total Shows: 125</p>                 
-                </div>
-            </div>
-
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">My Show List</h2>
-                    <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
-                </div>
-
-                <p class="showlist-content">List of my favorite shows since 2012</p>
-
-                <div class="showlist-stats">
-                    <p class="showlist-username">SuperReviewer123</p>
-                    <p class="showlist-show-count">Total Shows: 125</p>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="section">
-            <h1 class="section-title">Features (3)</h1>
-            <div class="feature-summary">
-                <h2 class="feature-title">2016 Recap: A Year of Muiscals</h2>
-                <p class="feature-date">1/1/2017</p>
-            </div>
-
-            <div class="feature-summary">
-                <h2 class="feature-title">Best Comedy Shows of 2016</h2>               
-                <p class="feature-date">12/20/2016</p>
-            </div>
+            <% } %> 
 
         </section>
 
