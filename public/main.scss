@@ -19,7 +19,7 @@ body {
     line-height: 1.4;
     height: 100%;
     @media only screen and (min-width: 641px) {
-        background: $lightgray;
+        background: $blue;
     }
 }
 
@@ -28,15 +28,31 @@ main, nav {
         background: white;
         max-width: 80%;
         margin: 0 auto;
-        padding: 2em;
+        padding: 30px;
     }
 }
 
 .section-title {
   color: $blue;
   font-weight: bold;
-  font-size: 2em;
-  margin-bottom: .5em;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.header-section-content {
+  font-size: 25px;
+}
+
+.home-illustration {
+  @media only screen and (min-width: 641px) {
+    width: 80%;
+    border-left: 7px solid $blue;
+    border-right: 7px solid $blue;
+  }
+}
+
+.title-section-content {
+  font-size: 20px;
 }
 
 .section {
@@ -81,9 +97,13 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 
 //ICONS 
 
+.fa {
+  cursor: pointer;
+}
+
 footer {
   .fa {
-    color: white;
+    color: $blue;
   }
 }
 
@@ -101,7 +121,7 @@ footer {
 }
 
 i.fa-bars {
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 880px) {
         display: none;
     }    
 }
@@ -116,13 +136,15 @@ button {
   margin-top: 1em; 
   font-weight: bold;   
   cursor: pointer;
-  max-width: 400px;
+    @media only screen and (min-width: 1023px) {
+      max-width: 400px;
+    }
 }
 
 .signup-button, .login-button, .submit-button, .profile-button, .dashboard-button {
   background: $yellow;
   color: white; 
-  border: 2px solid white;
+  border: none;
   &:hover {
     background: darken($yellow, 5%);
   }         
@@ -228,6 +250,13 @@ input:focus, select:focus, textarea:focus {
   height: 200px;
 }
 
+.privacy-toggle {
+  margin: 20px 0;
+  p {
+    margin: 15px 0;
+  }
+}
+
 .privacy-button {
   position: relative;
   display: inline-block;
@@ -304,14 +333,32 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-.login-form, .signup-form {
+.form-submit {
+  text-align: center;
+}
+
+.login-form, .signup-form, .review-form, .feature-form, .showlist-form {
+  button {
+    width: 100%;
+  }
   @media only screen and (min-width: 769px) {
-    width: 60%;
     text-align: center;
     .form-group {
       text-align: left;
     }
   }
+}
+
+.login-form, .signup-form {
+  @media only screen and (min-width: 769px) {
+    width: 60%;
+  }
+}
+
+.review-form, .feature-form, .showlist-form {
+@media only screen and (min-width: 769px) {
+    width: 80%;
+  }  
 }
 
 .signup-complete {
@@ -321,6 +368,29 @@ input:checked + .slider:before {
   }
 }
 
+.showlist-form {
+  h3 {
+    text-align: left;
+  }
+}
+
+.list-type-radio-buttons {
+  text-align: left;
+  label {
+    margin: 0 20px;
+  }
+  .radio {
+    margin: 0 10px;
+  }
+}
+
+.showlist-radio {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  margin: 0;
+}
+
 //NAVIGATION
 
 nav {
@@ -328,12 +398,13 @@ nav {
   text-align: center;
   @media only screen and (min-width: 641px) {
     padding: 3em 3em 0 3em;
+    margin-bottom: -5px;
   }
 }
 
 .logo {
     width: 230px;
-        @media only screen and (min-width: 769px) {
+        @media only screen and (min-width: 880px) {
         float: left;
     }    
 }
@@ -346,14 +417,14 @@ nav {
     padding-top: 1em;
     text-align: center;
     display: none;
-      @media only screen and (min-width: 769px) {
+      @media only screen and (min-width: 880px) {
         display: inline-block;
         float: right;
         margin-right: 20px;
         padding: 5px 0;
       }    
     li { 
-        @media only screen and (min-width: 769px) {
+        @media only screen and (min-width: 880px) {
         display: inline-block;
           &:after {
             content: ' | ';
@@ -394,17 +465,26 @@ nav {
 //FOOTER
 
 footer {
-    width: 100%;
     text-align: center;
     padding: 1em;
-    background: $blue;
-    color: white;
+    background: $lightgray;
+    color: $blue;
     font-weight: 300;
+    margin: 0 auto;
+    @media only screen and (min-width: 767px) {
+      width: 80%;
+    }
 }
 
 //HOME PAGAE
 
-.home-badges-section, .home-list-section {
+.home-page {
+  @media only screen and (min-width: 641px) {
+        padding: 30px 0;
+    }
+}
+
+.home-list-section {
   @media only screen and (min-width: 1023px) {
     img {
       float: right;
@@ -412,7 +492,7 @@ footer {
   }
 }
 
-.home-features-section, .home-reviews-section {
+.home-badges-section, .home-reviews-section {
   .section-image {
     margin-bottom: 20px;
   }
@@ -508,8 +588,25 @@ footer {
     margin: 1.5em 0;
   }
 
+.write-buttons {
+  text-align: center;
+    button {
+      @media only screen and (min-width: 769px) {  
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+}
 
 //REVIEWS
+
+.reviews-illustration {
+  border-top: 2px solid $blue;
+  border-bottom: 2px solid $blue;
+  @media only screen and (min-width: 641px) {
+    border: 2px solid $blue;
+  }
+}
 
 .review {
   @media only screen and (min-width: 641px) {
@@ -594,6 +691,9 @@ i.fa-pencil {
 }
 
 //SHOW LISTS
+.lists-illustration {
+  border-bottom: 2px solid $blue;
+}
 
 .showlist-summary, .showlist-stats {
     padding: .5em;
@@ -665,12 +765,17 @@ i.fa-pencil {
 
 //BADGES
 
-.badge-image {
-  border-radius: 50%;
-  width: 45%;
-  margin: .4em;
-  height: 200px;
-  width: 200px;
+.badge-item {
+  text-align: center;
+  display: inline-block;
+  width: 80%;
+  margin: 20px 10px;
+  @media only screen and (min-width: 769px) { 
+    width: 45%;
+  }
+  @media only screen and (min-width: 1023px) {
+    width: 30%;
+  }
 }
 
 .badge-suggestion {
@@ -714,7 +819,7 @@ i.fa-pencil {
 }
 
 #LeftCurtainLargeGroup {
-  @include translateX(-270px);
+  @include translateX(-300px);
   // animation: curtain-open-left 5s infinite;
 } 
 
@@ -725,34 +830,34 @@ i.fa-pencil {
 
 @keyframes dancers-appear {
   0%,100% {
-  @include translateY(0px); 
+  @include translateX(0px); 
   } 
-   25% {
-  @include translateY(-900px);  
-  }  50% {
-  @include translateY(-450px); 
+   22% {
+  @include translateX(-600px);  
+  }  60% {
+  @include translateX(-900px); 
   }
 }
 
 @keyframes romeo-appear {
   0%,100% {
-  @include translateY(-450px); 
+  @include translateX(800px); 
   } 
-   25% {
-  @include translateY(0px);  
+   35% {
+  @include translateX(0px);  
   }  50% {
-  @include translateY(-900px); 
+  @include translateX(1000px); 
   }
 }
 
 @keyframes cinderella-appear {
   0%,100% {
-  @include translateY(-900px); 
+  @include translateX(-1000px); 
   } 
-   25% {
-  @include translateY(-450px);  
-  }  50% {
-  @include translateY(0px); 
+   35% {
+  @include translateX(-550px);  
+  }  60% {
+  @include translateX(0px); 
   }
 }
 
@@ -778,17 +883,4 @@ i.fa-pencil {
    100% {
    @include translateX(0px); 
   }
-}
-
-
-@keyframes curtain-open-right {
-  0% {
-  @include translateX(0px);
-  }
-  50% {
-  @include translateX(270px);  
-  }
-   100% {
-   @include translateX(0px);
-  }
-}
+} 
