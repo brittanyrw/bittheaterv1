@@ -56,8 +56,8 @@ main, nav {
 }
 
 .section {
-  padding: 1em 1.5em 1.5em 1.5em;
-  margin: 1em auto;
+  padding: 16px 24px 24px 24px;
+  margin: 16px auto;
   clear: both;
   overflow: auto;
   max-width: 950px;
@@ -65,15 +65,15 @@ main, nav {
 
 .section-image {
   width: 100%;
-  margin: 0 1em 0 0;
+  margin: 0 16px 0 0;
 }
 
 .section-block, .header-section-block {
-  padding: 1em;
+  padding: 16px;
 }
 
 .section-block {
-  margin: .2em;
+  margin: .32px;
 }
 
 .section-image, .section-block {
@@ -130,10 +130,10 @@ i.fa-bars {
 
 button {
   width: 100%;
-  padding: 1em;
+  padding: 16px;
   text-align: center; 
-  font-size: 1em;
-  margin-top: 1em; 
+  font-size: 16px;
+  margin-top: 16px; 
   font-weight: bold;   
   cursor: pointer;
     @media only screen and (min-width: 1023px) {
@@ -197,9 +197,9 @@ button {
 textarea {
   resize: none;
   width: 100%;
-  padding: 1em;
-  margin: 1em 0;
-  font-size: 1em;
+  padding: 16px;
+  margin: 16px 0;
+  font-size: 16px;
   cursor: pointer;
   border: 2px solid $blue;
   -webkit-transition: 0.5s;
@@ -207,7 +207,7 @@ textarea {
   outline: none;
   &::placeholder {
     padding: .5em;
-    font-size: 1em;
+    font-size: 16px;
   }
 }
 
@@ -228,9 +228,9 @@ select {
 input, select {
     height: 45px;
     width: 100%;
-    padding: .5em 1em;
-    margin: 1em 0;
-    font-size: 1em;
+    padding: 8px 16px;
+    margin: 16px 0;
+    font-size: 16px;
     cursor: pointer;
     border: 2px solid $blue;
     -webkit-transition: 0.5s;
@@ -238,7 +238,7 @@ input, select {
     outline: none;
     &::placeholder {
         padding: 0;
-        font-size: 1em;
+        font-size: 16px;
     }
 }
 
@@ -260,8 +260,8 @@ input:focus, select:focus, textarea:focus {
 .privacy-button {
   position: relative;
   display: inline-block;
-  width: 7em;
-  height: 2.2em;
+  width: 112px;
+  height: 35.2px;
 }
 
 .privacy-button input {display:none;}
@@ -282,10 +282,10 @@ input:focus, select:focus, textarea:focus {
 .slider:before {
   position: absolute;
   content: "";
-  height: 1.5em;
-  width: 3em;
-  left: .2em;
-  bottom: .2em;
+  height: 24px;
+  width: 48px;
+  left: 3.2px;
+  bottom: 3.2px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -301,17 +301,17 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(3.3em);
-  -ms-transform: translateX(3.3em);
-  transform: translateX(3.3em);
+  -webkit-transform: translateX(52.8px);
+  -ms-transform: translateX(52.8px);
+  transform: translateX(52.8px);
 }
 
 .slider {
-  border-radius: 2em;
+  border-radius: 32px;
 }
 
 .slider:before {
-  border-radius: 2em;
+  border-radius: 32px;
 }
 
 .form-control {
@@ -320,7 +320,7 @@ input:checked + .slider:before {
 
 .form-link {
   text-align: center;
-  margin: 1em 0 0 0;
+  margin: 16px 0 0 0;
   a {
     color: $blue;
     &:hover {
@@ -394,10 +394,10 @@ input:checked + .slider:before {
 //NAVIGATION
 
 nav {
-  padding: 2em 1.4em 0 1.4em;
+  padding: 32px 22.4px 0 22.4px;
   text-align: center;
   @media only screen and (min-width: 641px) {
-    padding: 3em 3em 0 3em;
+    padding: 48px 48px 0 48px;
     margin-bottom: -5px;
   }
 }
@@ -414,7 +414,7 @@ nav {
 }
 
 .navigation-links {
-    padding-top: 1em;
+    padding-top: 16px;
     text-align: center;
     display: none;
       @media only screen and (min-width: 880px) {
@@ -443,14 +443,14 @@ nav {
         .nav-dashboard, .nav-profile {
           background: $blue;
           color: white;
-          padding: .5em;
+          padding: 8px;
           display: inline-block;
           width: 159px;
         }
         .login {
           background: $blue;
           color: white;
-          padding: .3em .5em; 
+          padding: 4.8px 8px; 
           display: inline-block;
         }
     }
@@ -466,7 +466,7 @@ nav {
 
 footer {
     text-align: center;
-    padding: 1em;
+    padding: 16px;
     background: $lightgray;
     color: $blue;
     font-weight: 300;
@@ -527,10 +527,14 @@ footer {
 
 //DASHBOARD 
 
+.dashboard-section-title {
+  text-align: center;
+}
+
 .review-alert, .feature-alert {
   width: 100%;
-  padding: 1.5em;
-  margin: 1.5em 0;
+  padding: 24px;
+  margin: 24px 0;
   position: relative;
 }
 
@@ -559,11 +563,11 @@ footer {
 .alert-title, .close-alert {
    display: inline-block;
    font-weight: bold;
-  font-size: 1.2em;
+  font-size: 19.2px;
 }
 
 .alert-header {
-  padding: 0 0 1em 0;
+  padding: 0 0 16px 0;
 }
 
 .close-alert {
@@ -585,7 +589,7 @@ footer {
   }
 
   .review {
-    margin: 1.5em 0;
+    margin: 24px 0;
   }
 
 .write-buttons {
@@ -624,8 +628,8 @@ i.fa-pencil {
 
 .show-title {
     font-weight: 400;
-    font-size: 1.5em;
-    margin-bottom: .5em;
+    font-size: 24px;
+    margin-bottom: 8px;
 }
 
 .review-image {
@@ -634,7 +638,7 @@ i.fa-pencil {
 
 .review-title {
   font-style: italic;
-  margin: .5em 0;
+  margin: 8px 0;
 }
 
 .rating-image{
@@ -696,7 +700,7 @@ i.fa-pencil {
 }
 
 .showlist-summary, .showlist-stats {
-    padding: .5em;
+    padding: 8px;
 }
 
 .showlist-summary {
@@ -716,12 +720,12 @@ i.fa-pencil {
   float: left;
   width: 70%;
   font-weight: bold;
-  padding: 1em .5em 0 .5em;
+  padding: 16px 8px 0 8px;
 }
 
 .showlist-content {
   clear: both;
-  padding: 1.5em .5em 0 .5em;
+  padding: 24px 8px 0 8px;
 }
 
 .showlist-username, .showlist-show-count {
@@ -759,7 +763,7 @@ i.fa-pencil {
 
 .feature-title {
   font-weight: bold;
-  padding: 0 0 .5em 0;
+  padding: 0 0 8px 0;
 
 }
 
@@ -786,6 +790,11 @@ i.fa-pencil {
     }
   }
 
+}
+
+// SHOWLIST INDIVIDUAL DISPLAY PAGE
+.showlist-item > li {
+  display: inline-block;
 }
 
 //Home Animated SVG
@@ -884,3 +893,7 @@ i.fa-pencil {
    @include translateX(0px); 
   }
 } 
+
+
+
+
