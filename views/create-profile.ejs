@@ -1,0 +1,30 @@
+<%- include('head', {}); %>
+
+    <main class="create-profile-page">
+        <section class="section review-form">
+            <h1 class="section-title">Profile Editor</h1>
+            <p>To continue to your dashboard, please fill out your user profile below.</p>
+        
+        <form name="profileForm" action="/post" method="put" onsubmit="return validateReviewForm()">
+            <div class="form-group">
+                <label for="username" class="visually-hidden">Username</label>
+                <input type="text" class="form-control" name="profileUsername" placeholder="Username" id="username" required>
+                <label for="location" class="visually-hidden">Location</label>
+                <input type="text" class="form-control" name="profileLocation" placeholder="Location" id="location" required>   
+                <label for="favoriteShow" class="visually-hidden">Location</label>
+                <input type="text" class="form-control" name="profileFavoriteShow" placeholder="Favorite Show" id="favoriteShow" required>                                 
+                <label for="summary" class="visually-hidden">User Summary</label>
+                <textarea type="text" class="summary-content-box" name="profileSummary" placeholder="User Summary" id="summary" required></textarea>
+            </div>
+
+            <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
+        </form> 
+        </section>
+
+    </main>
+
+    <%- include('footer', {}); %>
+    <%- include('scripts', {}); %>
+
+</body>
+</html>
