@@ -27,21 +27,21 @@
                 <section class="show items show-form-section">
                     <div class="show-item">
                         <h3 class="form-label">Select a Show</h3>
-                        <select name="showID_0" id="show-title">
+                        <select name="showID_0" class="show-title">
                         <option value="">Select a Show...</option>
                         <% for(var i=0; i<shows.length; i++) { %>
                         <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
                         <% } %>
                         </select> 
                         <label for="datepicker" class="visually-hidden">Show Date</label>
-                        <input type="text" class="form-control datepicker" name="showDate_0" placeholder="Show Date">
-                        <textarea type="text" class="form-control" name="showNotes_0" placeholder="Notes"></textarea>
+                        <input type="text" class="form-control datepicker show-item-datepicker" name="showDate_0" placeholder="Show Date">
+                        <textarea type="text" class="form-control show-item-notes" name="showNotes_0" placeholder="Notes"></textarea>
 
                     </div>     
 
                     <div class="show-item">
                         <h3 class="form-label">Select a Show</h3>
-                        <select name="showID_1" id="show-title">
+                        <select name="showID_1" class="show-title">
                         <option value="">Select a Show...</option>
                         <% for(var i=0; i<shows.length; i++) { %>
                         <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
