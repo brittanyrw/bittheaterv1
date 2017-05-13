@@ -7,7 +7,8 @@ var userSchema = mongoose.Schema({
 
     local            : {
         email        : String,
-        password     : String
+        password     : String,
+        username     : { type: String, unique: true },       
     },
     facebook         : {
         id           : String,
@@ -28,13 +29,8 @@ var userSchema = mongoose.Schema({
         name         : String
     },
     profile          : {
-        username     : String,
-        location     : String,
-        summary      : String,
-        joinDate     : {type: Date, default: Date.now},
-        favoriteShow : String,
-    }  
-
+        badges       : [String]
+    }
 });
 
 // generating a hash
