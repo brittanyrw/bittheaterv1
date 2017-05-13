@@ -1,5 +1,9 @@
-const User = require('./models/user');
+const Feature = require('./models/feature');
+const Genre = require('./models/genre');
+const Badge = require('./models/badges');
+const Review = require('./models/review');
 const Show = require('./models/show');
+const User = require('./models/user');
 const Showlist = require('./models/showlist');
 
 module.exports = function(app, passport){
@@ -42,13 +46,42 @@ module.exports = function(app, passport){
 
 
     app.get('/showlist', function(req, res) {
+    var showsObj = {};
     Showlist.find({}, function(err, showlists) {
         if(err) {
             res.status(500).send(err);
-        } else {   
-        res.send(showlists);
-        }
+        } else { 
+            Show.find({},function(showE,shows){
+            if(err) {
+            res.status(500).send(err);
+            } else {          
+                for (var i = 0; i < shows.length; i++) {
+                    showsObj[shows[i]._id] = shows[i].showTitle;
+            } res.render('showlist.ejs', {user: req.user, mainShows: showsObj, showlists: showlists});
+            // res.send(showlists);
+           }
         });
+        };
+    });
+    });
+
+    app.get('/showlist/:id', function(req, res) {
+    var showsObj = {};
+    Showlist.findById({_id: req.params.id}, function(err, showlists) {
+        if(err) {
+            res.status(500).send(err);
+        } else { 
+            Show.find({},function(showE,shows){
+            if(err) {
+            res.status(500).send(err);
+            } else {          
+                for (var i = 0; i < shows.length; i++) {
+                    showsObj[shows[i]._id] = shows[i].showTitle;
+            } res.render('showlist.ejs', {user: req.user, mainShows: showsObj, showlists: showlists});
+           }
+        });
+        };
+    });
     });
 
     app.get('/create-showlist', isLoggedIn, function(req, res) {

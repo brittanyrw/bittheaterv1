@@ -44,6 +44,10 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get('/create-profile', /*isLoggedIn,*/ function(req, res) {
+        res.render('create-profile.ejs', { user : req.user });
+    });
+
     app.get('/dashboard', isLoggedIn, function(req, res) {
         var showsObj = {};
         Review.find({"userId" : req.user.id}, function(err, reviews) {
@@ -112,7 +116,7 @@ module.exports = function(app, passport) {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/signup-complete', // redirect to the secure profile section
+            successRedirect : '/dashboard', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));

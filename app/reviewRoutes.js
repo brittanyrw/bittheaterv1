@@ -37,6 +37,19 @@ module.exports = function(app, passport){
         });
     });
 
+
+
+function checkReviewBadges(useriId){
+    // go and get all of the users badges of type review
+    // go and get all badges of type review
+    // loop over all badges, elminimate the ones that the user already has
+    // loop through the ones the user doesn't have
+    // compare the number to the number of reviews the user has written
+}
+
+
+    //check badge function after a review is posted
+
     app.delete('/reviews/:id', function(req, res) {
     Review.remove({_id: req.params.id}, function(err, reviews) {
         res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
