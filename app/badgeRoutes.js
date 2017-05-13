@@ -5,11 +5,19 @@ const Review = require('./models/review');
 const Show = require('./models/show');
 const User = require('./models/user');
 const Showlist = require('./models/showlist');
+const BadgeSuggestion = require('./models/badge-suggestion');
 
 module.exports = function(app, passport){
 
     app.get('/badges', function(req, res) {
-        res.render('badges.ejs', {user: req.user});
+    Badge.find({}, function(err, badges) {
+        console.log(badges.img);
+        if(err) {
+            res.status(500).send(err);
+        } else {
+         res.render('badges.ejs', {user: req.user, badges: badges});
+        }
+    });    
     });
 
 	app.get('/badge', function(req, res) {
@@ -34,7 +42,7 @@ module.exports = function(app, passport){
 
     app.post('/badge', function(req, res) {
     var badge = new Badge(req.body);
-    Badge.save(function (err, newBadge) {
+    badge.save(function (err, newBadge) {
         res.status(201).send(newBadge);
         });
     });
