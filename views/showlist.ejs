@@ -1,0 +1,41 @@
+<!-- page to display individual showlists  -->
+
+<%- include('head', {}); %>
+
+ <main class="showlists-page">
+        <div class="header-image-section">
+            <img src="/imgs/Lists-Illustration.svg" class="lists-illustration">
+        </div>
+        <section class="section">
+        	<h1 class="section-title">Title</h1>
+        	<button class="showlist-<%=showlists.showListType%>-button"><%=showlists.showListType%><span class="visually-hidden"><%=showlists.showListType%> Show List Label</span></button>
+            
+            <div>
+				<p>Total Shows: <%=showlists.shows.length%></p>
+                <p><%=showlists.showListDescription%></p> 
+
+           
+
+            <div class="showlist-show-list">
+            	<ul>
+ 				<% for(var i=0; i<showlists.shows.length; i++) { %>
+					<li class="show-item-list"><ul class="showlist-item">
+					  <li><%=mainShows[showlists.shows[i].showId]%></li>
+					  <li><%=showlists.shows[i].showDate%></li>
+					  <li><%=showlists.shows[i].showNotes%></li>
+					</ul></li>	
+				<% } %> 		
+				</ul>
+
+
+            </div>   
+        </div>                       
+        
+        </section>             
+
+    </main>
+
+    <%- include('footer', {}); %>
+    <%- include('scripts', {}); %>
+</body>
+</html>
