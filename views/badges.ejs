@@ -13,42 +13,28 @@
             <h1 class="section-title">Reviews</h1>
             <p class="section-content">Write reviews to collect special review badges.</p>
             <div class="badges-display">
-                <div class="badge-item">
-                    <img src="imgs/review-badge-1.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Write 1st Reviews</p>
-                </div>
-                <div class="badge-item">
-                    <img src="imgs/review-badge-5.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Write 5 Reviews</p>
-                </div>
-                <div class="badge-item">
-                    <img src="imgs/review-badge-20.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Write 20 Reviews</p>
-                </div>                  
-                <div class="badge-item">
-                    <img src="imgs/review-badge-50.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Write 50 Reviews</p>
-                </div>   
-                <div class="badge-item">
-                    <img src="imgs/review-badge-100.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Write 100 Reviews</p>
-                </div>                                                              
-            </div>
+                <% for(var i=0; i<badges.length; i++) { %>
+                    <% if (badges[i].type == "Review") { %>
+                    <div class="badge-item">
+                        <img src="imgs/<%=badges[i].img%>" alt="<%=badges[i].title%> image" class="badge-image">
+                        <p class="badge-caption"><%=badges[i].title%></p>
+                    </div>
+                    <% } %> 
+                <% } %> 
         </section>
 
         <section class="section">
             <h1 class="section-title">Shows</h1>
             <p class="section-content">Collect badges as you attend more shows.</p>
             <div class="badges-display">
-                <div class="badge-item">
-                     <img src="imgs/show-badge-1.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Attended 1st Show</p>
-                </div>
-                <div class="badge-item">
-                    <img src="imgs/show-badge-5.svg" alt="" class="badge-image">
-                    <p class="badge-caption">Attended 5 Shows</p>
-                </div>
-            </div>
+                <% for(var i=0; i<badges.length; i++) { %>
+                    <% if (badges[i].type == "Show") { %>
+                    <div class="badge-item">
+                        <img src="imgs/<%=badges[i].img%>" alt="<%=badges[i].title%> image" class="badge-image">
+                        <p class="badge-caption"><%=badges[i].title%></p>
+                    </div>
+                    <% } %> 
+                <% } %> 
         </section>      
 
         <section class="section badge-suggestion">
