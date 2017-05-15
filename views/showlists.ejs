@@ -14,77 +14,65 @@
         </section>
         
         <section class="section">
-            <h1 class="section-title">Most Popular</h1>
-            
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">My Show List</h2>
-                    <button class="showlist-main-button">Main<span class="visually-hidden">Main Show List Label</span></button>
-                </div>
+            <h1 class="section-title">Recent</h1>
 
-                <p class="showlist-content">List of my favorite shows since 2012</p>
+            <% for(var i=0; i<showlists.length; i++) { %>
+                <div class="showlist-summary">
+                    <div class="showlist-summary-header">
+                        <a href="/showlist/<%=showlists[i]._id%>"><h2 class="showlist-title"><%=showlists[i].showListTitle%></h2></a>
+                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType.toUpperCase()%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
+                    </div>
 
-                <div class="showlist-stats">
-                    <p class="showlist-username">SuperReviewer123</p>
-                    <p class="showlist-show-count">Total Shows: 125</p>
+                    <p class="showlist-content"><%=showlists[i].showListDescription%></p>
+
+                    <div class="showlist-stats">
+                        <p class="showlist-show-count">Total Shows: <%=showlists[i].shows.length%></p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">Ultimate 2017 Broadway Wishlist</h2>
-                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
-                </div>
-                <p class="showlist-content">List of must-see Broadway shows</p>
-                <div class="showlist-stats">
-                    <p class="showlist-username">OtherReviewer</p>
-                    <p class="showlist-show-count">Total Shows: 10</p>
-                </div>
-            </div>                 
+            <% } %>
+                     
         </section>
 
          <section class="section">
             <h1 class="section-title">Wish Lists</h1>
             
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">Comedic Plays Wishlist</h2>
-                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
+            <% for(var i=0; i<showlists.length; i++) { %>
+                <% if (showlists[i].showListType == "wish") { %>
+                <div class="showlist-summary">
+                    <div class="showlist-summary-header">
+                        <a href="/showlist/<%=showlists[i]._id%>"><h2 class="showlist-title"><%=showlists[i].showListTitle%></h2></a>
+                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType.toUpperCase()%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
+                    </div>
+
+                    <p class="showlist-content"><%=showlists[i].showListDescription%></p>
+
+                    <div class="showlist-stats">
+                        <p class="showlist-show-count">Total Shows: <%=showlists[i].shows.length%></p>
+                    </div>
                 </div>
-                <p class="showlist-content">List of upcoming comedy plays</p>
-                <div class="showlist-stats">
-                    <p class="showlist-username">ReviewerPerson</p>
-                    <p class="showlist-show-count">Total Shows: 15</p>
-                </div>
-            </div>
-            
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">Experimental Plays Wishlist</h2>
-                    <button class="showlist-wish-button">Wish<span class="visually-hidden">Wishlist Show List Label</span></button>
-                </div>
-                <p class="showlist-content">List of upcoming experimental shows</p>
-                <div class="showlist-stats">
-                    <p class="showlist-username">CriticPerson</p>
-                    <p class="showlist-show-count">Total Shows: 5</p>
-                </div>
-            </div>                 
+                <% } %>
+            <% } %>
+
         </section>
 
         <section class="section">
             <h1 class="section-title">Travel Lists</h1>
-            <div class="showlist-summary">
-                <div class="showlist-summary-header">
-                    <h2 class="showlist-title">NYC April List</h2>
-                    <button class="showlist-trip-button">Trip<span class="visually-hidden">Trip Show List Label</span></button>
+            <% for(var i=0; i<showlists.length; i++) { %>
+                <% if (showlists[i].showListType == "trip") { %>
+                <div class="showlist-summary">
+                    <div class="showlist-summary-header">
+                       <a href="/showlist/<%=showlists[i]._id%>"><h2 class="showlist-title"><%=showlists[i].showListTitle%></h2></a>
+                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType.toUpperCase()%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
+                    </div>
+
+                    <p class="showlist-content"><%=showlists[i].showListDescription%></p>
+
+                    <div class="showlist-stats">
+                        <p class="showlist-show-count">Total Shows: <%=showlists[i].shows.length%></p>
+                    </div>
                 </div>
-                <p class="showlist-content">List of shows for April trip.</p>
-                <div class="showlist-stats">
-                    <p class="showlist-username">MusicalGeek</p>
-                    <p class="showlist-show-count">Total Shows: 6</p>
-                </div>
-            </div>
-        </section>             
+                <% } %>
+            <% } %>           
 
     </main>
 
