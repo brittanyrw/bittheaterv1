@@ -30,7 +30,7 @@
                         <select name="showID_0" class="show-title">
                         <option value="">Select a Show...</option>
                         <% for(var i=0; i<shows.length; i++) { %>
-                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%> - <%=shows[i].showCity%></option>
                         <% } %>
                         </select> 
                         <label for="datepicker" class="visually-hidden">Show Date</label>
@@ -44,7 +44,7 @@
                         <select name="showID_1" class="show-title">
                         <option value="">Select a Show...</option>
                         <% for(var i=0; i<shows.length; i++) { %>
-                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                        <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%> - <%=shows[i].showCity%></option>
                         <% } %>
                         </select> 
                         <label for="datepicker" class="visually-hidden">Show Date</label>
@@ -58,16 +58,17 @@
                     <button class="additional-shows-button" type="button">Add Shows</button>
                     </div>
 
-                <div class="form-group">
-                    <div class="privacy-toggle">
-                    <h3 class="form header">Privacy</h3>
-                    <label class="privacy-button" for="privacy-toggle">
-                        <input type="checkbox" id="privacy-toggle" name="public" value="true">
-                        <div class="slider"></div>
-                    </label>
-                    <label for="privacy-toggle" name="public">Public</label>
-                    </div>
+            <div class="form-group">
+                <div class="privacy-toggle">
+                <h3 class="form-label">Privacy</h3>
+                <p>Please indicate if you would like this review to be public or private.</p>
+                <label class="privacy-button" for="privacy-toggle">
+                    <input type="checkbox" id="privacy-toggle" name="public" value="true">
+                    <div class="slider"></div>
+                </label>
+                <label for="privacy-toggle" name="public">Public</label>
                 </div>
+            </div>
 
                 <button class="submit-button" type="submit">Submit<span class="visually-hidden">Submit Review</span></button>
         </form>
