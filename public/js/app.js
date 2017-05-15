@@ -8,10 +8,13 @@ $(function() {
 		$('.navigation-links').toggle(500);
 	});
 
+	$('select').select2();
+
 	var showItemCount = 1;
 
 
 	$('.additional-shows-button').click(function(){
+		$('select').select2('destroy');
 		showItemCount ++;
 		var showItemName = 'showID_' +showItemCount;
 		var showItemDateName = 'showDate_' +showItemCount;
@@ -22,8 +25,9 @@ $(function() {
 		$(el).find('.show-item-notes').attr('name',showItemNoteName);
 		$(el).find('.datepicker').removeAttr('class').datepicker();
 		$('.show-form-section').append(el);
-
-	});
+		$('select').select2();
+		$('.select2, .select2-container, .select2-container--default, .select2-container--below').css('width', '100%');
+		});
 
 	function validateReviewForm() {
     var x = document.forms['reviewForm']['showId'].value;
