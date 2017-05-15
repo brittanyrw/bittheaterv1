@@ -495,12 +495,8 @@ footer {
     width: 48%;
     vertical-align: top; } }
 
-i.fa-pencil {
-  color: #2A3641;
-  font-size: 1.4em; }
-
 .show-title {
-  font-weight: 400;
+  font-weight: bold;
   font-size: 16px;
   margin-bottom: 8px; }
 
