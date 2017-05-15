@@ -42,7 +42,7 @@
                 <div class="showlist-summary">
                     <div class="showlist-summary-header">
                         <a href="/showlist/<%=showlists[i]._id%>"><h2 class="showlist-title"><%=showlists[i].showListTitle%></h2></a> 
-                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
+                        <button class="showlist-<%=showlists[i].showListType%>-button"><%=showlists[i].showListType.toUpperCase()%><span class="visually-hidden"><%=showlists[i].showListType%> Show List Label</span></button>
                     </div>
 
                     <p class="showlist-content"><%=showlists[i].showListDescription%></p>
