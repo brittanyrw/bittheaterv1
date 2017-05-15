@@ -10,7 +10,7 @@
                 <label for="review-title" class="visually-hidden">Review Title</label>
                 <input type="text" class="form-control" name="reviewTitle" placeholder="Review Title" id="review-title" required>
                 <label for="show-title" class="form-label visually-hidden">Show Title</label>
-                <select name="showId" id="show-title" required>
+                <select name="showId" id="show-title" style="width: 100%" required>
                     <option value="">Select a Show...</option>
                 <% for(var i=0; i<shows.length; i++) { %>
                     <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
