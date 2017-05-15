@@ -13,7 +13,7 @@
                 <select name="showId" id="show-title" style="width: 100%" required>
                     <option value="">Select a Show...</option>
                 <% for(var i=0; i<shows.length; i++) { %>
-                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%></option>
+                    <option value="<%=shows[i]._id%>"><%=shows[i].showTitle%> - <%=shows[i].showCity%></option>
                 <% } %>
                 </select> 
                 <label for="datepicker" class="visually-hidden">Show Date</label>
@@ -43,7 +43,7 @@
             <div class="form-group">
                 <div class="privacy-toggle">
                 <h3 class="form-label">Privacy</h3>
-                <p>Please indicate if you would like this review to be public or private.</p>
+                <p>Please indicate if you would like this review to be public or private. The default selection is private.</p>
                 <label class="privacy-button" for="privacy-toggle">
                     <input type="checkbox" id="privacy-toggle" name="public" value="true">
                     <div class="slider"></div>
