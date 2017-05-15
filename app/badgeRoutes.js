@@ -5,7 +5,7 @@ const Review = require('./models/review');
 const Show = require('./models/show');
 const User = require('./models/user');
 const Showlist = require('./models/showlist');
-const BadgeSuggestion = require('./models/badge-suggestion');
+const BadgeSuggestion = require('./models/badgeSuggestion');
 
 module.exports = function(app, passport){
 
@@ -52,7 +52,32 @@ module.exports = function(app, passport){
         console.log(req.body);
         res.send({ message: `Successfully deleted \`${req.body.title}\``, badges});
         });
-    })
+    });
+
+    app.put('/badge/:id', function(req, res) {
+    Badge.findById({_id: req.params.id}, function (err, badge) {  
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            badge.title = req.body.title 
+            badge.save(function (err, badge) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(badge);
+            });
+        }
+    });
+    });
+
+    app.post('/badgeSuggestion', function(req, res) {
+    var badgeSuggestion = new BadgeSuggestion(req.body);
+    badgeSuggestion.save(function (err, newBadgeSuggestion) {
+        res.redirect('/badges');
+        // res.status(201).send(newBadgeSuggestion);
+        });
+    });
+
 	
 }
 
