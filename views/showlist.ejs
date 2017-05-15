@@ -6,28 +6,26 @@
         <div class="header-image-section">
             <img src="/imgs/Lists-Illustration.svg" class="lists-illustration">
         </div>
-        <section class="section">
-        	<h1 class="section-title">Title</h1>
-        	<button class="showlist-<%=showlists.showListType%>-button"><%=showlists.showListType%><span class="visually-hidden"><%=showlists.showListType%> Show List Label</span></button>
+        <section class="section indv-showlist">
+        	<h1 class="section-title"><%=showlists.showListTitle%></h1>
+        	<button class="indv-showlist-<%=showlists.showListType%>-button"><%=showlists.showListType.toUpperCase()%><span class="visually-hidden"><%=showlists.showListType%> Show List Label</span></button>
             
-            <div>
-				<p>Total Shows: <%=showlists.shows.length%></p>
-                <p><%=showlists.showListDescription%></p> 
-
+            <div class="indv-showlist-stats">
+				<p class="indv-showlist-number">Total Shows: <%=showlists.shows.length%></p>
+                <p class="indv-showlist-description"><%=showlists.showListDescription%></p> 
+			</div>
            
 
             <div class="showlist-show-list">
             	<ul>
  				<% for(var i=0; i<showlists.shows.length; i++) { %>
 					<li class="show-item-list"><ul class="showlist-item">
-					  <li><%=mainShows[showlists.shows[i].showId]%></li>
-					  <li><%=showlists.shows[i].showDate%></li>
-					  <li><%=showlists.shows[i].showNotes%></li>
+					  <li class="indv-showlist-showname"><%=mainShows[showlists.shows[i].showId]%></li>
+					  <li class="indv-showlist-showdate"> - <%=moment(showlists.shows[i].showDate).format("MMM Do, YYYY")%></li>
+					  <ul><li class="indv-showlist-shownotes"><%=showlists.shows[i].showNotes%></li></ul>
 					</ul></li>	
 				<% } %> 		
 				</ul>
-
-
             </div>   
         </div>                       
         
