@@ -32,6 +32,10 @@ main, nav {
     }
 }
 
+main {
+  min-height: calc(100vh - 190px);
+}
+
 .section-title {
   color: $blue;
   font-weight: bold;
@@ -150,7 +154,7 @@ button {
   }         
 }
 
-.section-button {
+.section-button, .additional-shows-button {
     background: white;
     color: $blue;
     border: 2px solid $blue;
@@ -159,6 +163,30 @@ button {
         color: white;
       }    
 }  
+
+.indv-showlist-wish-button, .indv-showlist-main-button, .indv-showlist-trip-button {
+    cursor: none;   
+    margin: 0 auto;  
+}
+
+.indv-showlist-wish-button, .indv-showlist-main-button {
+    color: white;
+    border: none; 
+}
+
+.indv-showlist-wish-button {
+    background: $blue;
+}
+
+.indv-showlist-main-button {
+    background: $yellow;   
+}
+
+.indv-showlist-trip-button {
+    background: white;
+    color: $blue;
+    border: 2px solid $blue;   
+}
 
 .showlist-main-button, .showlist-trip-button, .showlist-wish-button{
   width: 75px;
@@ -597,7 +625,7 @@ footer {
     button {
       @media only screen and (min-width: 769px) {  
         display: inline-block;
-        margin: 0 10px;
+        margin: 10px;
       }
     }
 }
@@ -628,7 +656,7 @@ i.fa-pencil {
 
 .show-title {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 16px;
     margin-bottom: 8px;
 }
 
@@ -695,6 +723,36 @@ i.fa-pencil {
 }
 
 //SHOW LISTS
+
+.indv-showlist {
+  border: 2px solid $blue;
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+}
+
+.showlist-show-list {
+  text-align: left;
+}
+
+
+.indv-showlist-showname {
+  font-weight: bold;
+    &:before {
+      content: "• "; 
+      color: $blue;
+      font-size: 20px;
+   }
+}
+
+.indv-showlist-showdate {
+  font-style: italic;
+}
+
+.indv-showlist-stats, .showlist-show-list {
+  margin-top: 10px;
+}
+
 .lists-illustration {
   border-bottom: 2px solid $blue;
 }
@@ -707,6 +765,12 @@ i.fa-pencil {
   border: 1px solid $blue;
   margin: 10px 0;
   position: relative;
+  a {
+    color: $blue;
+    &:hover {
+      color: $yellow;
+    }
+  }
   @media only screen and (min-width: 769px) {
     display: inline-block;
     margin: 10px 5px;
@@ -732,10 +796,6 @@ i.fa-pencil {
   display: inline-block;
 }
 
-.showlist-show-count {
-  position: absolute;
-  right: 35px;
-}
 
 .showlist-username {
   font-style: italic;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box; }
 
@@ -19,6 +20,9 @@ body {
     max-width: 80%;
     margin: 0 auto;
     padding: 30px; } }
+
+main {
+  min-height: calc(100vh - 190px); }
 
 .section-title {
   color: #2A3641;
@@ -113,13 +117,32 @@ button {
   .signup-button:hover, .login-button:hover, .submit-button:hover, .profile-button:hover, .dashboard-button:hover {
     background: #f3a000; }
 
-.section-button {
+.section-button, .additional-shows-button {
   background: white;
   color: #2A3641;
   border: 2px solid #2A3641; }
-  .section-button:hover {
+  .section-button:hover, .additional-shows-button:hover {
     background: #2A3641;
     color: white; }
+
+.indv-showlist-wish-button, .indv-showlist-main-button, .indv-showlist-trip-button {
+  cursor: none;
+  margin: 0 auto; }
+
+.indv-showlist-wish-button, .indv-showlist-main-button {
+  color: white;
+  border: none; }
+
+.indv-showlist-wish-button {
+  background: #2A3641; }
+
+.indv-showlist-main-button {
+  background: #FFAD0D; }
+
+.indv-showlist-trip-button {
+  background: white;
+  color: #2A3641;
+  border: 2px solid #2A3641; }
 
 .showlist-main-button, .showlist-trip-button, .showlist-wish-button {
   width: 75px;
@@ -456,7 +479,7 @@ footer {
   @media only screen and (min-width: 769px) {
     .write-buttons button {
       display: inline-block;
-      margin: 0 10px; } }
+      margin: 10px; } }
 
 .reviews-illustration {
   border-top: 2px solid #2A3641;
@@ -478,7 +501,7 @@ i.fa-pencil {
 
 .show-title {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   margin-bottom: 8px; }
 
 .review-image {
@@ -530,6 +553,28 @@ i.fa-pencil {
   .rating-image i ~ i ~ i ~ i ~ i {
     width: 100%; }
 
+.indv-showlist {
+  border: 2px solid #2A3641;
+  padding: 20px;
+  width: 90%;
+  text-align: center; }
+
+.showlist-show-list {
+  text-align: left; }
+
+.indv-showlist-showname {
+  font-weight: bold; }
+  .indv-showlist-showname:before {
+    content: "• ";
+    color: #2A3641;
+    font-size: 20px; }
+
+.indv-showlist-showdate {
+  font-style: italic; }
+
+.indv-showlist-stats, .showlist-show-list {
+  margin-top: 10px; }
+
 .lists-illustration {
   border-bottom: 2px solid #2A3641; }
 
@@ -540,6 +585,10 @@ i.fa-pencil {
   border: 1px solid #2A3641;
   margin: 10px 0;
   position: relative; }
+  .showlist-summary a {
+    color: #2A3641; }
+    .showlist-summary a:hover {
+      color: #FFAD0D; }
   @media only screen and (min-width: 769px) {
     .showlist-summary {
       display: inline-block;
@@ -560,10 +609,6 @@ i.fa-pencil {
 
 .showlist-username, .showlist-show-count {
   display: inline-block; }
-
-.showlist-show-count {
-  position: absolute;
-  right: 35px; }
 
 .showlist-username {
   font-style: italic;
