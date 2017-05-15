@@ -212,7 +212,7 @@ input, select {
     padding: 0;
     font-size: 16px; }
 
-input:focus, select:focus, textarea:focus {
+input:focus, select:focus, textarea:focus, select:focus {
   border: 2px solid #FFAD0D; }
 
 .review-content-box {

@@ -270,7 +270,7 @@ input, select {
     }
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus, select:focus, textarea:focus, select:focus {
     border: 2px solid $yellow;
 }
 
