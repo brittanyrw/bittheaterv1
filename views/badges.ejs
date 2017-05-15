@@ -35,16 +35,30 @@
                     </div>
                     <% } %> 
                 <% } %> 
-        </section>      
+        </section>  
+
+        <section class="section">
+            <h1 class="section-title">Lists</h1>
+            <p class="section-content">Collect badges as you create show lists.</p>
+            <div class="badges-display">
+                <% for(var i=0; i<badges.length; i++) { %>
+                    <% if (badges[i].type == "List") { %>
+                    <div class="badge-item">
+                        <img src="imgs/<%=badges[i].img%>" alt="<%=badges[i].title%> image" class="badge-image">
+                        <p class="badge-caption"><%=badges[i].title%></p>
+                    </div>
+                    <% } %> 
+                <% } %> 
+        </section>             
 
         <section class="section badge-suggestion">
             <h1 class="section-title">Suggest a Badge</h1>
             <p class="section-content">Have an idea for a badge or badge series? Enter a comment below!</p>
-            <form>
+            <form name="badgeSuggestionForm" action="/badgeSuggestion" method="post" onsubmit="return validateReviewForm()">
                 <label for="badge-name"><span class="visually-hidden">Enter a name for your suggested badge</span></label>
-                <input type="text" name="badge-name" placeholder="Badge name" class="badge-name-suggestion" id="badge-name">
+                <input type="text" name="name" placeholder="Badge name" class="badge-name-suggestion" id="badge-name">
                 <lable for="badge-suggestion"><span class="visually-hidden">Enter a description of your suggested badge</span></lable>
-                <input type="text" name="badge-text-suggestion" placeholder="Badge suggestion here" class="badge-text-suggestion" id="badge-suggestion">
+                <input type="text" name="suggestion" placeholder="Badge suggestion here" class="badge-text-suggestion" id="badge-suggestion">
                 <button class="submit-button">Submit<span class="visually-hidden">Submit badge suggestion</span></button>
             </form>
         </section>    
