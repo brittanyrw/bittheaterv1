@@ -28,9 +28,7 @@ var userSchema = mongoose.Schema({
         email        : String,
         name         : String
     },
-    profile          : {
-        badges       : [String]
-    }
+    badges           : [String]
 });
 
 // generating a hash
