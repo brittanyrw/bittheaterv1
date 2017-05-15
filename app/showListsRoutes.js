@@ -11,7 +11,7 @@ module.exports = function(app, passport){
 
 	app.get('/showlists', function(req, res) {
         var showsObj = {};
-    Showlist.find({}, function(err, showlists) {
+    Showlist.find({'public' : 'true'}, function(err, showlists) {
         if(err) {
             res.status(500).send(err);
         } else { 
