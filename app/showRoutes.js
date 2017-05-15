@@ -40,7 +40,23 @@ module.exports = function(app, passport){
         console.log(req.body);
         res.send({ message: `Successfully deleted \`${req.body.title}\``, shows});
         });
-    })
+    });
+
+    app.put('/shows/:id', function(req, res) {
+    Show.findById({_id: req.params.id}, function (err, shows) {  
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            show.showTitle = req.body.showTitle 
+            show.save(function (err, shows) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(shows);
+            });
+        }
+    });
+    });   
 	
 }
 
