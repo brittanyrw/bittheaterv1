@@ -5,11 +5,28 @@ const Review = require('./models/review');
 const Show = require('./models/show');
 const User = require('./models/user');
 const Showlist = require('./models/showlist');
+const moment = require('moment');
 
 module.exports = function(app, passport){
 
 	app.get('/showlists', function(req, res) {
-        res.render('showlists.ejs', {user: req.user});
+        var showsObj = {};
+    Showlist.find({}, function(err, showlists) {
+        if(err) {
+            res.status(500).send(err);
+        } else { 
+            Show.find({},function(showE,shows){
+            if(err) {
+            res.status(500).send(err);
+            } else {          
+                for (var i = 0; i < shows.length; i++) {
+                    showsObj[shows[i]._id] = shows[i].showTitle;
+            } res.render('showlists.ejs', {user: req.user, mainShows: showsObj, showlists: showlists});
+            // res.send(showlists);
+           }
+        });
+        };
+    });
     });
 
     app.post('/showlist', function(req,res){
@@ -77,7 +94,7 @@ module.exports = function(app, passport){
             } else {          
                 for (var i = 0; i < shows.length; i++) {
                     showsObj[shows[i]._id] = shows[i].showTitle;
-            } res.render('showlist.ejs', {user: req.user, mainShows: showsObj, showlists: showlists});
+            } res.render('showlist.ejs', {user: req.user, mainShows: showsObj, showlists: showlists, moment: moment});
            }
         });
         };
