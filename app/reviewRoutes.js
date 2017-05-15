@@ -31,30 +31,55 @@ module.exports = function(app, passport){
 
     app.post('/review', function(req, res) {
     var review = new Review(req.body);
+    
+
+ // Badges.find({}, function(req,res) {
+        
+ //    })
+    
+ //    User.findById({_id: req.user.id}, function (err, user) {  
+ //        if (err) {
+ //            res.status(500).send(err);
+ //        } else {
+ //            for (var i = 0; i < user.badges.length; i++) {
+ //            }
+ //            user.badges.push(req.body.badges);
+ //            user.save(function (err, user) {
+ //                if (err) {
+ //                    res.status(500).send(err)
+ //                }
+ //                res.send(user);
+ //            });
+ //        }
+ //    });
+
+ //     function checkReviewBadges(useriId){
+ //        User.findOne({_id:userId},function(e,u){
+
+ //            for (var i = 0; i < user.badges.length; i++) {
+                
+ //            }
+ //            // u.bades.push(badgeID);
+ //            // u.save();
+ //        });
+ //        // go and get all of the users badges of type review
+ //        // go and get all badges of type review
+ //        // loop over all badges, elminimate the ones that the user already has
+ //        // loop through the ones the user doesn't have
+ //        // compare the number to the number of reviews the user has written
+ //    }   
+
     review.save(function (err, newReview) {
         // res.status(201).send(newReview);
         res.redirect('/dashboard');
         });
     });
 
-
-
-function checkReviewBadges(useriId){
-    // go and get all of the users badges of type review
-    // go and get all badges of type review
-    // loop over all badges, elminimate the ones that the user already has
-    // loop through the ones the user doesn't have
-    // compare the number to the number of reviews the user has written
-}
-
-
-    //check badge function after a review is posted
-
-    app.delete('/reviews/:id', function(req, res) {
-    Review.remove({_id: req.params.id}, function(err, reviews) {
-        res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
-        });
-    })
+app.delete('/reviews/:id', function(req, res) {
+Review.remove({_id: req.params.id}, function(err, reviews) {
+    res.send({ message: `Successfully deleted \`${req.body.title}\``, reviews});
+    });
+})
 
 app.get('/write-review', isLoggedIn, function(req, res) {
     Show.find({},null,{sort: {showTitle:1}}, function(err, shows) {
@@ -79,6 +104,7 @@ app.get('/reviews', function(req, res) {
         var showsObj = {};
         var showsCategoryObj = {};
         var showsLocationObj = {};
+        var showsTypeObj = {};
         Review.find({}, function(err, reviews) {
             if(err) {
                 res.status(500).send(err);
@@ -100,7 +126,8 @@ app.get('/reviews', function(req, res) {
                                             showsObj[shows[i]._id] = shows[i].showTitle;
                                             showsCategoryObj[shows[i]._id] = shows[i].showCategory;
                                             showsLocationObj[shows[i]._id] = shows[i].showCity;
-                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, category: showsCategoryObj, location: showsLocationObj, user: req.user});
+                                            showsTypeObj[shows[i]._id] = shows[i].showType;
+                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, category: showsCategoryObj, location: showsLocationObj, type: showsTypeObj, user: req.user});
                                         console.log(showsLocationObj);        
                                         }
                                 });
