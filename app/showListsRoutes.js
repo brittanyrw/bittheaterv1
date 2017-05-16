@@ -29,7 +29,8 @@ module.exports = function(app, passport){
     });
     });
 
-    app.post('/showlist', function(req,res){
+        app.post('/showlist', function(req, res) {
+        
         var body = req.body;
         body.shows = [];
         var count = 0;
@@ -56,10 +57,35 @@ module.exports = function(app, passport){
             shows: body.shows
         });
         showlist.save(function (err, newShowlist) {
-        // res.status(201).send(newShowlist);
-        res.redirect('/dashboard');
+            User.findOne({_id: req.user._id}, function(err, user) {
+                if(err) {
+                    res.status(500).send(err);
+                } else {
+                    Showlist.find({userId:req.user._id},function(se,showlists){
+                        if(!se){
+                            var userShowlists = showlists.length;
+                            Badge.find({_id: {$nin: user.badges},type:'List'},function(berror,badges){
+                                if(!berror){
+                                    for (var i = 0; i < badges.length; i++) {
+                                        if(userShowlists >= badges[i].number){
+                                            user.badges.push(badges[i]._id);
+                                        }
+                                    }
+                                    user.save(function(saveErr,finalUser){
+                                        res.redirect('/dashboard');
+                                    });
+                                } else {
+                                    res.send(e2);
+                                }
+                            });
+                        } else {
+                            res.send(re);
+                        }
+                    }); 
+                }
+            });
         });
-    });
+    }); 
 
 
     app.get('/showlist', function(req, res) {

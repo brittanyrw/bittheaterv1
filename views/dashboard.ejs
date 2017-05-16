@@ -4,6 +4,7 @@
         
         <section class="section">
             <h1 class="section-title dashboard-section-title">User Dashboard</h1>
+            <!--<a href="/checkbadges">Check Badges</a>-->
               <!--   <section class="alert-section">
                     <div class="review-alert">
                         <div class="alert-header">
@@ -56,13 +57,14 @@
         </section>
 
         <section class="section">
-            <h1 class="section-title">Badges (5/100)</h1>
+            <h1 class="section-title">Badges (<%=user.badges.length%>/10)</h1>
             <div class="badges-display">
-                <img src="http://placehold.it/150x150" alt="" class="badge-image">
-                <img src="http://placehold.it/150x150" alt="" class="badge-image">
-                <img src="http://placehold.it/150x150" alt="" class="badge-image">
-                <img src="http://placehold.it/150x150" alt="" class="badge-image">
-                <img src="http://placehold.it/150x150" alt="" class="badge-image">
+                <% for(var i=0; i<user.badges.length; i++) { %>
+                    <div class="badge-item">
+                        <img src="/imgs/<%= badges[user.badges[i]].img%>" alt="<%= badges[user.badges[i]].title%>" title="<%= badges[user.badges[i]].title%>" class="badge-image">
+                        <p class="badge-caption"><%=badges[user.badges[i]].title%></p>
+                    </div>
+                <% } %> 
             </div>
         </section>
 

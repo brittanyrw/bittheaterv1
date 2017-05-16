@@ -29,51 +29,52 @@ module.exports = function(app, passport){
         });
     });
 
+    // app.get('/checkbadges',isLoggedIn,function(req,res){
+    //     User.findOne({_id:req.user._id},function(err,user){
+    //         user.badges = [];
+    //         user.save(function(e,d){
+    //             res.redirect('/dashboard');
+    //         });
+    //     });
+    // });
+
     app.post('/review', function(req, res) {
     var review = new Review(req.body);
-    
-
- // Badges.find({}, function(req,res) {
-        
- //    })
-    
- //    User.findById({_id: req.user.id}, function (err, user) {  
- //        if (err) {
- //            res.status(500).send(err);
- //        } else {
- //            for (var i = 0; i < user.badges.length; i++) {
- //            }
- //            user.badges.push(req.body.badges);
- //            user.save(function (err, user) {
- //                if (err) {
- //                    res.status(500).send(err)
- //                }
- //                res.send(user);
- //            });
- //        }
- //    });
-
- //     function checkReviewBadges(useriId){
- //        User.findOne({_id:userId},function(e,u){
-
- //            for (var i = 0; i < user.badges.length; i++) {
-                
- //            }
- //            // u.bades.push(badgeID);
- //            // u.save();
- //        });
- //        // go and get all of the users badges of type review
- //        // go and get all badges of type review
- //        // loop over all badges, elminimate the ones that the user already has
- //        // loop through the ones the user doesn't have
- //        // compare the number to the number of reviews the user has written
- //    }   
-
-    review.save(function (err, newReview) {
+        review.save(function (err, newReview) {
         // res.status(201).send(newReview);
-        res.redirect('/dashboard');
+            User.findOne({_id: req.user._id}, function(err, user) {
+                if(err) {
+                    res.status(500).send(err);
+                } else {
+                    Review.find({userId:req.user._id},function(re,reviews){ // TODO - find a way to just get back a count
+                        if(!re){
+                            var userReviews = reviews.length;
+                            // res.send(reviews);
+                            Badge.find({_id: {$nin: user.badges},type:'Review'},function(berror,badges){
+                                if(!berror){
+                                    // res.send(badges);
+                                    for (var i = 0; i < badges.length; i++) {
+                                        if(userReviews >= badges[i].number){
+                                            user.badges.push(badges[i]._id);
+                                        }
+                                    }
+                                    user.save(function(saveErr,finalUser){
+                                        res.redirect('/dashboard');
+                                    });
+                                } else {
+                                    res.send(e2);
+                                }
+                            });
+                        } else {
+                            res.send(re);
+                        }
+                    });
+                    
+                }
+            });
         });
-    });
+    });      
+
 
 app.delete('/reviews/:id', function(req, res) {
 Review.remove({_id: req.params.id}, function(err, reviews) {
@@ -105,7 +106,7 @@ app.get('/reviews', function(req, res) {
         var showsCategoryObj = {};
         var showsLocationObj = {};
         var showsTypeObj = {};
-        Review.find({}, function(err, reviews) {
+        Review.find({'public' : 'true'}, function(err, reviews) {
             if(err) {
                 res.status(500).send(err);
             } else {
@@ -127,8 +128,7 @@ app.get('/reviews', function(req, res) {
                                             showsCategoryObj[shows[i]._id] = shows[i].showCategory;
                                             showsLocationObj[shows[i]._id] = shows[i].showCity;
                                             showsTypeObj[shows[i]._id] = shows[i].showType;
-                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, category: showsCategoryObj, location: showsLocationObj, type: showsTypeObj, user: req.user});
-                                        console.log(showsLocationObj);        
+                                        } res.render('reviews.ejs', {reviews: reviews, genres: genres, shows: showsObj, category: showsCategoryObj, location: showsLocationObj, type: showsTypeObj, user: req.user});     
                                         }
                                 });
                             }

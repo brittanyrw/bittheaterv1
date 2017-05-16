@@ -50,6 +50,7 @@ module.exports = function(app, passport) {
 
     app.get('/dashboard', isLoggedIn, function(req, res) {
         var showsObj = {};
+        var badgesObj = {};
         Review.find({"userId" : req.user.id}, function(err, reviews) {
             if(err) {
                 res.status(500).send(err);
@@ -58,18 +59,27 @@ module.exports = function(app, passport) {
                     if(showlistErr){
                         res.status(500).send(showlistErr);
                     } else {
-                        User.find({},function(userErr, users){
+                        User.findOne({_id: req.user._id},function(userErr, user){
                             if(userErr){
                                 res.status(500).send(userErr);
                             } else {
-                                Show.find({},function(showE,shows){
-                                    if(showE){
-                                        res.status(500).send(showE);
+                                Badge.find({_id:{$in:user.badges}},function(badgeE,badges) {
+                                    if(badgeE){
+                                        res.status(500).send(badgeE);
                                     } else {
-                                        for (var i = 0; i < shows.length; i++) {
-                                            showsObj[shows[i]._id] = shows[i].showTitle;
-                                        } res.render('dashboard.ejs', {reviews: reviews, showlists: showlists, shows: showsObj, user: req.user});        
+                                        for (var i = 0; i < badges.length; i++) {
+                                        badgesObj[badges[i]._id] = badges[i];
                                         }
+                                    Show.find({},function(showE,shows){
+                                        if(showE){
+                                            res.status(500).send(showE);
+                                        } else {
+                                            for (var i = 0; i < shows.length; i++) {
+                                                showsObj[shows[i]._id] = shows[i].showTitle;
+                                            } res.render('dashboard.ejs', {reviews: reviews, showlists: showlists, shows: showsObj, user: user, badges: badgesObj});   
+                                            }
+                                    });
+                                    }
                                 });
                             }
                         });

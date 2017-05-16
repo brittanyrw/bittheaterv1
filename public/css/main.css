@@ -57,7 +57,8 @@ main {
   padding: 16px; }
 
 .section-block {
-  margin: .32px; }
+  margin: .32px;
+  vertical-align: top; }
 
 @media only screen and (min-width: 1023px) {
   .section-image, .section-block {
