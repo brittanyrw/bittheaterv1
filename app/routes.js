@@ -55,7 +55,7 @@ module.exports = function(app, passport) {
             if(err) {
                 res.status(500).send(err);
             } else {
-                Showlist.find({}, function(showlistErr, showlists){
+                Showlist.find({"userId" : req.user.id}, function(showlistErr, showlists){
                     if(showlistErr){
                         res.status(500).send(showlistErr);
                     } else {
