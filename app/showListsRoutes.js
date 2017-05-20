@@ -135,7 +135,26 @@ module.exports = function(app, passport){
             res.render('create-showlist.ejs', {shows: shows, user: req.user});
         }
         });
-    });  
+    }); 
+
+    app.put('/showlist/:id', function(req, res) {
+    Showlist.findById({_id: req.params.id}, function (err, showlist) {  
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            showlist.showListTitle = req.body.showListTitle;
+            showlist.showListDescription = req.body.showListDescription;
+            showlist.showListType = req.body.showListType; 
+            showlist.public = req.body.public;
+            showlist.save(function (err, showlist) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(showlist);
+            });
+        }
+    });
+    }); 
 
 }
 

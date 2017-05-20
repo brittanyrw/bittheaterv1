@@ -55,6 +55,25 @@ module.exports = function(app, passport){
                 }
         })
     });
+
+    app.put('/feature/:id', function(req, res) {
+    Feature.findById({_id: req.params.id}, function (err, feature) {  
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            feature.featureTitle = req.body.featureTitle;
+            feature.featureSubTitle = req.body.featureSubTitle;
+            feature.featureContent = req.body.featureContent;
+            feature.public = req.body.public;
+            feature.save(function (err, feature) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(feature);
+            });
+        }
+    });
+    }); 
    
 	
 }

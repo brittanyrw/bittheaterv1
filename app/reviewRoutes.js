@@ -49,10 +49,8 @@ module.exports = function(app, passport){
                     Review.find({userId:req.user._id},function(re,reviews){ // TODO - find a way to just get back a count
                         if(!re){
                             var userReviews = reviews.length;
-                            // res.send(reviews);
                             Badge.find({_id: {$nin: user.badges},type:'Review'},function(berror,badges){
                                 if(!berror){
-                                    // res.send(badges);
                                     for (var i = 0; i < badges.length; i++) {
                                         if(userReviews >= badges[i].number){
                                             user.badges.push(badges[i]._id);

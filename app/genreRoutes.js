@@ -24,6 +24,24 @@ module.exports = function(app, passport){
         res.status(201).send(newGenre);
         });
     });
+
+    app.put('/genres/:id', function(req, res) {
+    Genre.findById({_id: req.params.id}, function (err, genre) {  
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            genre.title = req.body.title;
+            genre.slug = req.body.slug;
+            genre.save(function (err, genre) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(genre);
+            });
+        }
+    });
+    }); 
+   
 	
 }
 

@@ -9,8 +9,8 @@ var featureSchema = mongoose.Schema({
         featureContent 	  : String,
         review        : [String],
         featureCity          : String,
-        featureGenre         : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
-        private       : Boolean
+        featureGenre         : [String],
+        public       : String
 });
 
 module.exports = mongoose.model('Feature', featureSchema);

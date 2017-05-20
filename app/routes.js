@@ -38,15 +38,15 @@ module.exports = function(app, passport) {
 
 
     // PROFILE AND DASHBOARD SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
-    });
+    // app.get('/profile', isLoggedIn, function(req, res) {
+    //     res.render('profile.ejs', {
+    //         user : req.user
+    //     });
+    // });
 
-    app.get('/create-profile', /*isLoggedIn,*/ function(req, res) {
-        res.render('create-profile.ejs', { user : req.user });
-    });
+    // app.get('/create-profile', /*isLoggedIn,*/ function(req, res) {
+    //     res.render('create-profile.ejs', { user : req.user });
+    // });
 
     app.get('/dashboard', isLoggedIn, function(req, res) {
         var showsObj = {};

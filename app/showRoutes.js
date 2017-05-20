@@ -47,7 +47,7 @@ module.exports = function(app, passport){
         if (err) {
             res.status(500).send(err);
         } else {
-            show.showTitle = req.body.showTitle 
+            show.showTitle = req.body.showTitle; 
             show.save(function (err, shows) {
                 if (err) {
                     res.status(500).send(err)
