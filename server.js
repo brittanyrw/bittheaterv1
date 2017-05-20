@@ -1,3 +1,4 @@
+
 // set up ======================================================================
 // get all the tools we need
 var express  = require('express');
@@ -11,6 +12,8 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+
+require('dotenv').config();
 
 var configDB = require('./config/database.js');
 
