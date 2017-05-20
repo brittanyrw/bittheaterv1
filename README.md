@@ -6,6 +6,8 @@
 # Summary
 BitTheater is a responsive full-stack application that allows users to write and read reviews for theater shows, create and view show lists of shows they have seen or want to see, and earn badges. 
 
+![BitTheater Animated SVG Image](public/imgs/home-image.gif?raw=true "BitTheater Animated SVG Image")
+
 # Features
 
 ## Reviews
