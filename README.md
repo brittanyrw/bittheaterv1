@@ -26,7 +26,7 @@ BitTheater was designed mobile-first. Wirefreames were created using AdobeXD and
 
 ![BitTheater Wireframes](public/imgs/wireframes.png?raw=true "BitTheater Wirefreames")
 
-![BitTheater Graphics Screenshot](public/imgs/screenshots3.png?raw=true "BitTheater Graphics Screenshots")
+![BitTheater Graphics Screenshot](public/imgs/screenshots3.jpg?raw=true "BitTheater Graphics Screenshots")
 
 # Technology
 
