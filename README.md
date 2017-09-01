@@ -20,11 +20,13 @@ Visitors can view public showlists by recently created lists, wish lists and tri
 ## Badges
 Users can earn badges by posting reviews, creating showlists and seeing shows. In future versions, additional badges will be added. Visitors may also suggest badges via a suggestion form on the main Badge page. 
 
-# Wireframes
+# Wireframes & Graphics
 
-BitTheater was designed mobile-first. Wirefreames were created using AdobeXD.
+BitTheater was designed mobile-first. Wirefreames were created using AdobeXD and all illustrations were created using Affinity Designer.
 
 ![BitTheater Wireframes](public/imgs/wireframes.png?raw=true "BitTheater Wirefreames")
+
+![BitTheater Graphics Screenshot](public/imgs/screenshots3.png?raw=true "BitTheater Graphics Screenshots")
 
 # Technology
 
