@@ -22,7 +22,7 @@ Users can earn badges by posting reviews, creating showlists and seeing shows. I
 
 # Wireframes & Graphics
 
-BitTheater was designed mobile-first. Wirefreames were created using AdobeXD and all illustrations were created using Affinity Designer.
+BitTheater was designed mobile-first. Wireframes were created using AdobeXD and all illustrations were created using Affinity Designer.
 
 ![BitTheater Wireframes](public/imgs/wireframes.png?raw=true "BitTheater Wirefreames")
 
