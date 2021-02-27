@@ -1,6 +1,3 @@
-# BitTheater
-[Demo BitTheater Here](https://bittheater.herokuapp.com/)
-
 ![BitTheater Screenshots](public/imgs/screenshots.png?raw=true "BitTheater Screenshots")
 
 # Summary
