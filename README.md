@@ -1,3 +1,4 @@
+# BitTheater
 ![BitTheater Screenshots](public/imgs/screenshots.png?raw=true "BitTheater Screenshots")
 
 # Summary
