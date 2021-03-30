@@ -1,5 +1,6 @@
 # BitTheater
 Currently [rebuilding here](https://github.com/brittanyrw/bittheater) using Vue, TypeScript and Firebase. 
+<hr>
 ![BitTheater Screenshots](public/imgs/screenshots.png?raw=true "BitTheater Screenshots")
 
 # Summary
